@@ -17,7 +17,7 @@ function SluitVerbinding($connection) {
 
 
 function SelecteerProducten($connection) {
-    $sql = "SELECT * FROM stockitems ORDER BY StockItemName";
+    $sql = "SELECT StockItemName, unitPrice FROM stockitems";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }

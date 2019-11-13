@@ -15,8 +15,8 @@ function ToonProductenOpScherm($producten)
 {
     foreach ($producten as $product) {
         print("<tr>");
-        print("<td>" . $product["StockItemName"] . "</td> <br>");
-
+        print("<td>" . $product["StockItemName"] . "</td>");
+        print("<td> " . $product["unitPrice"] . "</td> <br>");
 
         print("</tr>");
     }
