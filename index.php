@@ -12,7 +12,7 @@ include 'ProductFuncties.php';
 <body>
 
     <h1>Producten</h1>
-
+<br>
     <?php $producten = AlleProductenOpVragen(); ?>
 
 
