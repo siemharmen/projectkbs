@@ -24,7 +24,8 @@ print($gegevens["StockItemName"]);
 ?>
 <br><?php print($gegevens["melding"]); ?><br>
 
-<input class="form-control" type="text" name="" readonly value="<?php print($gegevens["StockItemName"]); ?>"/>
+<input class="form-control" type="text" name="" readonly value="<?php print($gegevens["StockItemName"]); ?>"/><br>
+<input class="form-control" type="text" name="" readonly value="<?php print($gegevens["unitPrice"]); ?>"/>
 <a href="index.php">Terug naar alle producten</a>
 
 

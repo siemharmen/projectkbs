@@ -20,12 +20,12 @@ function SelecteerProducten($connection) {
 
 
 function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName FROM stockitems WHERE StockItemID=?");
+    $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
-    mysqli_stmt_bind_result($statement, $id, $naam);
+    mysqli_stmt_bind_result($statement, $id, $naam, $price);
     mysqli_stmt_fetch($statement);
-    $result = array("StockItemID" => $id,"StockItemName" => $naam);
+    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price);
     mysqli_stmt_close($statement);
     return $result;
 }
