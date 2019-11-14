@@ -21,6 +21,11 @@ function SelecteerProducten($connection) {
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
+function SelecteerGezochteProducten($connection,$Zoekterm) {
+    $sql = "SELECT StockItemName, unitPrice FROM stockitems Where StockItemName Like '%$Zoekterm%'";
+    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    return $result;
+}
 
 
 

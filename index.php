@@ -16,6 +16,12 @@ include 'ProductFuncties.php';
 
 
     <?php ToonProductenOpScherm($producten); ?>
+<form>
+    Test:<input type="text" name="term"><br>
+</form>
+
+    <?php  $producten = GezochteProductenOpVragen($producten);?>
+
 
 </body>
 </html>
