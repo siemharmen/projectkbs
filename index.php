@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'ProductFuncties.php';
+
 ?>
 <html lang="en">
 <head>
