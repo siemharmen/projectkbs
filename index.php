@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'ProductFuncties.php';
+
 ?>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@ include 'ProductFuncties.php';
 <body>
 
     <h1>Producten</h1>
-
+<br>
     <?php $producten = AlleProductenOpVragen(); ?>
 
 
