@@ -10,7 +10,12 @@ function AlleProductenOpVragen()
     SluitVerbinding($connection);
     return $producten;
 }
-
+function GezochteProductenOpVragen($Zoekterm){
+    $connection = MaakVerbinding();
+    $producten = SelecteerGezochteProducten ($connection,$Zoekterm);
+    SluitVerbinding($connection);
+    return $producten;
+}
 function ToonProductenOpScherm($producten)
 {
     foreach ($producten as $product) {
@@ -18,16 +23,10 @@ function ToonProductenOpScherm($producten)
         print("<td>" . $product["StockItemName"] . "</td>");
         print("<td> " . $product["unitPrice"] . "</td> ");
         print("<td><a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\">Bekijk</a></td> <br> ");
-
         print("</tr>");
     }
 }
-function GezochteProductenOpVragen($Zoekterm){
-    $connection = MaakVerbinding();
-    $producten = SelecteerGezochteProducten ($connection,$Zoekterm);
-    SluitVerbinding($connection);
-    return $producten;
-}
+
 
 
 

@@ -13,16 +13,14 @@ include 'ProductFuncties.php';
 
     <h1>Producten</h1>
 <br>
+    <form>
+        Test:<input type="text" name="term"><br>
+    </form>
     <?php $producten = AlleProductenOpVragen(); ?>
+    <?php  #$producten = GezochteProductenOpVragen("blue");?>
 
 
     <?php ToonProductenOpScherm($producten); ?>
-<form>
-    Test:<input type="text" name="term"><br>
-</form>
-
-    <?php  $producten = GezochteProductenOpVragen($producten);?>
-
 
 </body>
 </html>
