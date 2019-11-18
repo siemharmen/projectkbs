@@ -22,12 +22,16 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 
 print($gegevens["StockItemName"]);
 ?>
-<br><?php print($gegevens["melding"]); ?><br>
 
-<input class="form-control" type="text" name="" readonly value="<?php print($gegevens["StockItemName"]); ?>"/><br>
-<input class="form-control" type="text" name="" readonly value="<?php print($gegevens["unitPrice"]); ?>"/>
+
+<p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
+<p class="text-center"> <?php print($gegevens["unitPrice"]); ?> </p>
+
+
+
 <a href="index.php">Terug naar alle producten</a>
 
+<br><?php print($gegevens["melding"]); ?><br>
 
 </body>
 </html>
