@@ -13,13 +13,15 @@ include 'ProductFuncties.php';
 
     <h1>Producten</h1>
 <br>
-    <form>
-        Test:<input type="text" name="term"><br>
+    <form action="index.php" method="get">
+        Zoekterm :<input type="text" name="term">
+        <input type="submit" value="Submit"> <br>
     </form>
-    <?php $producten = AlleProductenOpVragen(); ?>
-    <?php  #$producten = GezochteProductenOpVragen("blue");?>
-
-
+    <?php
+    if(isset($_GET["term"]) == true){
+        $producten = GezochteProductenOpVragen($_GET["term"]);
+    }       else
+        {$producten = AlleProductenOpVragen();} ?>
     <?php ToonProductenOpScherm($producten); ?>
 
 </body>

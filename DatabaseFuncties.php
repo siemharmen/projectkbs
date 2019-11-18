@@ -17,9 +17,14 @@ function SelecteerProducten($connection) {
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
+
 function SelecteerGezochteProducten($connection,$Zoekterm) {
-    $sql = "SELECT StockItemName, unitPrice FROM stockitems Where StockItemName Like '%$Zoekterm%'";
-    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    $Zoekterm = "%$Zoekterm%";
+    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
+    mysqli_stmt_bind_param($statement, 's', $Zoekterm);
+    mysqli_stmt_execute($statement);
+    $result = mysqli_stmt_get_result($statement);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
     return $result;
 }
 
@@ -34,6 +39,8 @@ function SelecteerProduct($connection, $id) {
     mysqli_stmt_close($statement);
     return $result;
 }
+
+
 
 
 
