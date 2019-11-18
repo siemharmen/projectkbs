@@ -10,13 +10,16 @@ include 'ProductFuncties.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-
-    <h1>Producten</h1>
-<br>
+    <container>
+    <h1>Product pagina</h1>
+    <br>
+    <div>
     <form action="index.php" method="get">
-        Zoek <input type="text" name="term">
-        <input type="submit" value="Submit" class="btn btn-primary"> <br>
+        <input type="text" name="term">
+        <input type="submit" value="Zoek" class="btn btn-primary">
     </form>
+    </div>
+    <br>
     <?php
     if(isset($_GET["term"]) == true){
         $producten = GezochteProductenOpVragen($_GET["term"]);
@@ -25,6 +28,6 @@ include 'ProductFuncties.php';
     <br>
 
     <?php ToonProductenOpScherm($producten); ?>
-
+    </container>
 </body>
 </html>

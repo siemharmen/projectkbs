@@ -28,9 +28,9 @@ print($gegevens["StockItemName"]);
 <p class="text-center"> <?php print($gegevens["unitPrice"]); ?> </p>
 
 
-
+<div class="text-center">
 <a href="index.php"><button type="button" class="btn btn-primary">Terug naar producten</button></a>
-
+</div>
 <br><?php print($gegevens["melding"]); ?><br>
 
 </body>
