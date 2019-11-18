@@ -14,14 +14,16 @@ include 'ProductFuncties.php';
     <h1>Producten</h1>
 <br>
     <form action="index.php" method="get">
-        Zoekterm :<input type="text" name="term">
-        <input type="submit" value="Submit"> <br>
+        Zoek <input type="text" name="term">
+        <input type="submit" value="Submit" class="btn btn-primary"> <br>
     </form>
     <?php
     if(isset($_GET["term"]) == true){
         $producten = GezochteProductenOpVragen($_GET["term"]);
     }       else
         {$producten = AlleProductenOpVragen();} ?>
+    <br>
+
     <?php ToonProductenOpScherm($producten); ?>
 
 </body>

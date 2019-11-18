@@ -29,7 +29,7 @@ print($gegevens["StockItemName"]);
 
 
 
-<a href="index.php">Terug naar alle producten</a>
+<a href="index.php"><button type="button" class="btn btn-primary">Terug naar producten</button></a>
 
 <br><?php print($gegevens["melding"]); ?><br>
 

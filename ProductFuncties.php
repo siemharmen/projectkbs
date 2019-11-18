@@ -22,13 +22,10 @@ function ToonProductenOpScherm($producten)
         print("<tr>");
         print("<td>" . $product["StockItemName"] . "</td>");
         print("<td> " . $product["unitPrice"] . "</td> ");
-        print("<td><a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\">Bekijk</a></td> <br> ");
+        print("<td><a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary\">Bekijk</button></a></td> <br> ");
         print("</tr>");
     }
 }
-
-
-
 
 function ProductGegevensOpvragen($gegevens) {
     if (!empty($gegevens["StockItemID"])) {
