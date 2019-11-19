@@ -14,7 +14,7 @@ include 'ProductFuncties.php';
     <h1>Producten</h1>
 <br>
     <form action="index.php" method="get">
-        Zoekterm :<input type="text" name="term">
+        Zoekterm :<input type="text" value="<?php if (isset($_GET['term'])) echo $_GET['term']; ?>" name="term">
         <input type="submit" value="Submit"> <br>
     </form>
     <?php
