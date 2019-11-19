@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>$Title$</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <?php
 
 include "ProductFuncties.php";
@@ -16,7 +17,13 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 
 ?>
 
-<h1> Product Pagina </h1>
+<h1> Product </h1>
+<ul>
+    <li><a href="index.php">Home</a></li>
+    <li><a href="">News</a></li>
+    <li><a href="">Contact</a></li>
+    <li><a href="">About</a></li>
+</ul>
 
 <?
 
@@ -29,7 +36,7 @@ print($gegevens["StockItemName"]);
 
 
 <div class="text-center">
-<a href="index.php"><button type="button" class="btn btn-primary">Terug naar producten</button></a>
+<a href="index.php"><button type="button" class="btn btn-primary">Verder zoeken</button></a>
 </div>
 <br><?php print($gegevens["melding"]); ?><br>
 
