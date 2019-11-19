@@ -14,7 +14,6 @@ include "ProductFuncties.php";
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
 $gegevens = ProductGegevensOpvragen($gegevens);
 
-
 ?>
 
 <h1> Product </h1>
@@ -30,10 +29,8 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 print($gegevens["StockItemName"]);
 ?>
 
-
 <p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
 <p class="text-center"> <?php print($gegevens["unitPrice"]); ?> </p>
-
 
 <div class="text-center">
 <a href="index.php"><button type="button" class="btn btn-primary">Verder zoeken</button></a>

@@ -8,9 +8,10 @@ include 'ProductFuncties.php';
     <meta charset="UTF-8">
     <title>Wide World Importers!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
+<!-- navigatiebalk -->
 <ul>
     <li><a href="index.php">Home</a></li>
     <li><a href="">News</a></li>
@@ -19,7 +20,7 @@ include 'ProductFuncties.php';
     <div class="zoekbalk">
         <form action="index.php" method="get">
             <input type="text" name="term">
-            <input type="submit" value="Zoek" class="btn btn-primary">
+            <input type="submit" value="Zoek">
         </form>
     </div>
 
@@ -31,15 +32,23 @@ include 'ProductFuncties.php';
     {$producten = AlleProductenOpVragen();} ?>
 </ul>
 
+<!-- Pagina begin -->
+<div class="container-fluid">
 
-
-<container>
     <h1>Product pagina</h1>
 
+        <div class="row">
+        <?php ToonProductenOpScherm($producten); ?>
+
+        </div>
+    </div>
 
 
 
-    <?php ToonProductenOpScherm($producten); ?>
-</container>
+
+
+
+
+
 </body>
 </html>

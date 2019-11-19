@@ -10,8 +10,6 @@ function MaakVerbinding()
     return $connection;
 }
 
-
-
 function SelecteerProducten($connection) {
     $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
@@ -27,7 +25,6 @@ function SelecteerGezochteProducten($connection,$Zoekterm) {
     $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
     return $result;
 }
-
 
 function SelecteerProduct($connection, $id) {
     $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");
