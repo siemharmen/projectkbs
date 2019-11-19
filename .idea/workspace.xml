@@ -15,6 +15,13 @@
       <executable />
     </execution>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -60,7 +67,7 @@
       <workItem from="1573645123211" duration="154000" />
       <workItem from="1573645299048" duration="56000" />
       <workItem from="1574076599401" duration="2466000" />
-      <workItem from="1574149605669" duration="2411000" />
+      <workItem from="1574149605669" duration="3256000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
