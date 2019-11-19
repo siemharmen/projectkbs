@@ -16,13 +16,14 @@ include 'ProductFuncties.php';
     <li><a href="">News</a></li>
     <li><a href="">Contact</a></li>
     <li><a href="">About</a></li>
-    <div>
+    <div class="zoekbalk">
         <form action="index.php" method="get">
             <input type="text" name="term">
             <input type="submit" value="Zoek" class="btn btn-primary">
         </form>
     </div>
-    <br>
+
+
     <?php
     if(isset($_GET["term"]) == true){
         $producten = GezochteProductenOpVragen($_GET["term"]);
@@ -30,11 +31,13 @@ include 'ProductFuncties.php';
     {$producten = AlleProductenOpVragen();} ?>
 </ul>
 
+
+
 <container>
     <h1>Product pagina</h1>
 
-    <br>
-    <br>
+
+
 
     <?php ToonProductenOpScherm($producten); ?>
 </container>
