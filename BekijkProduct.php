@@ -7,6 +7,7 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +20,7 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 <body>
 
 <ul>
-    <li><a href="index.php">Home</a></li>
-    <li><a href="">News</a></li>
-    <li><a href="">Contact</a></li>
-    <li><a href="">About</a></li>
+    <?php include 'navbar.php'; ?>
 </ul>
 
 <h1> Product </h1>
