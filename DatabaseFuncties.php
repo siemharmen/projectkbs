@@ -45,7 +45,6 @@ function SelecteerProduct($connection, $id) {
 
 
 
-
 function SluitVerbinding($connection) {
     mysqli_close($connection);
 }

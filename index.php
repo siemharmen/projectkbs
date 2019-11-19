@@ -10,16 +10,12 @@ include 'ProductFuncties.php';
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Product pagina</h1>
+
 <ul>
     <li><a href="index.php">Home</a></li>
     <li><a href="">News</a></li>
     <li><a href="">Contact</a></li>
     <li><a href="">About</a></li>
-</ul>
-
-<container>
-    <br>
     <div>
         <form action="index.php" method="get">
             <input type="text" name="term">
@@ -32,6 +28,12 @@ include 'ProductFuncties.php';
         $producten = GezochteProductenOpVragen($_GET["term"]);
     }       else
     {$producten = AlleProductenOpVragen();} ?>
+</ul>
+
+<container>
+    <h1>Product pagina</h1>
+
+    <br>
     <br>
 
     <?php ToonProductenOpScherm($producten); ?>

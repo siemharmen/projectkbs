@@ -10,6 +10,8 @@ function AlleProductenOpVragen()
     SluitVerbinding($connection);
     return $producten;
 }
+
+
 function GezochteProductenOpVragen($Zoekterm){
     $connection = MaakVerbinding();
     $producten = SelecteerGezochteProducten ($connection,$Zoekterm);
