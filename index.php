@@ -12,7 +12,7 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
+<body background="snow.gif">
 <script src="ImageSlideFunction.js"></script>
 <!-- navigatiebalk -->
 <ul>
@@ -20,7 +20,6 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
 </ul>
 
 <!-- Pagina begin -->
-
 
 <h1>Wide World Importers! </h1>
 <br>
@@ -40,7 +39,7 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
 
 <div class="container-fluid">
 
-    <h1> Producten onder 5 euro: </h1> <br>
+    <h1> Kerstkado's: </h1> <br>
 
     <div class="row">
     <?php ToonGoedkoopProductenOpScherm($goedkoopProducten); ?>
