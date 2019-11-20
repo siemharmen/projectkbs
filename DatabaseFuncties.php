@@ -22,12 +22,12 @@ function SelecteerProducten($connection) {
 
 // function goedkope producten test
 
-//
-//function SelecteerGoedkoopProducten($connection) {
-//    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE unitPrice < 100";
-//    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
-//    return $result;
-//}
+
+function SelecteerGoedkoopProducten($connection) {
+    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE unitPrice < 5";
+    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    return $result;
+}
 
 
 

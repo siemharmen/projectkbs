@@ -4,13 +4,14 @@ html,body{
     width: 100%;
 
 }
-body {background-color: rgba(201, 76, 76, 0.3);}
+
+body {background-color: coral;}
+
 
 .mySlides {display:none;}
 
 h1 {
     text-align: center;
-    color: black;
 }
 
 .zoekbalk{
