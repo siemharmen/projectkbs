@@ -6,8 +6,6 @@ html,body{
 
 h1 {
     text-align: center;
-
-
 }
 
 .zoekbalk{
@@ -46,5 +44,5 @@ li a:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
+    width: 60%;
 }
