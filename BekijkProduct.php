@@ -23,8 +23,9 @@ $gegevens = ProductGegevensOpvragen($gegevens);
     <?php include 'navbar.php'; ?>
 </ul>
 
-<h1> Product </h1>
+<h1> Product </h1><br>
 
+<img src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 15%; margin: auto; padding: auto; display:block;'> <br>
 <?
 
 print($gegevens["StockItemName"]);
