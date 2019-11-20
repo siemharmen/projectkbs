@@ -17,6 +17,7 @@ function GezochteProductenOpVragen($Zoekterm){
     SluitVerbinding($connection);
     return $producten;
 }
+
 function ToonProductenOpScherm($producten)
 {
     foreach ($producten as $product) {
@@ -28,6 +29,37 @@ function ToonProductenOpScherm($producten)
             print("</div></div>");
         }
 }
+
+//TEST
+
+//function AlleGoedkoopProductenOpVragen()
+//{
+//    $connection = MaakVerbinding();
+//    $goedkoopProducten = SelecteerGoedkoopProducten($connection);
+//    SluitVerbinding($connection);
+//    return $goedkoopProducten;
+//}
+//
+//function ToonGoedkoopProductenOpScherm($goedkoopProducten)
+//{
+//    foreach ($goedkoopProducten as $gproduct) {
+//
+//        print("<div class='col-4'><div class='center'>");
+//        print($gproduct["StockItemName"] . "<br>");
+//        print($gproduct["unitPrice"] . "<br>");
+//        print("<a href=\"BekijkProduct.php?StockItemID=" . $gproduct["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
+//        print("</div></div>");
+//    }
+//}
+
+
+//TEST
+
+
+
+
+
+
 
 function ProductGegevensOpvragen($gegevens) {
     if (!empty($gegevens["StockItemID"])) {

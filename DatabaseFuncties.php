@@ -10,11 +10,31 @@ function MaakVerbinding()
     return $connection;
 }
 
+
+
+
 function SelecteerProducten($connection) {
     $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
+
+
+// function goedkope producten test
+
+//
+//function SelecteerGoedkoopProducten($connection) {
+//    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE unitPrice < 100";
+//    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+//    return $result;
+//}
+
+
+
+
+
+// test einde
+
 
 function SelecteerGezochteProducten($connection,$Zoekterm) {
     $Zoekterm = "%$Zoekterm%";
@@ -36,9 +56,6 @@ function SelecteerProduct($connection, $id) {
     mysqli_stmt_close($statement);
     return $result;
 }
-
-
-
 
 
 

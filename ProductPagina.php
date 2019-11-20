@@ -37,6 +37,9 @@ include 'ProductFuncties.php';
     <div class="row">
         <?php ToonProductenOpScherm($producten); ?>
 
+
+
+<!--        --><?php // ToonGoedkoopProductenOpScherm($goedkoopProducten); ?>
     </div>
 </div>
 

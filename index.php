@@ -1,3 +1,8 @@
+<?php
+include 'ProductFuncties.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +36,9 @@
 
 <!-- linken van javascript file -->
 <script src="script.js"></script>
+
+
+
 
 
 </body>
