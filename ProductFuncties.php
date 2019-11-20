@@ -10,6 +10,7 @@ function AlleProductenOpVragen()
     SluitVerbinding($connection);
     return $producten;
 }
+
 function GezochteProductenOpVragen($Zoekterm){
     $connection = MaakVerbinding();
     $producten = SelecteerGezochteProducten ($connection,$Zoekterm);
@@ -19,12 +20,13 @@ function GezochteProductenOpVragen($Zoekterm){
 function ToonProductenOpScherm($producten)
 {
     foreach ($producten as $product) {
-        print("<tr>");
-        print("<td>" . $product["StockItemName"] . "</td>");
-        print("<td> " . $product["unitPrice"] . "</td> ");
-        print("<td><a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary\">Bekijk</button></a></td> <br> ");
-        print("</tr>");
-    }
+
+            print("<div class='col-4'><div class='center'>");
+            print($product["StockItemName"] . "<br>");
+            print($product["unitPrice"] . "<br>");
+            print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
+            print("</div></div>");
+        }
 }
 
 function ProductGegevensOpvragen($gegevens) {

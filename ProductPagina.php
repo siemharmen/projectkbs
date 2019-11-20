@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include 'ProductFuncties.php';
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,13 +13,27 @@
 <body>
 <!-- navigatiebalk -->
 <ul>
+
     <?php include 'navbar.php'; ?>
+
+    <?php
+    if(isset($_GET["term"]) == true){
+        $producten = GezochteProductenOpVragen($_GET["term"]);
+    }       else
+    {$producten = AlleProductenOpVragen();} ?>
 </ul>
 
 <!-- Pagina begin -->
+<div class="container-fluid">
 
+    <h1>Product pagina</h1>
 
-<h1> Home pagina </h1>
+    <div class="row">
+        <?php ToonProductenOpScherm($producten); ?>
+
+    </div>
+</div>
+
 
 
 

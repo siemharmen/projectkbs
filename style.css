@@ -1,3 +1,22 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.zoekbalk{
+    margin-top: 0.5%;
+}
+
+.center{
+    color: black;
+    text-align: center;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
