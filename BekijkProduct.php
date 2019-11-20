@@ -29,15 +29,18 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 
 print($gegevens["StockItemName"]);
 ?>
-
+<?php
+?>
+ 
 
 <p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
 <p class="text-center"> <?php print($gegevens["unitPrice"]); ?> </p>
 
 
 <div class="text-center">
-<a href="index.php"><button type="button" class="btn btn-primary">Verder zoeken</button></a>
+<a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">Verder zoeken</button></a>
 </div>
+
 <br><?php print($gegevens["melding"]); ?><br>
 
 </body>
