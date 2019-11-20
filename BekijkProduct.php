@@ -35,13 +35,13 @@ print($gegevens["StockItemName"]);
 
 <div class="text-center">
 <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">Verder zoeken</button></a>
-
-<div class="center">
- <?php print($gegevens["StockItemName"]);
-       print($gegevens["unitPrice"] . "<br>"); ?>
-    <a href="index.php"><button type="button" class="btn btn-primary">Verder zoeken</button></a>
-</div>
-<br><?php print($gegevens["melding"]); ?><br>
+<!---->
+<!--<div class="center">-->
+<!-- --><?php //print($gegevens["StockItemName"]);
+//       print($gegevens["unitPrice"] . "<br>"); ?>
+<!--    <a href="index.php"><button type="button" class="btn btn-primary">Verder zoeken</button></a>-->
+<!--</div>-->
+<!--<br>--><?php //print($gegevens["melding"]); ?><!--<br>-->
 
 </body>
 </html>
