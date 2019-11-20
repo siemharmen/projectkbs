@@ -3,7 +3,7 @@
 <li><a href="">Contact</a></li>
 <li><a href="">About</a></li>
 <div class="zoekbalk">
-    <form action="index.php" method="get">
+    <form action="ProductPagina.php" method="get">
         <input type="text" name="term">
         <input type="submit" value="Zoek">
     </form>
