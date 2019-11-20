@@ -5,8 +5,10 @@
     <title>Wide World Importers!</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
+<script src="ImageSlideFunction.js"></script>
 <!-- navigatiebalk -->
 <ul>
     <?php include 'navbar.php'; ?>
@@ -16,12 +18,19 @@
 
 
 <h1>Wide World Importers! </h1>
+<br>
 
+
+<!-- image slider -->
 
 <div class="frontpageimage">
-    <img src="https://vitanovamedicalcentre.nl/wp-content/uploads/2016/11/placeholder-36-1170x500.jpg">
+    <img class="mySlides" src="https://uptownsj.com/wp-content/uploads/2016/04/06-jxkQNM1.jpg" style="width:100%">
+    <img class="mySlides" src="https://www.pcuinc.com/wp-content/uploads/2018/02/Rectangle-1920x1080-Placeholder.png" style="width:100%">
+    <img class="mySlides" alt="bloem" src="http://www.cuttingedge.com.au/wp-content/uploads/2017/09/home-video-image-placeholder.jpg" style="width:100%">
 </div>
 
+<!-- linken van javascript file -->
+<script src="script.js"></script>
 
 
 </body>
