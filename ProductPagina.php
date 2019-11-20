@@ -15,6 +15,12 @@ include 'ProductFuncties.php';
 <ul>
 
     <?php include 'navbar.php'; ?>
+    <div class="zoekbalk">
+        <form action="ProductPagina.php" method="get">
+            <input type="text" name="term">
+            <input type="submit" value="Zoek">
+        </form>
+    </div>
 
     <?php
     if(isset($_GET["term"]) == true){
