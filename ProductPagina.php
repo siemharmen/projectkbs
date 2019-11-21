@@ -34,6 +34,19 @@ include 'ProductFuncties.php';
 
     <h1>Product pagina</h1>
 
+    <!-- radio buttons formulier -->
+
+    <p> Totaal op de pagina: </p>
+
+    <form type="GET" action="ProductPagina.php">
+        <input type="radio" name="aantalfilter" value="25">25<br>
+        <input type="radio" name="aantalfilter" value="50">50<br>
+        <input type="radio" name="aantalfilter" value="100">100<br>
+    </form>
+
+
+
+
     <div class="row">
         <?php ToonProductenOpScherm($producten); ?>
 
