@@ -12,7 +12,7 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body background="snow.gif">
+<body>
 <script src="ImageSlideFunction.js"></script>
 <!-- navigatiebalk -->
 <ul>
@@ -27,9 +27,9 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
 <!-- image slider -->
 
 <div class="frontpageimage">
-    <a href="productpagina.php"> <img class="mySlides" src="https://uptownsj.com/wp-content/uploads/2016/04/06-jxkQNM1.jpg" style="width:100%"></a>
-    <a href="productpagina.php"> <img class="mySlides" src="https://www.pcuinc.com/wp-content/uploads/2018/02/Rectangle-1920x1080-Placeholder.png" style="width:100%"></a>
-    <a href="productpagina.php"><img class="mySlides" alt="bloem" src="http://www.cuttingedge.com.au/wp-content/uploads/2017/09/home-video-image-placeholder.jpg" style="width:100%"></a>
+    <a href="productpagina.php"> <img class="mySlides" src="sale.png" style="width:100%"></a>
+    <a href="productpagina.php"> <img class="mySlides" src="teddy.jpg" style="width:100%"></a>
+    <a href="productpagina.php"><img class="mySlides" alt="bloem" src="kaarsen.jpg" style="width:100%"></a>
 </div>
 
 <!-- linken van javascript file -->
