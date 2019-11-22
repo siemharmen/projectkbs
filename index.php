@@ -35,7 +35,14 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
 <!-- linken van javascript file -->
 <script src="script.js"></script>
 
-<br>
+<br><br>
+
+
+<div class="text-center">
+<a href="productpagina.php"><button type="button" class="btn btn-primary btn-lg">Alle Producten</button></a>
+</div>
+
+<br><br>
 
 <div class="container-fluid">
 
