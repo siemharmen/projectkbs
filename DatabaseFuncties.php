@@ -14,7 +14,8 @@ function MaakVerbinding()
 
 
 function SelecteerProducten($connection) {
-    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemID < 10";
+
+    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
