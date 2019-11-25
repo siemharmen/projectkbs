@@ -19,9 +19,9 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 </head>
 <body>
 
-<ul>
+
     <?php include 'navbar.php'; ?>
-</ul>
+
 
 <h1> Product </h1><br>
 

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <?php
 include 'ProductFuncties.php';
-$producten = AlleProductenOpVragen(); ?>
+$producten = AlleProductenOpVragen();
+
+
+
+?>
 
 <html lang="en">
 <head>

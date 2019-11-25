@@ -1,5 +1,4 @@
 <?php
-
 function MaakVerbinding()
 {
     $host = 'localhost';
@@ -11,8 +10,6 @@ function MaakVerbinding()
 }
 
 
-
-
 function SelecteerProducten($connection) {
 
     $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems";
@@ -20,9 +17,7 @@ function SelecteerProducten($connection) {
     return $result;
 }
 
-
 // function goedkope producten test
-
 
 function SelecteerGoedkoopProducten($connection) {
     $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE unitPrice < 5";
@@ -31,27 +26,38 @@ function SelecteerGoedkoopProducten($connection) {
 }
 
 
+
+
+
 function SelecteerCategory($connection) {
 
-    $sql = "SELECT StockGroupName FROM stockgroups order by stockgroupname ASC";
+    $sql = "SELECT * FROM stockgroups order by stockgroupname ASC";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
 
 
 
+
+//function SelecteerCategoryItems($connection, $id) {
+//    $statement = mysqli_prepare($connection, "select StockItemID, StockItemName, unitPricefrom stockitems s
+//join stockitemstockgroups sig on s.stockitemID = sig.stockitemid
+//join stockgroups sg ON sig.stockgroupID = sg.stockgroupID
+//where sg.stockgroupID=?");
+//    mysqli_stmt_bind_param($statement, 's', $id);
+//    mysqli_stmt_execute($statement);
+//    mysqli_stmt_bind_result($statement, $id, $naam, $price);
+//    mysqli_stmt_fetch($statement);
+//    $result = array("stockGroupID" => $id,"StockItemName" => $naam, "unitPrice" => $price);
+//    mysqli_stmt_close($statement);
+//    return $result;
+//}
+
+
+
+
 // test einde
 
-
-function SelecteerGezochteProducten($connection,$Zoekterm) {
-    $Zoekterm = "%$Zoekterm%";
-    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
-    mysqli_stmt_bind_param($statement, 's', $Zoekterm);
-    mysqli_stmt_execute($statement);
-    $result = mysqli_stmt_get_result($statement);
-    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    return $result;
-}
 
 function SelecteerProduct($connection, $id) {
     $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");
@@ -66,17 +72,19 @@ function SelecteerProduct($connection, $id) {
 
 
 
+function SelecteerGezochteProducten($connection,$Zoekterm) {
+    $Zoekterm = "%$Zoekterm%";
+    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
+    mysqli_stmt_bind_param($statement, 's', $Zoekterm);
+    mysqli_stmt_execute($statement);
+    $result = mysqli_stmt_get_result($statement);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    return $result;
+}
+
 function SluitVerbinding($connection) {
     mysqli_close($connection);
 }
-
-
-
-
-
-
-
-
 
 
 

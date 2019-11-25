@@ -1,7 +1,8 @@
 <?php
 
 $categorieën = AlleCategorieënOpVragen();
-
+//$cgegevens["StockGroupID"] = isset($_GET["StockGroupID"]) ? $_GET["StockGroupID"] : 0;
+//$cgegevens = ProductCategoryOpvragen($cgegevens);
 ?>
 
 
