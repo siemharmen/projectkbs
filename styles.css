@@ -17,7 +17,6 @@ h1 {
 }
 
 
-
 .center{
     color: black;
     text-align: center;
@@ -30,30 +29,6 @@ h1 {
     width: 60%;
 }
 
-/*ul {*/
-/*    list-style-type: none;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    overflow: hidden;*/
-/*    background-color: #333;*/
-/*}*/
-
-/*li {*/
-/*    float: left;*/
-/*}*/
-
-/*li a {*/
-/*    display: block;*/
-/*    color: white;*/
-/*    text-align: center;*/
-/*    padding: 14px 16px;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*li a:hover {*/
-/*    background-color: #111;*/
-/*}*/
-
 
 
 nav {
@@ -63,6 +38,8 @@ nav {
     font-weight: bold;
     padding-right: 15px;
     text-align: left;
+    
+
 }
 
 nav li {
@@ -80,6 +57,7 @@ nav li:hover{
 
 .dropdown{
     position:relative;
+    z-index: 9999;
 }
 
 .dropdown-content{
