@@ -1,6 +1,10 @@
 <?php
 include 'ProductFuncties.php';
-$goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
+$goedkoopProducten = AlleGoedkoopProductenOpVragen();
+
+
+?>
+
 
 
 <!DOCTYPE html>
@@ -15,9 +19,9 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
 <body>
 <script src="ImageSlideFunction.js"></script>
 <!-- navigatiebalk -->
-<ul>
+
     <?php include 'navbar.php'; ?>
-</ul>
+
 
 <!-- Pagina begin -->
 
@@ -36,6 +40,8 @@ $goedkoopProducten = AlleGoedkoopProductenOpVragen(); ?>
 <script src="script.js"></script>
 
 <br><br>
+
+
 
 
 <div class="text-center">

@@ -11,12 +11,73 @@ function AlleProductenOpVragen()
     return $producten;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+function AlleCategorieënOpVragen()
+{
+    $connection = MaakVerbinding();
+    $categorieën = selecteercategory($connection);
+    SluitVerbinding($connection);
+    return $categorieën;
+}
+
+function toonCategoryOpScherm($categorieën)
+{
+    foreach ($categorieën as $category) {
+
+
+        print("<li><a href=''>" . $category["StockGroupName"] . "</a></li>");
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function GezochteProductenOpVragen($Zoekterm){
     $connection = MaakVerbinding();
     $producten = SelecteerGezochteProducten ($connection,$Zoekterm);
     SluitVerbinding($connection);
     return $producten;
 }
+
 
 function ToonProductenOpScherm($producten)
 {
@@ -31,7 +92,7 @@ function ToonProductenOpScherm($producten)
         }
 }
 
-//TEST
+
 
 function AlleGoedkoopProductenOpVragen()
 {
@@ -53,14 +114,6 @@ function ToonGoedkoopProductenOpScherm($goedkoopProducten)
         print("</div></div>");
     }
 }
-
-
-//TEST
-
-
-
-
-
 
 
 function ProductGegevensOpvragen($gegevens) {

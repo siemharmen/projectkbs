@@ -31,6 +31,12 @@ function SelecteerGoedkoopProducten($connection) {
 }
 
 
+function SelecteerCategory($connection) {
+
+    $sql = "SELECT StockGroupName FROM stockgroups order by stockgroupname ASC";
+    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    return $result;
+}
 
 
 
