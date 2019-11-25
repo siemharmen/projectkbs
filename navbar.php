@@ -7,13 +7,9 @@ $categorieën = AlleCategorieënOpVragen();
 
 <nav>
     <ul>
-    <li><a href="index.php">Home</a></li>
-    <li><a href="ProductPagina.php">Producten</a></li>
-    <!---->
-    <!--<li>-->
-    <!--    --><?php //toonCategoryOpScherm($categorieën); ?>
-    <!--</li>-->
-    <!---->
+    <li><a class='navbarlink' href="index.php">Home</a></li>
+    <li><a class='navbarlink' href="ProductPagina.php">Producten</a></li>
+
 
     <li class="dropdown">Categorieën
         <ul class="dropdown-content">
@@ -21,6 +17,10 @@ $categorieën = AlleCategorieënOpVragen();
             <?php toonCategoryOpScherm($categorieën); ?>
         </ul>
     </li>
+
+
+
+
 
 
     <!--zoekbalk-->

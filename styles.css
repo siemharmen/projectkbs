@@ -31,15 +31,20 @@ h1 {
 
 
 
-nav {
+
+nav{
     background-color: #333;
     color: #eee;
     font-size: 18px;
     font-weight: bold;
     padding-right: 15px;
     text-align: left;
-    
 
+
+}
+
+.navbarlink{
+    color: #eee;
 }
 
 nav li {
@@ -51,7 +56,8 @@ nav li {
 }
 
 nav li:hover{
-    background-color: #333;
+    background-color: white;
+    color:black;
 
 }
 
@@ -77,8 +83,6 @@ nav li:hover{
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-
 
 .zoekbalk{
     margin-top: 0.5%;
