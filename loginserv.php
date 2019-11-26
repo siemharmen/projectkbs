@@ -14,13 +14,13 @@ if(isset($_POST['submit'])){
 
         $rows = mysqli_num_rows($query);
         if($rows == 1){
-            header("Location: index.php"); // Redirecting to other page
+            header("Location: index.php");
         }
         else
         {
             $error = "Username of Password is Invalid";
         }
-        mysqli_close($conn); // Closing connection
+        mysqli_close($conn);
     }
 }
 
