@@ -17,47 +17,6 @@ function SelecteerProducten($connection) {
     return $result;
 }
 
-// function goedkope producten test
-
-function SelecteerGoedkoopProducten($connection) {
-    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE unitPrice < 5";
-    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
-    return $result;
-}
-
-
-
-
-
-function SelecteerCategory($connection) {
-
-    $sql = "SELECT * FROM stockgroups order by stockgroupname ASC";
-    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
-    return $result;
-}
-
-
-
-
-//function SelecteerCategoryItems($connection, $id) {
-//    $statement = mysqli_prepare($connection, "select StockItemID, StockItemName, unitPricefrom stockitems s
-//join stockitemstockgroups sig on s.stockitemID = sig.stockitemid
-//join stockgroups sg ON sig.stockgroupID = sg.stockgroupID
-//where sg.stockgroupID=?");
-//    mysqli_stmt_bind_param($statement, 's', $id);
-//    mysqli_stmt_execute($statement);
-//    mysqli_stmt_bind_result($statement, $id, $naam, $price);
-//    mysqli_stmt_fetch($statement);
-//    $result = array("stockGroupID" => $id,"StockItemName" => $naam, "unitPrice" => $price);
-//    mysqli_stmt_close($statement);
-//    return $result;
-//}
-
-
-
-
-// test einde
-
 
 function SelecteerProduct($connection, $id) {
     $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");
@@ -71,6 +30,52 @@ function SelecteerProduct($connection, $id) {
 }
 
 
+
+
+// Category gedeelte
+
+function SelecteerCategory($connection) {
+
+    $sql = "SELECT StockGroupName, StockGroupID FROM stockgroups";
+    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    return $result;
+}
+
+function SelecteerCategoryItems($connection, $id) {
+    $statement = mysqli_prepare($connection, "select StockItemID, StockItemName, unitPrice from stockitems s
+join stockitemstockgroups sig on s.stockitemID = sig.stockitemid
+join stockgroups sg ON sig.stockgroupID = sg.stockgroupID
+where sg.stockgroupID=?");
+    mysqli_stmt_bind_param($statement, 'i', $id);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $id, $naam, $price);
+    mysqli_stmt_fetch($statement);
+    $result = array("stockGroupID" => $id,"StockItemName" => $naam, "unitPrice" => $price);
+    mysqli_stmt_close($statement);
+    return $result;
+}
+
+// category einde
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function SelecteerGoedkoopProducten($connection) {
+    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE unitPrice < 5";
+    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    return $result;
+}
 
 function SelecteerGezochteProducten($connection,$Zoekterm) {
     $Zoekterm = "%$Zoekterm%";

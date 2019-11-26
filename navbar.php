@@ -1,8 +1,7 @@
 <?php
 
 $categorieën = AlleCategorieënOpVragen();
-//$cgegevens["StockGroupID"] = isset($_GET["StockGroupID"]) ? $_GET["StockGroupID"] : 0;
-//$cgegevens = ProductCategoryOpvragen($cgegevens);
+
 ?>
 
 
@@ -12,12 +11,16 @@ $categorieën = AlleCategorieënOpVragen();
     <li><a class='navbarlink' href="ProductPagina.php">Producten</a></li>
 
 
+
+    <!-- categorieën in de navbar -->
     <li class="dropdown">Categorieën
         <ul class="dropdown-content">
 
             <?php toonCategoryOpScherm($categorieën); ?>
         </ul>
     </li>
+
+
 
 
 

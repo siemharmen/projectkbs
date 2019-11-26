@@ -4,6 +4,10 @@ include "DatabaseFuncties.php";
 $gegevens = array("StockItemID" => 0, "StockItemName" => "");
 $cgegevens = array("stockGroupID" => 0, "StockItemName" => "");
 
+
+
+
+
 function AlleProductenOpVragen()
 {
     $connection = MaakVerbinding();
@@ -12,10 +16,34 @@ function AlleProductenOpVragen()
     return $producten;
 }
 
+function ToonProductenOpScherm($producten)
+{
+    foreach ($producten as $product) {
+
+        print("<div class='col-4'><div class='center'>");
+        print("<img class='productfoto' src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 50%'> <br> ");
+        print($product["StockItemName"] . "<br>");
+        print($product["unitPrice"] . "<br>");
+        print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
+        print("</div></div>");
+    }
+}
+
+function ProductGegevensOpvragen($gegevens) {
+    if (!empty($gegevens["StockItemID"])) {
+        $connection = MaakVerbinding();
+        $gegevens = SelecteerProduct($connection, $gegevens["StockItemID"]);
+        $gegevens["melding"] = "";
+        SluitVerbinding($connection);
+    } else $gegevens["melding"] = "Het id ontbreekt";
+    return $gegevens;
+}
 
 
 
 
+
+//category begin
 
 function AlleCategorieënOpVragen()
 {
@@ -25,26 +53,41 @@ function AlleCategorieënOpVragen()
     return $categorieën;
 }
 
-
-
-
 function toonCategoryOpScherm($categorieën)
 {
     foreach ($categorieën as $category) {
 
 
-        print("<li><a href=\"ProductPagina.php?StockGroupID=" . "\">" . $category["StockGroupName"] . " " . $category["StockGroupID"] . "</a></li>");
-//        print("<a href=\"ProductPagina.php?StockGroupID=" . $category["stockGroupID"] . "\"> klik </a>");
+        print("<li><a href=\"ProductPagina.php?StockGroupID=" . $category["StockGroupID"] . "\">" . $category["StockGroupName"] . " " . $category["StockGroupID"] . "</a></li>");
+
     }
 }
 
-//
-//function CategoryProductenOpVragen($id){
-//    $connection = MaakVerbinding();
-//    $producten = selecteerCategoryItems ($connection,$id);
-//    SluitVerbinding($connection);
-//    return $producten;
-//}
+function ProductCategoryGegevensOpvragen($cgegevens) {
+    if (!empty($cgegevens["StockGroupID"])) {
+        $connection = MaakVerbinding();
+        $cgegevens = SelecteerCategoryItems($connection, $cgegevens["StockGroupID"]);
+        $cgegevens["melding"] = "";
+        SluitVerbinding($connection);
+    } else $cgegevens["melding"] = "Het id ontbreekt";
+    return $cgegevens;
+}
+
+
+
+// category einde
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -61,28 +104,10 @@ function GezochteProductenOpVragen($Zoekterm){
 }
 
 
-function ToonProductenOpScherm($producten)
-{
-    foreach ($producten as $product) {
-
-            print("<div class='col-4'><div class='center'>");
-            print("<img class='productfoto' src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 50%'> <br> ");
-            print($product["StockItemName"] . "<br>");
-            print($product["unitPrice"] . "<br>");
-            print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
-            print("</div></div>");
-        }
-}
 
 
 
-function AlleGoedkoopProductenOpVragen()
-{
-    $connection = MaakVerbinding();
-    $goedkoopProducten = SelecteerGoedkoopProducten($connection);
-    SluitVerbinding($connection);
-    return $goedkoopProducten;
-}
+
 
 function ToonGoedkoopProductenOpScherm($goedkoopProducten)
 {
@@ -98,36 +123,13 @@ function ToonGoedkoopProductenOpScherm($goedkoopProducten)
 }
 
 
-
-function ProductGegevensOpvragen($gegevens) {
-    if (!empty($gegevens["StockItemID"])) {
-        $connection = MaakVerbinding();
-        $gegevens = SelecteerProduct($connection, $gegevens["StockItemID"]);
-        $gegevens["melding"] = "";
-        SluitVerbinding($connection);
-    } else $gegevens["melding"] = "Het id ontbreekt";
-    return $gegevens;
+function AlleGoedkoopProductenOpVragen()
+{
+    $connection = MaakVerbinding();
+    $goedkoopProducten = SelecteerGoedkoopProducten($connection);
+    SluitVerbinding($connection);
+    return $goedkoopProducten;
 }
-
-
-
-function ProductCategoryOpvragen($cgegevens) {
-    if (!empty($cgegevens["StockGroupID"])) {
-        $connection = MaakVerbinding();
-        $cgegevens = SelecteerCategory($connection, $cgegevens["StockGroupID"]);
-        $cgegevens["melding"] = "";
-        SluitVerbinding($connection);
-    } else $cgegevens["melding"] = "Het categoryID ontbreekt";
-    return $cgegevens;
-}
-
-
-
-
-
-
-
-
 
 
 
