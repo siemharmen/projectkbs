@@ -35,7 +35,7 @@ $categorieën = AlleCategorieënOpVragen();
             <input type="submit" value="Zoek">
         </form>
     </div>
-        <li><a class='navbarlink' href="registreerpagina.php">Registrenen</a></li>
+        <li><a class='navbarlink' href="registreerpagina.php">Registreren</a></li>
         <li><a class='navbarlink' href="loginpagina.php">Inloggen</a></li>
 
     <?php

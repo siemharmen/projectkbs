@@ -4,6 +4,7 @@
     <list default="true" id="194a94a0-8c6f-45c3-a1bb-d38fb8461475" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loginpagina.php" beforeDir="false" afterPath="$PROJECT_DIR$/loginpagina.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginserv.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registreerpagina.php" beforeDir="false" afterPath="$PROJECT_DIR$/registreerpagina.php" afterDir="false" />
     </list>
@@ -74,7 +75,7 @@
       <workItem from="1574251841350" duration="1183000" />
       <workItem from="1574419591602" duration="694000" />
       <workItem from="1574772384610" duration="2238000" />
-      <workItem from="1574865386481" duration="1456000" />
+      <workItem from="1574865386481" duration="3061000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
