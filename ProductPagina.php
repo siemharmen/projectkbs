@@ -3,6 +3,7 @@
 include 'ProductFuncties.php';
 $producten = AlleProductenOpVragen();
 
+
 //category stukje
 $cgegevens["StockGroupID"] = isset($_GET["StockGroupID"]) ? $_GET["StockGroupID"] : 0;
 $cgegevens = ProductCategoryGegevensOpvragen($cgegevens);
