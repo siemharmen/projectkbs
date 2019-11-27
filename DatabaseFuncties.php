@@ -18,6 +18,8 @@ function SelecteerProducten($connection) {
 }
 
 
+
+
 function SelecteerProduct($connection, $id) {
     $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");
     mysqli_stmt_bind_param($statement, 'i', $id);
@@ -56,16 +58,6 @@ where sg.stockgroupID=?");
 }
 
 // category einde
-
-
-
-
-
-
-
-
-
-
 
 
 

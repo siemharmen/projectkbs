@@ -3,11 +3,11 @@
 include 'ProductFuncties.php';
 $producten = AlleProductenOpVragen();
 
-
 //category stukje
 $cgegevens["StockGroupID"] = isset($_GET["StockGroupID"]) ? $_GET["StockGroupID"] : 0;
 $cgegevens = ProductCategoryGegevensOpvragen($cgegevens);
-//
+
+
 
 ?>
 
@@ -31,7 +31,7 @@ $cgegevens = ProductCategoryGegevensOpvragen($cgegevens);
     <h1>Product pagina</h1>
 
     <!-- radio buttons formulier -->
-<!---->
+
 <!--    <p> Totaal op de pagina: </p>-->
 <!---->
 <!--    <form type="GET" action="ProductPagina.php">-->
@@ -40,9 +40,7 @@ $cgegevens = ProductCategoryGegevensOpvragen($cgegevens);
 <!--        <input type="radio" name="aantalfilter" value="10">10<br>-->
 <!--        <input type="submit" name="aantalknop" value="filter">-->
 <!--    </form>-->
-<!---->
-<!---->
-<!---->
+
 
     <div class="row">
         <?php ToonProductenOpScherm($producten); ?>
