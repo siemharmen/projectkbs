@@ -35,7 +35,8 @@ $categorieën = AlleCategorieënOpVragen();
             <input type="submit" value="Zoek">
         </form>
     </div>
-
+        <li><a class='navbarlink' href="loginpagina.php">inloggen</a></li>
+        <li><a class='navbarlink' href="registreerpagina.php">registrenen</a></li>
     <?php
     if(isset($_GET["term"]) == true){
         $producten = GezochteProductenOpVragen($_GET["term"]);
