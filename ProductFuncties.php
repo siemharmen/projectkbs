@@ -79,33 +79,12 @@ function ProductCategoryGegevensOpvragen($cgegevens) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function GezochteProductenOpVragen($Zoekterm){
     $connection = MaakVerbinding();
     $producten = SelecteerGezochteProducten ($connection,$Zoekterm);
     SluitVerbinding($connection);
     return $producten;
 }
-
-
-
-
 
 
 
