@@ -17,7 +17,12 @@ function SelecteerProducten($connection) {
     return $result;
 }
 
+function SelecteerFotos($connection) {
 
+    $sql = "SELECT photo FROM foto";
+    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    return $result;
+}
 
 function SelecteerProduct($connection, $id) {
     $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");

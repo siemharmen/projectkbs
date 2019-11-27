@@ -7,7 +7,6 @@ $cgegevens = array("stockGroupID" => 0, "StockItemName" => "");
 
 
 
-
 function AlleProductenOpVragen()
 {
     $connection = MaakVerbinding();
