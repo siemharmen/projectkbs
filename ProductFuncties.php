@@ -6,6 +6,21 @@ $cgegevens = array("stockGroupID" => 0, "StockItemName" => "");
 
 
 
+//test voor fotos opvragen
+function AlleFotosOpvragen()
+{
+    $connection = MaakVerbinding();
+    $fotos = selecteerFotos($connection);
+    SluitVerbinding($connection);
+    return $fotos;
+}
+function ToonFotosOpScherm($fotos)
+{
+    foreach ($fotos as $foto) {
+        print($foto['photo'] . "<br>");
+    }
+}
+//test einde fotos
 
 function AlleProductenOpVragen()
 {
@@ -15,12 +30,19 @@ function AlleProductenOpVragen()
     return $producten;
 }
 
+
+
+
+
 function ToonProductenOpScherm($producten)
 {
     foreach ($producten as $product) {
-
+        
         print("<div class='col-4'><div class='center'>");
+
         print("<img class='productfoto' src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 50%'> <br> ");
+
+        print($product["photo"] . "<br>");
         print($product["StockItemName"] . "<br>");
         print($product["unitPrice"] . "<br>");
         print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
@@ -78,14 +100,13 @@ function ProductCategoryGegevensOpvragen($cgegevens) {
 
 
 
+
 function GezochteProductenOpVragen($Zoekterm){
     $connection = MaakVerbinding();
     $producten = SelecteerGezochteProducten ($connection,$Zoekterm);
     SluitVerbinding($connection);
     return $producten;
 }
-
-
 
 function ToonGoedkoopProductenOpScherm($goedkoopProducten)
 {
@@ -100,7 +121,6 @@ function ToonGoedkoopProductenOpScherm($goedkoopProducten)
     }
 }
 
-
 function AlleGoedkoopProductenOpVragen()
 {
     $connection = MaakVerbinding();
@@ -108,10 +128,6 @@ function AlleGoedkoopProductenOpVragen()
     SluitVerbinding($connection);
     return $goedkoopProducten;
 }
-
-
-
-
 
 
 

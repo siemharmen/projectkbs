@@ -26,6 +26,11 @@ if (isset($_GET['logout'])) {
 
     <h1>Product pagina</h1>
 
+    <?php ToonFotosOpScherm($fotos);?>
+
+
+    <br><br><br>
+
     <div class="row">
         <?php ToonProductenOpScherm($producten); ?>
 

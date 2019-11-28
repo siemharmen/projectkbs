@@ -28,6 +28,8 @@ if (isset($_GET['logout'])) {
 <h1>Wide World Importers! </h1>
 <br>
 
+
+<img src="../Missile launcher gray.jpg">
 <!-- image slider -->
 
 <div class="frontpageimage">
@@ -75,5 +77,8 @@ if (isset($_GET['logout'])) {
     <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
     <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
 <?php endif ?>
+
+
+
 </body>
 </html>
