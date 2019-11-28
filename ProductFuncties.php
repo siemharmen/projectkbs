@@ -31,7 +31,7 @@ function ToonProductenOpScherm($producten)
         print("<img class='productfoto' src='insert-images-to-mysql/local/$productfoto' style='width: 50%'> <br>" );
 
         print($product["StockItemName"] . "<br>");
-        print("€" . $product["unitPrice"] . "<br>");
+        print("€ " . $product["unitPrice"] . "<br>");
         print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
         print("</div></div>");
     }
@@ -94,6 +94,19 @@ function GezochteProductenOpVragen($Zoekterm){
     SluitVerbinding($connection);
     return $producten;
 }
+function GezochteProductenOpVragenID($Zoekterm){
+    $connection = MaakVerbinding();
+    $producten = SelecteerProductenId($connection,$Zoekterm);
+    SluitVerbinding($connection);
+    return $producten;
+}
+function GezochteProductenOpVragenCategory($Zoekterm){
+    $connection = MaakVerbinding();
+    $producten = SelecteerProductenCategory($connection,$Zoekterm);
+    SluitVerbinding($connection);
+    return $producten;
+}
+
 
 function ToonGoedkoopProductenOpScherm($goedkoopProducten)
 {

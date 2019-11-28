@@ -24,11 +24,13 @@ if (isset($_GET['logout'])) {
 
 <?
 
+
 print($gegevens["StockItemName"]);
 ?>
+
 <img class='productfoto' src='insert-images-to-mysql/local/<?php $gegevens["photo"] ?> ' style='width: 50%'> <br>
 <p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
-<p class="text-center"> <?php print($gegevens["unitPrice"]); ?> </p>
+<p class="text-center"> € <?php print($gegevens["unitPrice"]); ?> </p>
 
 <div class="text-center">
 
@@ -42,7 +44,8 @@ print($gegevens["StockItemName"]);
 //       print($gegevens["unitPrice"] . "<br>"); ?>
 <!--    <a href="index.php"><button type="button" class="btn btn-primary">Verder zoeken</button></a>-->
 <!--</div>-->
-<!--<br>--><?php //print($gegevens["melding"]); ?><!--<br>-->
+<!--<br>-->
+<?php //print($gegevens["melding"]); ?><!--<br>-->
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="error success" >
             <h3>

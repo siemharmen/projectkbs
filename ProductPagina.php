@@ -26,7 +26,20 @@ if (isset($_GET['logout'])) {
 
     <h1>Product pagina</h1>
 
-
+</div>
+<?php
+if(isset($_GET["term"]) == true){
+    $producten = GezochteProductenOpVragen($_GET["term"]);
+    $ProductenbyID = GezochteProductenOpVragenID($_GET["term"]);
+    $ProductenbyCategory = GezochteProductenOpVragenCategory($_GET["term"]);
+}else
+{$producten = AlleProductenOpVragen();
+    $ProductenbyCategory = null;
+    $ProductenbyID = null;
+} ?>
+<?php if($producten != null)print("Name:")?>
+<div class="row">
+    <?php ToonProductenOpScherm($producten); ?>
 
 
     <br><br><br>
@@ -34,7 +47,16 @@ if (isset($_GET['logout'])) {
     <div class="row">
         <?php ToonProductenOpScherm($producten); ?>
 
-    </div>
+</div>
+<?php if($ProductenbyID != null){print("Id:");}?>
+<div class="row">
+    <?php if(isset($_GET["term"]) == true){ ToonProductenOpScherm($ProductenbyID);} // verbeteren zodat bij niks dit niet gebeurd; ?>
+</div>
+</php>
+<?php if($ProductenbyCategory != null)print("Category:")?>
+<div class="row">
+    <?php ToonProductenOpScherm($ProductenbyCategory); ?>
+</div>
 </div>
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="error success" >
