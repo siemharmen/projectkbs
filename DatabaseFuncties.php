@@ -12,7 +12,7 @@ function MaakVerbinding()
 //selecteerd de producten voor de productpagina
 function SelecteerProducten($connection) {
 
-    $sql = "SELECT *, unitPrice  FROM stockitems s JOIN foto f on s.stockitemid = f.stockitemid";
+    $sql = "SELECT *, unitPrice  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }

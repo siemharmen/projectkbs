@@ -16,9 +16,6 @@ function AlleProductenOpVragen()
 }
 
 
-
-
-
 function ToonProductenOpScherm($producten)
 {
     foreach ($producten as $product) {
