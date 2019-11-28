@@ -1,7 +1,7 @@
 <?php
 $producten = AlleProductenOpVragen();
 $categorieën = AlleCategorieënOpVragen();
-$goedkoopProducten = AlleGoedkoopProductenOpVragen();
+//$goedkoopProducten = AlleGoedkoopProductenOpVragen();
 
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
 $gegevens = ProductGegevensOpvragen($gegevens);
