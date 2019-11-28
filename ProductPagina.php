@@ -41,6 +41,12 @@ if(isset($_GET["term"]) == true){
 <div class="row">
     <?php ToonProductenOpScherm($producten); ?>
 
+
+    <br><br><br>
+
+    <div class="row">
+        <?php ToonProductenOpScherm($producten); ?>
+
 </div>
 <?php if($ProductenbyID != null){print("Id:");}?>
 <div class="row">

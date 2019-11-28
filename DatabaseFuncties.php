@@ -9,28 +9,23 @@ function MaakVerbinding()
     return $connection;
 }
 
-
+//selecteerd de producten voor de productpagina
 function SelecteerProducten($connection) {
 
-    $sql = "SELECT StockItemName, unitPrice, StockItemID FROM stockitems";
+    $sql = "SELECT *, unitPrice  FROM stockitems s JOIN foto f on s.stockitemid = f.stockitemid";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
 
-function SelecteerFotos($connection) {
 
-    $sql = "SELECT photo FROM foto";
-    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
-    return $result;
-}
 
 function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");
+    $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice, photo FROM stockitems s WHERE StockItemID=?");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
-    mysqli_stmt_bind_result($statement, $id, $naam, $price);
+    mysqli_stmt_bind_result($statement, $id, $naam, $price, $foto);
     mysqli_stmt_fetch($statement);
-    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price);
+    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "photo" => $foto);
     mysqli_stmt_close($statement);
     return $result;
 }
@@ -92,7 +87,7 @@ function SelecteerGoedkoopProducten($connection) {
 
 function SelecteerGezochteProducten($connection,$Zoekterm) {
     $Zoekterm = "%$Zoekterm%";
-    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
+    $statement = mysqli_prepare($connection,"SELECT photo, StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
     mysqli_stmt_bind_param($statement, 's', $Zoekterm);
     mysqli_stmt_execute($statement);
     $result = mysqli_stmt_get_result($statement);
