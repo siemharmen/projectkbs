@@ -42,20 +42,6 @@ if (isset($_GET['logout'])) {
     </div>
 <?php endif ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="error success" >
         <h3>
