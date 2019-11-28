@@ -37,16 +37,11 @@ if(isset($_GET["term"]) == true){
     $ProductenbyCategory = null;
     $ProductenbyID = null;
 } ?>
-<?php if (isset($_GET["term"]) == true){print("Name:");}?>
+<?php if (isset($_GET["term"]) == true){
+    if ($_GET["term"] != ""){
+        print("Name:");}}?>
 <div class="row">
     <?php ToonProductenOpScherm($producten); ?>
-
-
-    <br><br><br>
-
-    <div class="row">
-        <?php ToonProductenOpScherm($producten); ?>
-
 </div>
 <?php if($ProductenbyID != null){print("Id:");}?>
 <div class="row">
