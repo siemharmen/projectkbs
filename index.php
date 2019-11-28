@@ -70,11 +70,11 @@ if (isset($_GET['logout'])) {
     </div>
 <?php endif ?>
 
+<<<<<<< HEAD
 <!-- logged in user information -->
-<?php  if (isset($_SESSION['username'])) : ?>
-    <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-<?php endif ?>
+=======
+<!-- logged in user informationn -->
+>>>>>>> bae9ddc898d59e448bcc695217235e5da8113ff5
 
 
 
