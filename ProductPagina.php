@@ -2,10 +2,6 @@
 include 'ProductFuncties.php';
 
 ?>
-
-<!-- header -->
-<?php include 'navbar.php'; ?>
-
 <?php
 session_start();
 
@@ -19,6 +15,10 @@ if (isset($_GET['logout'])) {
     header("location: loginpagina.php");
 }
 ?>
+<!-- header -->
+<?php include 'navbar.php'; ?>
+
+
 
 
 <!-- Pagina begin -->
@@ -36,21 +36,16 @@ if (isset($_GET['logout'])) {
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<?php if (isset($_SESSION['success'])) : ?>
+    <div class="error success" >
+        <h3>
+            <?php
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+            ?>
+        </h3>
+    </div>
+<?php endif ?>
 
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="error success" >
