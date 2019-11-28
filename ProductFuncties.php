@@ -42,7 +42,7 @@ function ProductGegevensOpvragen($gegevens) {
 
 
 
-//category begin
+///////////////////////////category begin
 
 function AlleCategorieënOpVragen()
 {
@@ -74,7 +74,7 @@ function ProductCategoryGegevensOpvragen($cgegevens) {
 
 
 
-// category einde
+///////////////// category einde
 
 
 
