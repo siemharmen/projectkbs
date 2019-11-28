@@ -70,7 +70,7 @@ if (isset($_GET['logout'])) {
     </div>
 <?php endif ?>
 
-<!-- logged in user information -->
+<!-- logged in user informationn -->
 
 
 
