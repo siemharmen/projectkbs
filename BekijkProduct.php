@@ -28,7 +28,7 @@ print($gegevens["StockItemName"]);
 ?>
 <img class='productfoto' src='insert-images-to-mysql/local/<?php $gegevens["photo"] ?> ' style='width: 50%'> <br>
 <p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
-<p class="text-center"> <?php print($gegevens["unitPrice"]); ?> </p>
+<p class="text-center"> € <?php print($gegevens["unitPrice"]); ?> </p>
 
 <div class="text-center">
 
