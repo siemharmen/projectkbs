@@ -2,7 +2,7 @@
 $producten = AlleProductenOpVragen();
 $categorieën = AlleCategorieënOpVragen();
 $goedkoopProducten = AlleGoedkoopProductenOpVragen();
-$fotos = AlleFotosOpvragen();
+
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
 $gegevens = ProductGegevensOpvragen($gegevens);
 

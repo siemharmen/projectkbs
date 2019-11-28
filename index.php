@@ -28,8 +28,6 @@ if (isset($_GET['logout'])) {
 <h1>Wide World Importers! </h1>
 <br>
 
-
-<img src="../Missile launcher gray.jpg">
 <!-- image slider -->
 
 <div class="frontpageimage">

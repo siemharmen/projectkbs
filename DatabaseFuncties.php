@@ -18,18 +18,9 @@ function SelecteerProducten($connection) {
 }
 
 
-//test voor de fotos
-function SelecteerFotos($connection) {
-
-    $sql = "SELECT photo FROM foto";
-    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
-    return $result;
-}
-
-
 
 function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems WHERE StockItemID=?");
+    $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, unitPrice FROM stockitems s WHERE StockItemID=?");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
     mysqli_stmt_bind_result($statement, $id, $naam, $price);
@@ -79,7 +70,7 @@ function SelecteerGoedkoopProducten($connection) {
 
 function SelecteerGezochteProducten($connection,$Zoekterm) {
     $Zoekterm = "%$Zoekterm%";
-    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
+    $statement = mysqli_prepare($connection,"SELECT photo, StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
     mysqli_stmt_bind_param($statement, 's', $Zoekterm);
     mysqli_stmt_execute($statement);
     $result = mysqli_stmt_get_result($statement);

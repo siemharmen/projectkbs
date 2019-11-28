@@ -21,7 +21,7 @@ if (isset($_GET['logout'])) {
 
 <h1> Product </h1><br>
 
-<img src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 15%; margin: auto; padding: auto; display:block;'> <br>
+
 <?
 
 print($gegevens["StockItemName"]);
@@ -36,7 +36,6 @@ print($gegevens["StockItemName"]);
 </div>
 
 
-<a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">Verder zoeken</button></a>
 <!---->
 <!--<div class="center">-->
 <!-- --><?php //print($gegevens["StockItemName"]);
