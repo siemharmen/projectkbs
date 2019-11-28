@@ -23,7 +23,7 @@ function ToonProductenOpScherm($producten)
 {
     foreach ($producten as $product) {
 
-            $productfoto = $product["photo"];
+        $productfoto = $product["photo"];
 
         print("<div class='col-4'><div class='center'>");
 
