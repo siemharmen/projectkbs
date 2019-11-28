@@ -27,7 +27,7 @@ $gegevens = ProductGegevensOpvragen($gegevens);
 
     <div class="zoekbalk">
         <form action="ProductPagina.php" method="get">
-            <input type="text" name="term">
+            <input type="text" name="term" value="<?php if (isset($_GET['term'])) echo $_GET['term'];?>">
             <input type="submit" value="Zoek">
         </form>
     </div>

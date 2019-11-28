@@ -84,7 +84,18 @@ function GezochteProductenOpVragen($Zoekterm){
     SluitVerbinding($connection);
     return $producten;
 }
-
+function GezochteProductenOpVragenID($Zoekterm){
+    $connection = MaakVerbinding();
+    $producten = SelecteerProductenId($connection,$Zoekterm);
+    SluitVerbinding($connection);
+    return $producten;
+}
+function GezochteProductenOpVragenCategory($Zoekterm){
+    $connection = MaakVerbinding();
+    $producten = SelecteerProductenCategory($connection,$Zoekterm);
+    SluitVerbinding($connection);
+    return $producten;
+}
 
 
 function ToonGoedkoopProductenOpScherm($goedkoopProducten)
