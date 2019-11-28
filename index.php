@@ -40,8 +40,6 @@ include 'ProductFuncties.php';
 <br><br>
 
 
-
-
 <div class="text-center">
 <a href="productpagina.php"><button type="button" class="btn btn-primary btn-lg">Alle Producten</button></a>
 </div>

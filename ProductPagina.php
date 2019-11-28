@@ -3,7 +3,6 @@ include 'ProductFuncties.php';
 
 ?>
 
-
 <!-- header -->
 <?php include 'navbar.php'; ?>
 
@@ -22,8 +21,6 @@ if (isset($_GET['logout'])) {
 ?>
 
 
-
-
 <!-- Pagina begin -->
 <div class="container-fluid">
 
@@ -36,6 +33,20 @@ if (isset($_GET['logout'])) {
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="error success" >
         <h3>
@@ -46,9 +57,6 @@ if (isset($_GET['logout'])) {
         </h3>
     </div>
 <?php endif ?>
-
-
-
 
 
 
