@@ -1,5 +1,9 @@
 <?php
 include "ProductFuncties.php";
+$gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
+$gegevens = ProductGegevensOpvragen($gegevens);
+$filepath = "insert-images-to-mysql\\local\\";
+
 
 ?>
 <?php
@@ -22,20 +26,27 @@ if (isset($_GET['logout'])) {
 <h1> Product </h1><br>
 
 
-<?
 
-
-print($gegevens["StockItemName"]);
-?>
-
-<img class='productfoto' src='insert-images-to-mysql/local/<?php $gegevens["photo"] ?> ' style='width: 50%'> <br>
+<!--<img class='productfoto' src='--><?php // ?><!--' style='width: 50%'> <br>-->
+<!--<p class="text-center"> --><?php //print($filepath); ?><!-- </p>-->
+<!--<p class="text-center"> --><?php //print_r($gegevens); ?><!-- </p>-->
+<!--<img class='productfoto' src='insert-images-to-mysql/local/--><?php //$bekijkfoto ?><!-- ' style='width: 50%'> <br>-->
 <p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
 <p class="text-center"> € <?php print($gegevens["unitPrice"]); ?> </p>
+<!--<p class="text-center">  --><?php //print($gegevens["photo"]); ?><!-- </p>-->
 
 <div class="text-center">
 
 <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
 </div>
+
+<?php
+
+?>
+
+
+
+
 
 
 <!---->

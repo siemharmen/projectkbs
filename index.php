@@ -70,12 +70,6 @@ if (isset($_GET['logout'])) {
     </div>
 <?php endif ?>
 
-<<<<<<< HEAD
-<!-- logged in user information -->
-=======
-<!-- logged in user informationn -->
->>>>>>> bae9ddc898d59e448bcc695217235e5da8113ff5
-
 
 
 
