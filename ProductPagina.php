@@ -1,6 +1,11 @@
 <?php
 include 'ProductFuncties.php';
 
+
+
+
+
+
 ?>
 <?php
 session_start();
@@ -20,13 +25,23 @@ if (isset($_GET['logout'])) {
 
 
 
-
 <!-- Pagina begin -->
 <div class="container-fluid">
-
     <h1>Product pagina</h1>
-
 </div>
+
+<ul>
+    <li><a href="productpagina.php?page=1">Page 1</a></li>
+    <li><a href="productpagina.php?page=2">Page 2</a></li>
+    <li><a href="productpagina.php?page=3">Page 3</a></li>
+    <li><a href="productpagina.php?page=4">Page 4</a></li>
+    <li><a href="productpagina.php?page=5">Page 5</a></li>
+    <li><a href="productpagina.php?page=6">Page 6</a></li>
+
+</ul>
+
+
+
 <?php
 
 if(isset($_GET["term"]) == true){

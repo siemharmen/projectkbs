@@ -9,13 +9,43 @@ function MaakVerbinding()
     return $connection;
 }
 
+function SluitVerbinding($connection) {
+    mysqli_close($connection);
+}
+
+
+
+
+
+
+
+
 //selecteerd de producten voor de productpagina
 function SelecteerProducten($connection) {
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+    } else { $page = 1; }
 
-    $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid";
+    $start = 5 + 50 * ($page - 1);
+    $rows = 45;
+    $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid LIMIT $start, $rows";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -95,9 +125,7 @@ function SelecteerGezochteProducten($connection,$Zoekterm) {
     return $result;
 }
 
-function SluitVerbinding($connection) {
-    mysqli_close($connection);
-}
+
 
 
 
