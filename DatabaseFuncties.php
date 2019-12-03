@@ -20,7 +20,7 @@ function SelecteerProducten($connection) {
 
 
 function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT s.StockItemID, StockItemName, unitPrice, photo FROM stockitems s WHERE s.StockItemID=?");
+    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=?");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
     mysqli_stmt_bind_result($statement, $id, $naam, $price, $foto);
