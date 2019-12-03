@@ -1,5 +1,6 @@
 <?php
 session_start();
+$cart = array();
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -11,7 +12,13 @@ if (isset($_GET['logout'])) {
     header("location: loginpagina.php");
 }
 
-$cart = array();
 
-
+function addItem($item){
+    array_push($cart,$item);
+}
 ?>
+
+<?php include 'navbar.php'; ?>
+
+<h1> Product </h1><br>
+
