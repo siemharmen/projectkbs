@@ -31,6 +31,10 @@ include 'ProductFuncties.php';
     <div class="input-group">
         <label>Confirm password</label>
         <input type="password" name="password_2">
+        <div class="input-group">
+            <label>Voornaam</label>
+            <input type="text" name="voornaam" value="<?php echo $voornaam; ?>">
+        </div>
     </div>
     <div class="input-group">
         <button type="submit" class="btn" name="reg_user">Register</button>
