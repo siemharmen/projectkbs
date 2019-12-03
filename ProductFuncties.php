@@ -16,6 +16,44 @@ function AlleProductenOpVragen()
 }
 
 
+function TotaalProductenOpVragen()
+{
+    $connection = MaakVerbinding();
+    $totaal = totaalProducten($connection);
+    SluitVerbinding($connection);
+    return $totaal;
+}
+
+
+function ToonAantalPaginas($totaal){
+    foreach($totaal as $total => $nummer) {
+
+        if(isset($_SESSION['aantalproducten'])) {
+            $aantalproducten = $_SESSION['aantalproducten'];
+        }
+        for($i = 1; $i < $nummer['total']/$aantalproducten; $i++){
+            print("<a href=\"productpagina.php?page=$i\">Page $i </a>");
+
+        }
+    }
+//        if(isset($_SESSION['aantalproducten'])) {
+//            $aantalproducten = $_SESSION['aantalproducten'];
+//        }
+
+//        for($i = 1; $i < $nummer['total']/$aantalproducten; $i++){
+//            print("<a href=\"productpagina.php?page=$i\">Page $i </a>");
+//
+//        }
+
+}
+
+
+
+
+
+
+
+
 function ToonProductenOpScherm($producten)
 {
     if (is_array($producten)) {

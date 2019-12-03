@@ -1,6 +1,7 @@
 <?php
 $producten = AlleProductenOpVragen();
 $categorieën = AlleCategorieënOpVragen();
+$totaal = TotaalProductenOpVragen();
 //$goedkoopProducten = AlleGoedkoopProductenOpVragen();
 
 

@@ -10,6 +10,12 @@ include 'ProductFuncties.php';
 <?php
 session_start();
 
+if(isset($_GET['aantalproducten'])) {
+    $aantalproducten = $_GET['aantalproducten'];
+    $_SESSION['aantalproducten'] = $aantalproducten;
+}
+
+
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: loginpagina.php');
@@ -30,17 +36,23 @@ if (isset($_GET['logout'])) {
     <h1>Product pagina</h1>
 </div>
 
-<ul>
-    <li><a href="productpagina.php?page=1">Page 1</a></li>
-    <li><a href="productpagina.php?page=2">Page 2</a></li>
-    <li><a href="productpagina.php?page=3">Page 3</a></li>
-    <li><a href="productpagina.php?page=4">Page 4</a></li>
-    <li><a href="productpagina.php?page=5">Page 5</a></li>
-    <li><a href="productpagina.php?page=6">Page 6</a></li>
 
-</ul>
+<div class="center">
+    <?php toonAantalPaginas($totaal); ?>
+</div>
 
 
+
+<p> Totaal aantal producten per pagina: </p>
+<form action="ProductPagina.php" method="get">
+    <select name="aantalproducten">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+
+    <input type="submit" name="radiobutton" value="filter" />
+</form>
 
 <?php
 
@@ -57,9 +69,17 @@ if(isset($_GET["term"]) == true){
     if ($_GET["term"] != ""){
         print("Name:");}}?>
 <div class="row">
-    <?php ToonProductenOpScherm($producten);
-    print_r($producten)?>
+    <?php ToonProductenOpScherm($producten); ?>
+
 </div>
+
+<div class="center">
+    <?php toonAantalPaginas($totaal); ?>
+</div>
+
+
+
+
 <?php if($ProductenbyID != null){print("Id:");}?>
 <div class="row">
     <?php if(isset($_GET["term"]) == true){ ToonProductenOpScherm($ProductenbyID);} // verbeteren zodat bij niks dit niet gebeurd; ?>

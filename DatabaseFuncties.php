@@ -26,8 +26,14 @@ function SelecteerProducten($connection) {
         $page = $_GET["page"];
     } else { $page = 1; }
 
-    $start = 5 + 50 * ($page - 1);
-    $rows = 45;
+    if(isset($_SESSION['aantalproducten'])){
+        $aantalproducten = $_SESSION['aantalproducten'];
+        $rows = $aantalproducten;
+        $start = $aantalproducten * ($page - 1);
+    } else {
+        $rows = 50;
+    }
+
     $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid LIMIT $start, $rows";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
@@ -36,15 +42,13 @@ function SelecteerProducten($connection) {
 
 
 
+function totaalProducten($connection){
+    $sql = "SELECT COUNT(stockItemID) AS total FROM stockitems";
+    $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
+    return $result;
 
 
-
-
-
-
-
-
-
+}
 
 
 
