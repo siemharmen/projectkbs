@@ -35,6 +35,26 @@ include 'ProductFuncties.php';
             <label>Voornaam</label>
             <input type="text" name="voornaam" value="<?php echo $voornaam; ?>">
         </div>
+        <div class="input-group">
+            <label>Achternaam</label>
+            <input type="text" name="achternaam" value="<?php echo $achternaam; ?>">
+        </div>
+        <div class="input-group">
+            <label>Postcode</label>
+            <input type="text" name="postcode" value="<?php echo $postcode; ?>">
+        </div>
+        <div class="input-group">
+            <label>Huisnummer</label>
+            <input type="text" name="huisnummer" value="<?php echo $huisnummer; ?>">
+        </div>
+        <div class="input-group">
+            <label>Straatnaam</label>
+            <input type="text" name="straatnaam" value="<?php echo $straatnaam; ?>">
+        </div>
+        <div class="input-group">
+            <label>Plaats</label>
+            <input type="text" name="plaats" value="<?php echo $plaats; ?>">
+        </div>
     </div>
     <div class="input-group">
         <button type="submit" class="btn" name="reg_user">Register</button>
