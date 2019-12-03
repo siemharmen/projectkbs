@@ -18,18 +18,21 @@ function AlleProductenOpVragen()
 
 function ToonProductenOpScherm($producten)
 {
-    foreach ($producten as $product) {
-
-        $productfoto = $product["photo"];
-
-        print("<div class='col-4'><div class='center'>");
+    if (is_array($producten)) {
+        foreach ($producten as $product) {
 
 
-        print("<img class='productfoto' src='insert-images-to-mysql/local/$productfoto' style='width: 50%'> <br>" );
-        print($product["StockItemName"] . "<br>");
-        print("€ " . $product["unitPrice"] . "<br>");
-        print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
-        print("</div></div>");
+            print("<div class='col-4'><div class='center'>");
+
+
+            $productfoto = $product["photo"];
+
+            print("<img class='productfoto' src='insert-images-to-mysql/local/$productfoto' style='width: 50%'> <br>");
+            print($product["StockItemName"] . "<br>");
+            print("€ " . $product["unitPrice"] . "<br>");
+            print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
+            print("</div></div>");
+        }
     }
 }
 
@@ -62,7 +65,7 @@ function toonCategoryOpScherm($categorieën)
     foreach ($categorieën as $category) {
 
 
-        print("<li><a href=\"ProductPagina.php?StockGroupID=" . $category["StockGroupID"] . "\">" . $category["StockGroupID"] . " " . $category["StockGroupName"] . "</a></li>");
+        print("<li><a href=\"ProductPagina.php?StockGroupName=" . $category["StockGroupID"] . "\">" . $category["StockGroupID"] . " " . $category["StockGroupName"] . "</a></li>");
 
     }
 }
