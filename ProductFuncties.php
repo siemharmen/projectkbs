@@ -61,7 +61,6 @@ function toonCategoryOpScherm($categorieën)
 {
     foreach ($categorieën as $category) {
 
-
         print("<li><a href=\"ProductPagina.php?StockGroupID=" . $category["StockGroupID"] . "\">" . $category["StockGroupID"] . " " . $category["StockGroupName"] . "</a></li>");
 
     }
