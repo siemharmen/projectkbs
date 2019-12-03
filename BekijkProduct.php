@@ -1,4 +1,4 @@
-<?php
+ <?php
 include "ProductFuncties.php";
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
 $gegevens = ProductGegevensOpvragen($gegevens);

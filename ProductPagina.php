@@ -28,6 +28,7 @@ if (isset($_GET['logout'])) {
 
 </div>
 <?php
+
 if(isset($_GET["term"]) == true){
     $producten = GezochteProductenOpVragen($_GET["term"]);
     $ProductenbyID = GezochteProductenOpVragenID($_GET["term"]);
@@ -41,7 +42,8 @@ if(isset($_GET["term"]) == true){
     if ($_GET["term"] != ""){
         print("Name:");}}?>
 <div class="row">
-    <?php ToonProductenOpScherm($producten); ?>
+    <?php ToonProductenOpScherm($producten);
+    print_r($producten)?>
 </div>
 <?php if($ProductenbyID != null){print("Id:");}?>
 <div class="row">
