@@ -31,10 +31,12 @@ function ToonAantalPaginas($totaal){
         if(isset($_SESSION['aantalproducten'])) {
             $aantalproducten = $_SESSION['aantalproducten'];
         }
-        for($i = 1; $i < $nummer['total']/$aantalproducten; $i++){
+        $totaalpaginas = ceil($nummer['total'] / $aantalproducten);
+        for($i = 1; $i <= $totaalpaginas; $i++){
             print("<a href=\"productpagina.php?page=$i\">Page $i </a>");
 
         }
+        print($totaalpaginas);
     }
 //        if(isset($_SESSION['aantalproducten'])) {
 //            $aantalproducten = $_SESSION['aantalproducten'];

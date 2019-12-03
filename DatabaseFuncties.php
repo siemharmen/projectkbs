@@ -26,6 +26,8 @@ function SelecteerProducten($connection) {
         $page = $_GET["page"];
     } else { $page = 1; }
 
+
+
     if(isset($_SESSION['aantalproducten'])){
         $aantalproducten = $_SESSION['aantalproducten'];
         $rows = $aantalproducten;
