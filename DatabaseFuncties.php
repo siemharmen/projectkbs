@@ -30,9 +30,7 @@ function SelecteerProduct($connection, $id) {
     return $result;
 }
 function  SelecteerProductenId($connection,$Zoeknummer) {
-    $statement1 = mysqli_prepare($connection,"
-
-SELECT StockItemName, unitPrice, StockItemID, photo FROM stockitems WHERE StockItemID =?");
+    $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID, photo FROM stockitems WHERE StockItemID =?");
     mysqli_stmt_bind_param($statement1, 'i', $Zoeknummer);
     mysqli_stmt_execute($statement1);
     $result = mysqli_stmt_get_result($statement1);
