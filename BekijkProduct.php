@@ -3,7 +3,7 @@ include "ProductFuncties.php";
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
 $gegevens = ProductGegevensOpvragen($gegevens);
 $filepath = "insert-images-to-mysql\\local\\";
-
+$bekijkfoto = $gegevens['photo'];
 
 ?>
 <?php
@@ -27,10 +27,9 @@ if (isset($_GET['logout'])) {
 
 
 
-<!--<img class='productfoto' src='--><?php // ?><!--' style='width: 50%'> <br>-->
-<!--<p class="text-center"> --><?php //print($filepath); ?><!-- </p>-->
-<!--<p class="text-center"> --><?php //print_r($gegevens); ?><!-- </p>-->
-<!--<img class='productfoto' src='insert-images-to-mysql/local/--><?php //$bekijkfoto ?><!-- ' style='width: 50%'> <br>-->
+
+
+<p class="center"><img class="center" src='<?php print($filepath . $bekijkfoto); ?>'></p>
 <p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
 <p class="text-center"> € <?php print($gegevens["unitPrice"]); ?> </p>
 <!--<p class="text-center">  --><?php //print($gegevens["photo"]); ?><!-- </p>-->

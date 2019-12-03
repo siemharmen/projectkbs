@@ -4,6 +4,12 @@ session_start();
 // initializing variables
 $username = "";
 $email    = "";
+$voornaam    = "";
+$achternaam    = "";
+$postcode ="";
+$huisnummer ="";
+$straatnaam ="";
+$plaats ="";
 $errors = array();
 
 // connect to the database
@@ -16,6 +22,12 @@ if (isset($_POST['reg_user'])) {
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
     $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
+    $voornaam = mysqli_real_escape_string($db, $_POST['voornaam']);
+    $achternaam = mysqli_real_escape_string($db, $_POST['achternaam']);
+    $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
+    $huisnummer = mysqli_real_escape_string($db, $_POST['huisnummer']);
+    $straatnaam = mysqli_real_escape_string($db, $_POST['straatnaam']);
+    $plaats = mysqli_real_escape_string($db, $_POST['plaats']);
 
     // form validation: ensure that the form is correctly filled ...
     // by adding (array_push()) corresponding error unto $errors array
@@ -46,8 +58,8 @@ if (isset($_POST['reg_user'])) {
     if (count($errors) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
 
-        $query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+        $query = "INSERT INTO users (username, email, password, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats) 
+  			  VALUES('$username', '$email', '$password', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
