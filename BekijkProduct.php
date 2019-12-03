@@ -27,10 +27,9 @@ if (isset($_GET['logout'])) {
 
 
 
-<img class='productfoto' src='<?php  ?>' style='wi<p class="text-center"> <?php print($bekijkfoto); ?> </p>dth: 50%'> <br>
 
 
-<img class='productfoto' src='<?php print($filepath . $bekijkfoto); ?> ' style='width: 50%'> <br>
+<p class="center"><img class="center" src='<?php print($filepath . $bekijkfoto); ?>'></p>
 <p class="text-center"> <?php print($gegevens["StockItemName"]); ?> </p>
 <p class="text-center"> € <?php print($gegevens["unitPrice"]); ?> </p>
 <!--<p class="text-center">  --><?php //print($gegevens["photo"]); ?><!-- </p>-->
