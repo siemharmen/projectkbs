@@ -20,7 +20,7 @@ function SelecteerProducten($connection) {
 
 
 function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT s.StockItemID, StockItemName, unitPrice, photo FROM stockitems s WHERE s.StockItemID=?");
+    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=?");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
     mysqli_stmt_bind_result($statement, $id, $naam, $price, $foto);
@@ -30,7 +30,7 @@ function SelecteerProduct($connection, $id) {
     return $result;
 }
 function  SelecteerProductenId($connection,$Zoeknummer) {
-    $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemID =?");
+    $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID, photo FROM stockitems WHERE StockItemID =?");
     mysqli_stmt_bind_param($statement1, 'i', $Zoeknummer);
     mysqli_stmt_execute($statement1);
     $result = mysqli_stmt_get_result($statement1);
@@ -39,7 +39,7 @@ function  SelecteerProductenId($connection,$Zoeknummer) {
 }
 function  SelecteerProductenCategory($connection,$Zoekterm) {
     $Zoekterm = "%$Zoekterm%";
-    $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID FROM stockitems WHERE Tags Like ?");
+    $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, s.StockItemID, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE Tags LIKE ?");
     mysqli_stmt_bind_param($statement1, 's', $Zoekterm);
     mysqli_stmt_execute($statement1);
     $result = mysqli_stmt_get_result($statement1);
@@ -87,7 +87,7 @@ function SelecteerGoedkoopProducten($connection) {
 
 function SelecteerGezochteProducten($connection,$Zoekterm) {
     $Zoekterm = "%$Zoekterm%";
-    $statement = mysqli_prepare($connection,"SELECT photo, StockItemName, unitPrice, StockItemID FROM stockitems WHERE StockItemName LIKE ?");
+    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, s.StockItemID, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE StockItemName LIKE ?");
     mysqli_stmt_bind_param($statement, 's', $Zoekterm);
     mysqli_stmt_execute($statement);
     $result = mysqli_stmt_get_result($statement);
