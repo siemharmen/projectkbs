@@ -21,7 +21,6 @@ h1 {
     color: black;
     text-align: center;
 
-
 }
 
 .frontpageimage {
@@ -30,9 +29,6 @@ h1 {
     margin-right: auto;
     width: 60%;
 }
-
-
-
 
 nav{
     background-color: #333;
@@ -92,5 +88,8 @@ nav li:hover{
 }
 
 .navinlog {
-    background-color: yellow;
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin-top: 0.8%;
 }

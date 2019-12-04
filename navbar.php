@@ -10,7 +10,7 @@ $totaal = TotaalProductenOpVragen();
 ?>
 
 <nav>
-    <ul>
+
     <li><a class='navbarlink' href="index.php">Home</a></li>
     <li><a class='navbarlink' href="ProductPagina.php">Producten</a></li>
 
@@ -42,23 +42,26 @@ $totaal = TotaalProductenOpVragen();
     }       else
     {$producten = AlleProductenOpVragen();} ?>
 
-    </ul>
-</nav>
 
 
-     <?php /* if (isset($_SESSION['username'])) : ?>
+            <?php /* if (isset($_SESSION['username'])) : ?>
         <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
         <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
     <?php endif*/ ?>
-    <?php  if (isset($_SESSION['username'])) : ?>
-
-        <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-        <p> <a href="index.php?logout='1'" style="color: red;">Log out</a> </p>
-        <p> <a href="accountinfo.php" style="color: red;">Change account data</a> </p>
-
-    <?php endif ?>
 
 
+        <div class="navinlog">
+            <?php  if (isset($_SESSION['username'])) : ?>
+
+                <p style="float:left;">Welcome <strong><?php print($_SESSION['username']);?> </strong>&nbsp;</p>
+                <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log out</a> &nbsp;</p>
+                <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Change account data</a> </p>
+
+            <?php endif ?>
+        </div>
+
+
+</nav>
 
 
 
@@ -71,7 +74,7 @@ $totaal = TotaalProductenOpVragen();
     <meta charset="UTF-8">
     <title>Wide World Importers!</title>
     <!-- style css -->
-    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles2.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- font awesome -->
