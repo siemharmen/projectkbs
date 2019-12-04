@@ -11,13 +11,16 @@ session_start();
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
-
 }
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
-
 }
+
+
+
+
+
 ?>
 
 <?php include 'navbar.php'; ?>
@@ -48,15 +51,12 @@ if (isset($_GET['logout'])) {
 <div class="text-center">
 
 <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
-</div> </div>
+</div>
 
-<?php
-
-?>
+ <br>
 
 
-
-
+ </div>
 
 
 <!---->

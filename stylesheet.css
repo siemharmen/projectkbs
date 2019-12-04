@@ -119,4 +119,6 @@ nav li:hover{
     margin-left: 15px;
     display: inline-block;
     position: relative;
+    text-align: center;
+
 }

@@ -44,7 +44,10 @@ if (isset($_GET['logout'])) {
 </div>
 
 
-<div class="aantalfilter">
+
+<?php
+    if(!isset($_GET["term"])){
+        echo '<div class="aantalfilter">
 <p> Totaal aantal producten per pagina: </p>
 <form action="ProductPagina.php" method="get">
     <select name="aantalproducten">
@@ -55,12 +58,22 @@ if (isset($_GET['logout'])) {
 
     <input type="submit" name="radiobutton" value="filter" />
 </form>
-</div>
+</div>';
+    }   ?>
+
+
+
+
+
+
+
+
 
 
 <?php
 
 if(isset($_GET["term"]) == true){
+
     $producten = GezochteProductenOpVragen($_GET["term"]);
     $ProductenbyID = GezochteProductenOpVragenID($_GET["term"]);
     $ProductenbyCategory = GezochteProductenOpVragenCategory($_GET["term"]);

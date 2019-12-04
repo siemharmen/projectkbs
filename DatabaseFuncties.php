@@ -85,8 +85,6 @@ function  SelecteerProductenCategory($connection,$Zoekterm) {
 }
 
 
-
-
 // Category gedeelte
 
 function SelecteerCategory($connection) {

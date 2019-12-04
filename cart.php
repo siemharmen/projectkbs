@@ -21,3 +21,8 @@ if (isset($_GET['logout'])) {
 <h1> Winkelmand</h1>
 <br><br>
 <h2 style="float:left;"> producten in mand: </h2>
+
+
+
+<?php
+
