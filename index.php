@@ -27,7 +27,7 @@ if (isset($_GET['logout'])) {
 
 <h1>Wide World Importers! </h1>
 <br>
-<?php print("session: " . $_SESSION['aantalproducten']); ?>
+
 <!-- image slider -->
 
 <div class="frontpageimage">

@@ -34,6 +34,7 @@ function SelecteerProducten($connection) {
         $start = $aantalproducten * ($page - 1);
     } else {
         $rows = 50;
+        $start = 0;
     }
 
     $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid LIMIT $start, $rows";

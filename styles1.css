@@ -90,3 +90,9 @@ nav li:hover{
     margin-top: 0.5%;
     display: inline-block;
 }
+
+.inlognav {
+    display: inline-block;
+    position: absolute;
+
+}
