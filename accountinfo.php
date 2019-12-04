@@ -71,34 +71,6 @@ $newplaats = $plaats;
         <button type="submit" class="btn" name="reg_user">Update</button>
     </div>
 </form>
-    <?php
-    if (isset($_POST['update_user'])) {
-    // receive all input values from the form
-    $newusername = mysqli_real_escape_string($db, $_POST['username']);
-    $newemail = mysqli_real_escape_string($db, $_POST['email']);
-    $newpassword_1 = mysqli_real_escape_string($db, $_POST['password_1']);
-    $newpassword_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-    $newvoornaam = mysqli_real_escape_string($db, $_POST['voornaam']);
-    $newachternaam = mysqli_real_escape_string($db, $_POST['achternaam']);
-    $newpostcode = mysqli_real_escape_string($db, $_POST['postcode']);
-    $newhuisnummer = mysqli_real_escape_string($db, $_POST['huisnummer']);
-    $newstraatnaam = mysqli_real_escape_string($db, $_POST['straatnaam']);
-    $newplaats = mysqli_real_escape_string($db, $_POST['plaats']);
-
-    if (empty($newusername)) { array_push($errors, "Username is required"); }
-    if (empty($newemail)) { array_push($errors, "Email is required"); }
-    if (empty($newpassword_1)) { array_push($errors, "Password is required"); }
-    if ($newpassword_1 != $password_2) {
-        array_push($errors, "The two passwords do not match");
-    }
-
-    if (count($errors) == 0) {
-    $password = md5($password_1);//encrypt the password before saving in the database
-
-    $query = "UPDATE users SET(username, email, password, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats) 
-  			  VALUES('$username', '$email', '$password', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')
-  			  WHERE ";
-    mysqli_query($db, $query);
-    ?>
+   
 </body>
 </html>
