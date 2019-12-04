@@ -20,6 +20,7 @@ h1 {
 .center{
     color: black;
     text-align: center;
+
 }
 
 .frontpageimage {
@@ -28,9 +29,6 @@ h1 {
     margin-right: auto;
     width: 60%;
 }
-
-
-
 
 nav{
     background-color: #333;
@@ -46,7 +44,14 @@ nav{
 .navbarlink{
     color: #eee;
 }
+.navbarlink:hover{
+    text-decoration: none;
+}
 
+ul {
+    padding: 0;
+    margin: 0;
+}
 nav li {
     box-sizing: border-box;
     display: inline-block;
@@ -58,6 +63,8 @@ nav li {
 nav li:hover{
     background-color: white;
     color:black;
+    text-decoration: none;
+
 
 }
 
@@ -82,9 +89,36 @@ nav li:hover{
 
 .dropdown:hover .dropdown-content {
     display: block;
+    text-decoration: none;
 }
 
 .zoekbalk{
-    margin-top: 0.5%;
+    margin: 0;
+    padding: 0;
     display: inline-block;
+    position: relative;
+}
+.navfoto {
+    margin: 5px;
+    height: 50px;
+
+}
+
+.navinlog {
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin-top: 0.8%;
+}
+
+.mand:hover{
+    text-decoration: none;
+}
+
+.aantalfilter {
+    margin-left: 15px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+
 }

@@ -1,18 +1,31 @@
 <?php
 include 'ProductFuncties.php';
 
+
+
+
+
+
 ?>
 <?php
 session_start();
 
+if(isset($_GET['aantalproducten'])) {
+    $aantalproducten = $_GET['aantalproducten'];
+    $_SESSION['aantalproducten'] = $aantalproducten;
+} else {
+    $aantalproducten = 100;
+}
+
+
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
-    header('location: loginpagina.php');
+
 }
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
-    header("location: loginpagina.php");
+
 }
 ?>
 <!-- header -->
@@ -21,9 +34,42 @@ if (isset($_GET['logout'])) {
 
 <!-- Pagina begin -->
 <div class="container-fluid">
-
     <h1>Product pagina</h1>
+
 </div>
+
+
+<div class="center">
+    <?php toonAantalPaginas($totaal); ?>
+</div>
+
+
+
+<?php
+    if(!isset($_GET["term"])){
+        echo '<div class="aantalfilter">
+<p> Totaal aantal producten per pagina: </p>
+<form action="ProductPagina.php" method="get">
+    <select name="aantalproducten">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+
+    <input type="submit" name="radiobutton" value="filter" />
+</form>
+</div>';
+    }   ?>
+
+
+
+
+
+
+
+
+
+
 <?php
 if(isset($_GET["StockGroupName"]) == true) {
     $producten = GekozeCatogoryOpvragen($_GET["StockGroupName"]);
@@ -31,6 +77,7 @@ if(isset($_GET["StockGroupName"]) == true) {
     ToonProductenOpScherm($producten);
 } else {
 if(isset($_GET["term"]) == true){
+
     $producten = GezochteProductenOpVragen($_GET["term"]);
     $ProductenbyID = GezochteProductenOpVragenID($_GET["term"]);
     $ProductenbyCategory = GezochteProductenOpVragenCategory($_GET["term"]);
@@ -43,9 +90,17 @@ if(isset($_GET["term"]) == true){
     if ($_GET["term"] != ""){
         print("Name:");}}?>
 <div class="row">
-    <?php ToonProductenOpScherm($producten);
-    print_r($producten)?>
+    <?php ToonProductenOpScherm($producten); ?>
+
 </div>
+
+<div class="center">
+    <?php toonAantalPaginas($totaal); ?>
+</div>
+
+
+
+
 <?php if($ProductenbyID != null){print("Id:");}?>
 <div class="row">
     <?php if(isset($_GET["term"]) == true){ ToonProductenOpScherm($ProductenbyID);} // verbeteren zodat bij niks dit niet gebeurd; ?>
