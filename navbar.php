@@ -25,16 +25,16 @@ $totaal = TotaalProductenOpVragen();
 
     <!--zoekbalk-->
 
-    <div class="zoekbalk">
-        <form action="ProductPagina.php" method="get">
+
+        <form class="zoekbalk" action="ProductPagina.php" method="get">
             <input type="text" name="term" value="<?php if (isset($_GET['term'])) echo $_GET['term'];?>">
             <input type="submit" value="Zoek">
         </form>
-    </div>
+
         <li><a class='navbarlink' href="registreerpagina.php">Registreren</a></li>
         <li><a class='navbarlink' href="loginpagina.php">Inloggen</a></li>
         <li><a class='navbarlink' href="FotoNaarDatabase.php">FND</a></li>
-        <li><a class='navbarlink' href="cart.php"><i class="fas fa-shopping-cart"></i></a></li>
+
 
     <?php
     if(isset($_GET["term"]) == true){
@@ -51,9 +51,11 @@ $totaal = TotaalProductenOpVragen();
 
 
         <div class="navinlog">
+            <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i> &nbsp;</a>
+
             <?php  if (isset($_SESSION['username'])) : ?>
 
-                <p style="float:left;">Welcome <strong><?php print($_SESSION['username']);?> </strong>&nbsp;</p>
+
                 <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log out</a> &nbsp;</p>
                 <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Change account data</a> </p>
 
@@ -63,9 +65,11 @@ $totaal = TotaalProductenOpVragen();
 
 </nav>
 
+<?php  if (isset($_SESSION['username'])) : ?>
 
+<p style="float:left;">Welcome <strong><?php print($_SESSION['username']);?> </strong>&nbsp;</p>
 
-
+<?php endif ?>
 
 
 <!DOCTYPE html>
