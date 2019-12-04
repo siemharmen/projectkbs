@@ -31,10 +31,18 @@ $totaal = TotaalProductenOpVragen();
             <input type="submit" value="Zoek">
         </form>
 
-        <li><a class='navbarlink' href="registreerpagina.php">Registreren</a></li>
-        <li><a class='navbarlink' href="loginpagina.php">Inloggen</a></li>
-        <li><a class='navbarlink' href="FotoNaarDatabase.php">FND</a></li>
 
+
+
+        <?php
+        if(isset($_SESSION['username'])){
+        } else {
+            echo '<li><a class="navbarlink" href="registreerpagina.php">Registreren</a></li>';
+            echo '<li><a class="navbarlink" href="loginpagina.php">Inloggen</a></li>';
+
+        } ?>
+
+    <li><a class="navbarlink" href="FotoNaarDatabase.php">FND</a></li>
 
     <?php
     if(isset($_GET["term"]) == true){
@@ -51,11 +59,11 @@ $totaal = TotaalProductenOpVragen();
 
 
         <div class="navinlog">
-            <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i> &nbsp;</a>
+
 
             <?php  if (isset($_SESSION['username'])) : ?>
 
-
+                <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i> &nbsp;</a>
                 <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log out</a> &nbsp;</p>
                 <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Profiel</a> </p>
 
