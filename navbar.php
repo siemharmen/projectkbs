@@ -65,11 +65,7 @@ $totaal = TotaalProductenOpVragen();
 </ul>
 </nav>
 
-<?php  if (isset($_SESSION['username'])) : ?>
 
-<p style="float:left; position: absolute;">Welcome <strong><?php print($_SESSION['username']);?> </strong>&nbsp;</p>
-
-<?php endif ?>
 
 
 <!DOCTYPE html>
