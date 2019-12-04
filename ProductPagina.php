@@ -44,7 +44,7 @@ if (isset($_GET['logout'])) {
 </div>
 
 
-
+<div class="aantalfilter">
 <p> Totaal aantal producten per pagina: </p>
 <form action="ProductPagina.php" method="get">
     <select name="aantalproducten">
@@ -55,6 +55,8 @@ if (isset($_GET['logout'])) {
 
     <input type="submit" name="radiobutton" value="filter" />
 </form>
+</div>
+
 
 <?php
 

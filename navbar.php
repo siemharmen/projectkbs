@@ -11,6 +11,7 @@ $totaal = TotaalProductenOpVragen();
 
 <nav>
 <ul>
+    <img class="navfoto" src="wide.png">
     <li><a class='navbarlink' href="index.php">Home</a></li>
     <li><a class='navbarlink' href="ProductPagina.php">Producten</a></li>
 

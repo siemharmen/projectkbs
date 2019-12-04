@@ -97,7 +97,10 @@ nav li:hover{
     padding: 0;
     display: inline-block;
     position: relative;
-
+}
+.navfoto {
+    margin: 5px;
+    height: 50px;
 
 }
 
@@ -110,4 +113,10 @@ nav li:hover{
 
 .mand:hover{
     text-decoration: none;
+}
+
+.aantalfilter {
+    margin-left: 15px;
+    display: inline-block;
+    position: relative;
 }
