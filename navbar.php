@@ -57,7 +57,7 @@ $totaal = TotaalProductenOpVragen();
 
 
                 <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log out</a> &nbsp;</p>
-                <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Change account data</a> </p>
+                <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Profiel</a> </p>
 
             <?php endif ?>
         </div>
