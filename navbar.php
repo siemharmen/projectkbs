@@ -10,7 +10,7 @@ $totaal = TotaalProductenOpVragen();
 ?>
 
 <nav>
-
+<ul>
     <li><a class='navbarlink' href="index.php">Home</a></li>
     <li><a class='navbarlink' href="ProductPagina.php">Producten</a></li>
 
@@ -62,12 +62,12 @@ $totaal = TotaalProductenOpVragen();
             <?php endif ?>
         </div>
 
-
+</ul>
 </nav>
 
 <?php  if (isset($_SESSION['username'])) : ?>
 
-<p style="float:left;">Welcome <strong><?php print($_SESSION['username']);?> </strong>&nbsp;</p>
+<p style="float:left; position: absolute;">Welcome <strong><?php print($_SESSION['username']);?> </strong>&nbsp;</p>
 
 <?php endif ?>
 
