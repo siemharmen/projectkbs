@@ -19,25 +19,26 @@ if (isset($_GET['logout'])) {
 <?php include 'navbar.php'; ?>
 
 
-
-
 <!-- Pagina begin -->
 <div class="container-fluid">
 
     <h1>Product pagina</h1>
-
 </div>
 <?php
-
+if(isset($_GET["StockGroupName"]) == true) {
+    $producten = GekozeCatogoryOpvragen($_GET["StockGroupName"]);
+    #print($_GET["StockGroupName"]);
+    ToonProductenOpScherm($producten);
+} else {
 if(isset($_GET["term"]) == true){
     $producten = GezochteProductenOpVragen($_GET["term"]);
     $ProductenbyID = GezochteProductenOpVragenID($_GET["term"]);
     $ProductenbyCategory = GezochteProductenOpVragenCategory($_GET["term"]);
-}else
-{$producten = AlleProductenOpVragen();
+}else {
+    $producten = AlleProductenOpVragen();
     $ProductenbyCategory = null;
     $ProductenbyID = null;
-} ?>
+}} ?>
 <?php if (isset($_GET["term"]) == true){
     if ($_GET["term"] != ""){
         print("Name:");}}?>

@@ -37,15 +37,21 @@ function  SelecteerProductenId($connection,$Zoeknummer) {
     $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
     return $result;
 }
-function  SelecteerProductenCategory($connection,$Zoekterm) {
+function  SelecteerProductenCategory($connection,$Zoekterm)
+{
     $Zoekterm = "%$Zoekterm%";
-    $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, s.StockItemID, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE Tags LIKE ?");
+    $statement1 = mysqli_prepare($connection, "SELECT StockItemName, unitPrice, s.StockItemID, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE Tags LIKE ?");
     mysqli_stmt_bind_param($statement1, 's', $Zoekterm);
     mysqli_stmt_execute($statement1);
     $result = mysqli_stmt_get_result($statement1);
-    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $result;
 }
+
+
+
+
+
 
 
 
@@ -97,6 +103,14 @@ function SelecteerGezochteProducten($connection,$Zoekterm) {
 
 function SluitVerbinding($connection) {
     mysqli_close($connection);
+}
+function SelecteerGekozeCatogory($connection,$Category){
+    $statement = mysqli_prepare($connection,"SELECT StockItemName,unitPrice,stockitems.StockItemID, f.photo from stockitems left join stockitemstockgroups on stockitems.StockItemID = stockitemstockgroups.StockItemID LEFT JOIN foto f on stockitems.stockitemid = f.stockitemid where stockitemstockgroups.StockGroupID = ?");
+    mysqli_stmt_bind_param($statement, 'i', $Category);
+    mysqli_stmt_execute($statement);
+    $result = mysqli_stmt_get_result($statement);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    return $result;
 }
 
 

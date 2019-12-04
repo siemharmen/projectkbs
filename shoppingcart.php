@@ -21,13 +21,14 @@ function addItem($item){
 
 <?php include 'navbar.php'; ?>
 
-<h1> Shopping Cart </h1><br>
+<div class="container-fluid">
+
+    <h1> Shopping Cart </h1><br>
+
+</div>
 <?php
-$producten = array();
-foreach ($cart as $value){
-    array_push($producten,GezochteProductenOpVragenID($value));
-}
-print_r($producten)
+
+$producten = GekozeCatogoryOpvragen(9)
 ?>
 <div class="row">
     <?php ToonProductenOpScherm($producten); ?>

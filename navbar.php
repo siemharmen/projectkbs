@@ -33,8 +33,10 @@ $categorieën = AlleCategorieënOpVragen();
         <li><a class='navbarlink' href="registreerpagina.php">Registreren</a></li>
         <li><a class='navbarlink' href="loginpagina.php">Inloggen</a></li>
         <li><a class='navbarlink' href="FotoNaarDatabase.php">FND</a></li>
+        <li><a class='navbarlink' href="shoppingcart.php">Shoppingcart</a></li>
 
-    <?php
+
+        <?php
     if(isset($_GET["term"]) == true){
         $producten = GezochteProductenOpVragen($_GET["term"]);
     }       else
