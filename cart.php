@@ -18,3 +18,4 @@ if (isset($_GET['logout'])) {
 <!-- header -->
 <?php include 'navbar.php'; ?>
 
+<h1> Winkelmand</h1>
