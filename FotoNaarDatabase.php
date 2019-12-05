@@ -29,16 +29,16 @@ if(isset($_POST['uploadfilesub'])) {
 
 ?>
 
-
-<!DOCTYPE html>
-<html>
-<body>
-
-<form action="" method="post" enctype="multipart/form-data">
-
-    <input type="file" name="uploadfile" />
-    <input type="submit" name="uploadfilesub" value="upload" />
-
-</form>
-</body>
-</html>
+<!---->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<body>-->
+<!---->
+<!--<form action="" method="post" enctype="multipart/form-data">-->
+<!---->
+<!--    <input type="file" name="uploadfile" />-->
+<!--    <input type="submit" name="uploadfilesub" value="upload" />-->
+<!---->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
