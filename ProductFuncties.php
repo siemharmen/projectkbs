@@ -175,7 +175,7 @@ function ToonGoedkoopProductenOpScherm($goedkoopProducten)
         print("<div class='col-4'><div class='center'>");
         print("<img src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 50%'> <br> ");
         print($gproduct["StockItemName"] . "<br>");
-        print($gproduct["unitPrice"] . "<br>");
+        print("<p style='color:green>" . $gproduct["unitPrice"] . "</p><br>");
         print("<a href=\"BekijkProduct.php?StockItemID=" . $gproduct["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
         print("</div></div>");
     }

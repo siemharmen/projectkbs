@@ -56,7 +56,7 @@ if (isset($_GET['logout'])) {
        if($key == 0){
              ?><p class="center"><img style="width:25%;" src='<?php print($filepath . $foto); ?>'></p>
              <?php  } else {
-             ?><p><img class="productgallery" style='width: 5%;' src='<?php print($filepath . $foto); ?>'></p>
+             ?><p><img style='width: 5%; ' src='<?php print($filepath . $foto); ?>'></p>
              <?php //print_r($key);
          }
 
@@ -66,9 +66,12 @@ if (isset($_GET['logout'])) {
 
 
     <!-- prijs product -->
-    <p> € <?php print($gegevens["unitPrice"]); ?> </p>
+    <h2 style="color: green;"> € <?php print($gegevens["unitPrice"]); ?> </h2>
      <!-- beschrijving -->
-    <p> <?php print($gegevens["MarketingComments"]); ?> </p>
+     <?php if(isset($gegevens["MarketingComments"])){
+         ?>  <p> Beschrijving: <?php print($gegevens["MarketingComments"]); ?> </p> <?php
+     } ?>
+
 
 
 
