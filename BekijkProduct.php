@@ -56,7 +56,7 @@ if (isset($_GET['logout'])) {
        if($key == 0){
              ?><p class="center"><img style="width:25%;" src='<?php print($filepath . $foto); ?>'></p>
              <?php  } else {
-             ?><p class="productgallery"><img style="width:5%;" src='<?php print($filepath . $foto); ?>'></p>
+             ?><p><img class="productgallery" style='width: 5%;' src='<?php print($filepath . $foto); ?>'></p>
              <?php //print_r($key);
          }
 
