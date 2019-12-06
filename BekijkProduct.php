@@ -45,24 +45,28 @@ if (isset($_GET['logout'])) {
 
 
 
-
-
-
-
-
-
-     foreach ($fotoarray as $key => $value){
+ foreach ($fotoarray as $key => $value){
          $foto = $value["Photo"];
        if($key == 0){
-             ?><p class="center"><img style="width:25%;" src='<?php print($filepath . $foto); ?>'></p>
-             <?php  } else {
-             ?><p><img style='width: 5%; ' src='<?php print($filepath . $foto); ?>'></p>
-             <?php //print_r($key);
-         }
-
+             ?><p class="center"><img style="width:20%;" src='<?php print($filepath . $foto); ?>'></p>
+             <?php  }
      }
+ ?>
 
+
+
+ <div class="productgallery" style=" overflow: hidden;" >
+
+     <?php
+     foreach ($fotoarray as $key => $value){
+         $foto = $value["Photo"];
+       if($key != 0){
+             ?><img class="" style="width:100px; height: 100px; display: inline-block; border: 2px solid black " src='<?php print($filepath . $foto); ?>'>
+            <?php }
+     }
      ?>
+ </div>
+
 
 
     <!-- prijs product -->
