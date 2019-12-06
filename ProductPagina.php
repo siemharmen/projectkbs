@@ -46,7 +46,7 @@ if (isset($_GET['logout'])) {
 
 
 <?php
-    if(!isset($_GET["term"])){
+    if(!isset($_GET["term"]) AND !isset($_GET["StockGroupName"])){
         echo '<div class="aantalfilter">
 <p> Totaal aantal producten per pagina: </p>
 <form action="ProductPagina.php" method="get">
@@ -60,8 +60,6 @@ if (isset($_GET['logout'])) {
 </form>
 </div>';
     }
-
-
 
 
     ?>
