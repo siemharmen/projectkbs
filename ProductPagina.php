@@ -71,21 +71,23 @@ if (isset($_GET['logout'])) {
 
 
 <?php
-if(isset($_GET["StockGroupName"]) == true) {
+if(isset($_GET["StockGroupName"])) {
     $producten = GekozeCatogoryOpvragen($_GET["StockGroupName"]);
     #print($_GET["StockGroupName"]);
-    ToonProductenOpScherm($producten);
+    $ProductenbyCategory = null;
+    $ProductenbyID = null;
 } else {
 if(isset($_GET["term"]) == true){
 
     $producten = GezochteProductenOpVragen($_GET["term"]);
     $ProductenbyID = GezochteProductenOpVragenID($_GET["term"]);
     $ProductenbyCategory = GezochteProductenOpVragenCategory($_GET["term"]);
-}else {
+}elseif(isset($_GET["StockGroupName"]) == false) {
     $producten = AlleProductenOpVragen();
     $ProductenbyCategory = null;
     $ProductenbyID = null;
 }} ?>
+
 <?php if (isset($_GET["term"]) == true){
     if ($_GET["term"] != ""){
         print("Name:");}}?>
