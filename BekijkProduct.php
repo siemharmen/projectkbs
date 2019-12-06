@@ -43,7 +43,7 @@ if (isset($_GET['logout'])) {
 
 
 
-
+//hoofdfoto
 
  foreach ($fotoarray as $key => $value){
          $foto = $value["Photo"];
@@ -54,7 +54,7 @@ if (isset($_GET['logout'])) {
  ?>
 
 
-
+<!-- product gallerij -->
  <div class="productgallery" style=" overflow: hidden;" >
 
      <?php
@@ -71,9 +71,11 @@ if (isset($_GET['logout'])) {
 
     <!-- prijs product -->
     <h2 style="color: green;"> € <?php print($gegevens["unitPrice"]); ?> </h2>
+
+
      <!-- beschrijving -->
      <?php if(isset($gegevens["MarketingComments"])){
-         ?>  <p> Beschrijving: <?php print($gegevens["MarketingComments"]); ?> </p> <?php
+         ?>  <p> <?php print($gegevens["MarketingComments"]); ?> </p> <?php
      } ?>
 
 
