@@ -39,12 +39,29 @@ if (isset($_GET['logout'])) {
      }
 
      $fotoarray = SelecteerAlleFotos($_GET["StockItemID"]);
-     foreach ($fotoarray as $value){
+
+
+
+
+
+
+
+
+
+
+
+
+     foreach ($fotoarray as $key => $value){
          $foto = $value["Photo"];
-         ?>
-         <p class="center"><img style="width:20%;" src='<?php print($filepath . $foto); ?>'></p>
-     <?php
+       if($key == 0){
+             ?><p class="center"><img style="width:25%;" src='<?php print($filepath . $foto); ?>'></p>
+             <?php  } else {
+             ?><p class="productgallery"><img style="width:5%;" src='<?php print($filepath . $foto); ?>'></p>
+             <?php //print_r($key);
+         }
+
      }
+
      ?>
 
 
