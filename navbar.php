@@ -58,7 +58,7 @@ $totaal = TotaalProductenOpVragen();
 
         } ?>
 
-    <li><a class="navbarlink" href="FotoNaarDatabase.php">FND</a></li>
+
 
 
         <?php
