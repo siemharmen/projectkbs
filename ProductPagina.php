@@ -59,7 +59,12 @@ if (isset($_GET['logout'])) {
     <input type="submit" name="radiobutton" value="filter" />
 </form>
 </div>';
-    }   ?>
+    }
+
+
+
+
+    ?>
 
 
 
@@ -101,7 +106,7 @@ if(isset($_GET["term"]) == true){
 
 
 
-<?php if($ProductenbyID != null){print("Id:");}?>
+<?php if($ProductenbyID != null){print("Id:");} ?>
 <div class="row">
     <?php if(isset($_GET["term"]) == true){ ToonProductenOpScherm($ProductenbyID);} // verbeteren zodat bij niks dit niet gebeurd; ?>
 </div>

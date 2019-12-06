@@ -34,7 +34,7 @@ function SelecteerProducten($connection) {
         $start = 0;
     }
 
-    $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid LIMIT $start, $rows";
+    $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid GROUP BY s.StockitemID LIMIT $start, $rows";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
@@ -50,19 +50,32 @@ function totaalProducten($connection){
 
 }
 
-
-
-
-function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, f.photo, MarketingComments  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=?");
+function SelecteerProductFotos($connection, $id) {
+    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, f.photo FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=?");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
-    mysqli_stmt_bind_result($statement, $id, $naam, $price, $foto, $comments);
+    mysqli_stmt_bind_result($statement, $id, $foto );
     mysqli_stmt_fetch($statement);
-    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "photo" => $foto, "MarketingComments" => $comments);
+    $result = array("StockItemID" => $id, "photo" => $foto);
     mysqli_stmt_close($statement);
     return $result;
 }
+
+
+function SelecteerProduct($connection, $id) {
+    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, MarketingComments, LastStocktakeQuantity FROM stockitems s JOIN stockitemholdings sih ON s.stockitemid = sih.stockitemid WHERE s.stockitemid=?");
+    mysqli_stmt_bind_param($statement, 'i', $id);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $id, $naam, $price, $comments, $voorraad);
+    mysqli_stmt_fetch($statement);
+    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "MarketingComments" => $comments, "LastStocktakeQuantity" => $voorraad);
+    mysqli_stmt_close($statement);
+    return $result;
+}
+
+
+
+
 function  SelecteerProductenId($connection,$Zoeknummer) {
     $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, StockItemID, photo FROM stockitems WHERE StockItemID =?");
     mysqli_stmt_bind_param($statement1, 'i', $Zoeknummer);

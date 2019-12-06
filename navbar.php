@@ -32,8 +32,13 @@ $totaal = TotaalProductenOpVragen();
             <input type="submit" value="Zoek">
         </form>
     </div>
-        <li><a class='navbarlink' href="registreerpagina.php">Registreren</a></li>
-        <li><a class='navbarlink' href="loginpagina.php">Inloggen</a></li>
+
+    <?php
+    if(isset($_GET["term"]) == true) {
+        echo '    <li><a class=\'navbarlink\' href="registreerpagina.php">Registreren</a></li>
+        <li><a class=\'navbarlink\' href="loginpagina.php">Inloggen</a></li>';
+    }
+         ?>
         <li><a class='navbarlink' href="FotoNaarDatabase.php">FND</a></li>
         <li><a class='navbarlink' href="shoppingcart.php">Shoppingcart</a></li>
 

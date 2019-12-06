@@ -3,8 +3,11 @@ include "ProductFuncties.php";
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
 $gegevens = ProductGegevensOpvragen($gegevens);
 $filepath = "insert-images-to-mysql\\local\\";
-$bekijkfoto = $gegevens['photo'];
+//$bekijkfoto = $gegevens['photo'];
 
+
+ $fgegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
+ $fgegevens = ProductFotoGegevensOpvragen($gegevens);
 ?>
 <?php
 session_start();
@@ -32,19 +35,41 @@ if (isset($_GET['logout'])) {
     <!-- titel product -->
     <h1 class="text-center"> <?php print($gegevens["StockItemName"]); ?> </h1>
      <!-- foto product -->
-     <?php if(isset($gegevens['photo'])){
-         $bekijkfoto = $gegevens['photo'];
-
-     } else {
-         $filepath = '';
+<!--     --><?php //if(isset($gegevens['photo'])){
+//         $bekijkfoto = $gegevens['photo'];
+//
+//     } else {
+//         $filepath = '';
          $bekijkfoto = 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458';
-     } ?>
+//     } ?>
 
-    <p class="center"><img style="width:20%;" src='<?php print($filepath . $bekijkfoto); ?>'></p>
+    <p class="center"><img style="width:20%;" src='<?php print($bekijkfoto); ?>'></p>
     <!-- prijs product -->
     <p> € <?php print($gegevens["unitPrice"]); ?> </p>
      <!-- beschrijving -->
     <p> <?php print($gegevens["MarketingComments"]); ?> </p>
+
+
+         <?php
+         if(isset($gegevens["LastStocktakeQuantity"])){
+             $voorraad = 10;
+         } else {
+             $voorraad = 0;
+         }
+
+         if($voorraad <= 10 AND $voorraad > 5){
+             print("<p style='color: orange'> Er zijn er nog maar $voorraad beschikbaar </p>");
+         } elseif($voorraad <= 5) {
+             print("<p style='color: red'> Op is op, er zijn er nog maar $voorraad beschikbaar</p>");
+         } else {
+             print("Er is nog genoeg beschikbaar <br> ");
+         }
+
+
+         print($gegevens["LastStocktakeQuantity"]); ?>
+
+<!--     <p> --><?php //print_r($fgegevens); ?><!-- </p>-->
+
 
 
 

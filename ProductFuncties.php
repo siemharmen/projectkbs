@@ -97,6 +97,16 @@ function ProductGegevensOpvragen($gegevens) {
     return $gegevens;
 }
 
+function ProductfotoGegevensOpvragen($fgegevens) {
+    if (!empty($fgegevens["StockItemID"])) {
+        $connection = MaakVerbinding();
+        $fgegevens = SelecteerProductFotos($connection, $fgegevens["StockItemID"]);
+        $fgegevens["melding"] = "";
+        SluitVerbinding($connection);
+    } else $fgegevens["melding"] = "Het id ontbreekt";
+    return $fgegevens;
+}
+
 
 
 
@@ -115,7 +125,7 @@ function toonCategoryOpScherm($categorieën)
 {
     foreach ($categorieën as $category) {
 
-        print("<li><a href=\"ProductPagina.php?StockGroupName=" . $category["StockGroupID"] . "\">" . $category["StockGroupID"] . " " . $category["StockGroupName"] . "</a></li>");
+        print("<li><a href=\"ProductPagina.php?StockGroupName=" . $category["StockGroupID"] . "\">" . $category["StockGroupName"] . "</a></li>");
        # print("<li><a href=\"ProductPagina.php?StockGroupID=" . $category["StockGroupID"] . "\">" . $category["StockGroupID"] . " " . $category["StockGroupName"] . "</a></li>");
     }
 }
