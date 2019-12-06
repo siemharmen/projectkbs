@@ -63,11 +63,17 @@ if (isset($_GET['logout'])) {
        if($key != 0){
              ?><img class="" style="width:100px; height: 100px; display: inline-block; border: 2px solid black " src='<?php print($filepath . $foto); ?>'>
             <?php }
+
      }
      ?>
  </div>
 
-
+<?php
+    if(!isset($value["Photo"])){
+        ?><p class="center"><img style="width:20%;"  src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458'></p>
+            <?php
+    }
+?>
 
     <!-- prijs product -->
     <h2 style="color: green;"> € <?php print($gegevens["unitPrice"]); ?> </h2>
