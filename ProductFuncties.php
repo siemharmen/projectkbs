@@ -184,6 +184,16 @@ function GekozeCatogoryOpvragen($catogoryID){
     return $producten;
 }
 
+function  SelecteerAlleFotos($ItemID) {
+    $connection = MaakVerbinding();
+    $statement1 = mysqli_prepare($connection,"SELECT Photo FROM foto WHERE StockItemID =?");
+    mysqli_stmt_bind_param($statement1, 'i', $ItemID);
+    mysqli_stmt_execute($statement1);
+    $result = mysqli_stmt_get_result($statement1);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    return $result;
+}
+
 
 
 ?>

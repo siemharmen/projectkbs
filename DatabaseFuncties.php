@@ -34,7 +34,7 @@ function SelecteerProducten($connection) {
         $start = 0;
     }
 
-    $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid LIMIT $start, $rows";
+    $sql = "SELECT StockItemName, s.StockItemID, unitPrice, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid group by stockitemid LIMIT $start, $rows";
     $result = mysqli_fetch_all(mysqli_query($connection, $sql),MYSQLI_ASSOC);
     return $result;
 }
@@ -144,6 +144,7 @@ function SelecteerGekozeCatogory($connection,$Category){
     $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
     return $result;
 }
+
 
 
 
