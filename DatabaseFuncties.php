@@ -57,7 +57,7 @@ function SelecteerProduct($connection, $id) {
     $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, RecommendedRetailPrice, f.photo, MarketingComments, LastStocktakeQuantity  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid JOIN stockitemholdings si ON s.stockitemid = si.stockitemid WHERE s.stockitemid=? GROUP BY stockitemid");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
-    mysqli_stmt_bind_result($statement, $id, $naam, $price, $foto, $comments, $voorraad, $oprice);
+    mysqli_stmt_bind_result($statement, $id, $naam, $price, $oprice, $foto, $comments, $voorraad);
     mysqli_stmt_fetch($statement);
     $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "RecommendedRetailPrice" =>$oprice, "photo" => $foto, "MarketingComments" => $comments, "LastStocktakeQuantity" => $voorraad);
     mysqli_stmt_close($statement);
@@ -128,7 +128,7 @@ function SelecteerGoedkoopProducten($connection) {
 
 function SelecteerGezochteProducten($connection,$Zoekterm) {
     $Zoekterm = "%$Zoekterm%";
-    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, s.StockItemID, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE StockItemName LIKE ? GROUP BY stockitemid");
+    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, RecommendedRetailPrice, s.StockItemID, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE StockItemName LIKE ? GROUP BY stockitemid");
     mysqli_stmt_bind_param($statement, 's', $Zoekterm);
     mysqli_stmt_execute($statement);
     $result = mysqli_stmt_get_result($statement);
@@ -137,7 +137,7 @@ function SelecteerGezochteProducten($connection,$Zoekterm) {
 }
 
 function SelecteerGekozeCatogory($connection,$Category){
-    $statement = mysqli_prepare($connection,"SELECT StockItemName,unitPrice,stockitems.StockItemID, f.photo from stockitems left join stockitemstockgroups on stockitems.StockItemID = stockitemstockgroups.StockItemID LEFT JOIN foto f on stockitems.stockitemid = f.stockitemid where stockitemstockgroups.StockGroupID = ? GROUP BY stockitemID");
+    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, RecommendedRetailPrice, stockitems.StockItemID, f.photo from stockitems left join stockitemstockgroups on stockitems.StockItemID = stockitemstockgroups.StockItemID LEFT JOIN foto f on stockitems.stockitemid = f.stockitemid where stockitemstockgroups.StockGroupID = ? GROUP BY stockitemID");
     mysqli_stmt_bind_param($statement, 'i', $Category);
     mysqli_stmt_execute($statement);
     $result = mysqli_stmt_get_result($statement);
