@@ -36,7 +36,7 @@ $totaal = TotaalProductenOpVragen();
 
 
 <!--        <li><a class='navbarlink' href="FotoNaarDatabase.php">FND</a></li>-->
-<!--        <li><a class='navbarlink' href="shoppingcart.php">Shoppingcart</a></li>-->
+<!--       <li><a class='navbarlink' href="shoppingcart.php">Winkelwagentje</a></li>-->
 
 
         <?php
@@ -47,7 +47,7 @@ $totaal = TotaalProductenOpVragen();
 
         } ?>
 
-
+    <li><a class='navbarlink' href="CustomerServicePage.php">Klanten Service</a></li>
 
 
         <?php
@@ -67,11 +67,11 @@ $totaal = TotaalProductenOpVragen();
 
 
         <div class="navinlog">
-
+            <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i> ( 0 ) &nbsp; </a>
 
             <?php  if (isset($_SESSION['username'])) : ?>
 
-                <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i> ( 0 ) &nbsp; </a>
+
                 <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log uit</a> &nbsp;</p>
                 <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Profiel</a> </p>
 
@@ -90,7 +90,7 @@ $totaal = TotaalProductenOpVragen();
     <meta charset="UTF-8">
     <title>Wide World Importers!</title>
     <!-- style css -->
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheet2.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- font awesome -->
