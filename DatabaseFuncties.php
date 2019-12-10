@@ -147,6 +147,4 @@ function SelecteerGekozeCatogory($connection,$Category){
 
 
 
-
-
 ?>
