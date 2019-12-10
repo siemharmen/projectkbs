@@ -139,6 +139,5 @@ if(isset($_GET["term"]) == true){
 <?php endif ?>
 
 
-
 </body>
 </html>
