@@ -109,9 +109,22 @@ if (isset($_GET['logout'])) {
      } ?>
 
 
+     <?php
+
+     $voorraad = $gegevens["QuantityOnHand"];
+     if($voorraad <= 10 AND $voorraad > 5){
+         print("<p style='color: darkorange'> beperkt aantal beschikbaar ($voorraad)");
+     } elseif($voorraad <= 5){
+         print("<p style='color: red'> nog maar ($voorraad) beschikbaar, op=op </p>");
+     } else {
+         print("<p style='color: lawngreen'>Voorraad: $voorraad</p>");
+     }
 
 
-<div class="text-center">
+     ?>
+
+
+     <div class="text-center">
 
 <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
 </div>

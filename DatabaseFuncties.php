@@ -54,12 +54,13 @@ function totaalProducten($connection){
 
 
 function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, RecommendedRetailPrice, f.photo, MarketingComments, LastStocktakeQuantity  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid JOIN stockitemholdings si ON s.stockitemid = si.stockitemid WHERE s.stockitemid=? GROUP BY stockitemid");
+    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, RecommendedRetailPrice, f.photo, MarketingComments, QuantityOnHand FROM stockitems s JOIN stockitemholdings si ON s.stockitemid = si.stockitemid
+LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=? GROUP BY stockitemid");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
     mysqli_stmt_bind_result($statement, $id, $naam, $price, $oprice, $foto, $comments, $voorraad);
     mysqli_stmt_fetch($statement);
-    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "RecommendedRetailPrice" =>$oprice, "photo" => $foto, "MarketingComments" => $comments, "LastStocktakeQuantity" => $voorraad);
+    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "RecommendedRetailPrice" =>$oprice, "photo" => $foto, "MarketingComments" => $comments, "QuantityOnHand" => $voorraad);
     mysqli_stmt_close($statement);
     return $result;
 }

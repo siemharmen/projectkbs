@@ -1,7 +1,7 @@
 <?php
 
 include "DatabaseFuncties.php";
-$gegevens = array("StockItemID" => 0, "StockItemName" => "", "photo" => "");
+$gegevens = array("StockItemID" => 0, "StockItemName" => "", "photo" => "", "QuantityOnHand" => "");
 $cgegevens = array("stockGroupID" => 0, "StockItemName" => "");
 
 
