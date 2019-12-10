@@ -36,7 +36,7 @@ $totaal = TotaalProductenOpVragen();
 
 
 <!--        <li><a class='navbarlink' href="FotoNaarDatabase.php">FND</a></li>-->
-<!--        <li><a class='navbarlink' href="shoppingcart.php">Shoppingcart</a></li>-->
+<!--       <li><a class='navbarlink' href="shoppingcart.php">Winkelwagentje</a></li>-->
 
 
         <?php
@@ -47,7 +47,7 @@ $totaal = TotaalProductenOpVragen();
 
         } ?>
 
-
+    <li><a class='navbarlink' href="CustomerServicePage.php">Klanten Service</a></li>
 
 
         <?php
