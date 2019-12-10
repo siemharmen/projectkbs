@@ -55,7 +55,7 @@ if (isset($_GET['logout'])) {
 
 
 <!-- product gallerij -->
- <div class="productgallery" style=" overflow: hidden;" >
+ <div class="productgallery" style="" >
 
      <?php
      
