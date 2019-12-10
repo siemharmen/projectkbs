@@ -1,7 +1,18 @@
-<!--<link rel="stylesheet" href="styles.css">-->
-<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-<!--<link rel="shortcut icon" type="image/x-icon" href="wide.png" />-->
+
 <?php include "ProductFuncties.php"; ?>
 <?php include "navbar.php"; ?>
 
+<div class="container">
+    <div style="text-align:center">
+        <h2>Stel hier uw vraag</h2>
+    </div>
+    <div class="row">
 
+        <div class="column">
+            <form action="Beantwoordvraag.php">
+                <textarea id="subject" name="subject" placeholder="Stel hier uw vraag.." style="height:300px"></textarea>
+                <input type="submit" value="Plaats">
+            </form>
+        </div>
+    </div>
+</div>

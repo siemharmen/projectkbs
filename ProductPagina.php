@@ -104,8 +104,6 @@ if(isset($_GET["term"]) == true){
 </div>
 
 
-
-
 <?php if($ProductenbyID != null){print("Id:");} ?>
 <div class="row">
     <?php if(isset($_GET["term"]) == true){ ToonProductenOpScherm($ProductenbyID);} // verbeteren zodat bij niks dit niet gebeurd; ?>

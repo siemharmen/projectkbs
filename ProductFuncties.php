@@ -82,7 +82,7 @@ function ToonProductenOpScherm($producten)
 
             print($product["StockItemName"] . "<br>");
             print("<del>" . "€ " . $product["RecommendedRetailPrice"] . "</del>"  . "<br>");
-            print("€ " . $product["unitPrice"] . "<br>");
+            print("<h3 class='groen'>€ " . $product["unitPrice"] . "<br></h3>");
             print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
             print("</div></div>");
         }
