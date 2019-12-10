@@ -58,10 +58,12 @@ if (isset($_GET['logout'])) {
  <div class="productgallery" style=" overflow: hidden;" >
 
      <?php
+     
      foreach ($fotoarray as $key => $value){
          $foto = $value["Photo"];
        if($key != 0){
              ?><img class="" style="width:100px; height: 100px; display: inline-block; border: 2px solid black " src='<?php print($filepath . $foto); ?>'>
+
             <?php }
 
      }
@@ -74,6 +76,26 @@ if (isset($_GET['logout'])) {
             <?php
     }
 ?>
+
+
+<!---->
+<!--     --><?php
+//        if(isset($gegevens['LastStocktakeQuantity'])){
+//            $voorraad = $gegevens['LastStocktakeQuantity'];
+//        } else {
+//            $voorraad = 0;
+//
+//     }
+//
+//     if($voorraad <= 10 AND $voorraad > 5){
+//        echo $gegevens["LastStockTakeQuantity"];
+//    } elseif( $voorraad <= 5){
+//         echo $gegevens["LastStockTakeQuantity"];
+//     } else {
+//         echo $gegevens["LastStockTakeQuantity"];
+//     }
+//     ?>
+
 
     <!-- prijs product -->
     <h2 style="color: green;"> € <?php print($gegevens["unitPrice"]); ?> </h2>
