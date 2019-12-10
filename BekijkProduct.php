@@ -55,7 +55,7 @@ if (isset($_GET['logout'])) {
 
 
 <!-- product gallerij -->
- <div class="productgallery" style=" overflow: hidden;" >
+ <div class="productgallery" style="" >
 
      <?php
      
@@ -98,7 +98,9 @@ if (isset($_GET['logout'])) {
 
 
     <!-- prijs product -->
-    <h2 style="color: green;"> € <?php print($gegevens["unitPrice"]); ?> </h2>
+    <h2 style="color: green;">
+        <del> <?php print("€ " . $gegevens["RecommendedRetailPrice"] . "<br>"); ?> </del></h2>
+        € <?php print($gegevens["unitPrice"]); ?> </h2>
 
 
      <!-- beschrijving -->
