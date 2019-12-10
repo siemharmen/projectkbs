@@ -77,6 +77,26 @@ if (isset($_GET['logout'])) {
     }
 ?>
 
+
+<!---->
+<!--     --><?php
+//        if(isset($gegevens['LastStocktakeQuantity'])){
+//            $voorraad = $gegevens['LastStocktakeQuantity'];
+//        } else {
+//            $voorraad = 0;
+//
+//     }
+//
+//     if($voorraad <= 10 AND $voorraad > 5){
+//        echo $gegevens["LastStockTakeQuantity"];
+//    } elseif( $voorraad <= 5){
+//         echo $gegevens["LastStockTakeQuantity"];
+//     } else {
+//         echo $gegevens["LastStockTakeQuantity"];
+//     }
+//     ?>
+
+
     <!-- prijs product -->
     <h2 style="color: green;"> € <?php print($gegevens["unitPrice"]); ?> </h2>
 
