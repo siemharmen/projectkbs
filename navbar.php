@@ -29,7 +29,7 @@ $totaal = TotaalProductenOpVragen();
 
         <form class="zoekbalk" action="ProductPagina.php" method="get">
             <input type="text" name="term" value="<?php if (isset($_GET['term'])) echo $_GET['term'];?>">
-            <input type="submit" value="Zoek">
+            <input type="submit" value="Zoeken">
         </form>
     </div>
 

@@ -54,12 +54,12 @@ function totaalProducten($connection){
 
 
 function SelecteerProduct($connection, $id) {
-    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, f.photo, MarketingComments  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=? GROUP BY stockitemid");
+    $statement = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, f.photo, MarketingComments, LastStocktakeQuantity  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid JOIN stockitemholdings si ON s.stockitemid = si.stockitemid WHERE s.stockitemid=? GROUP BY stockitemid");
     mysqli_stmt_bind_param($statement, 'i', $id);
     mysqli_stmt_execute($statement);
-    mysqli_stmt_bind_result($statement, $id, $naam, $price, $foto, $comments);
+    mysqli_stmt_bind_result($statement, $id, $naam, $price, $foto, $comments, $voorraad);
     mysqli_stmt_fetch($statement);
-    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "photo" => $foto, "MarketingComments" => $comments);
+    $result = array("StockItemID" => $id,"StockItemName" => $naam, "unitPrice" => $price, "photo" => $foto, "MarketingComments" => $comments, "LastStocktakeQuantity" => $voorraad);
     mysqli_stmt_close($statement);
     return $result;
 }
