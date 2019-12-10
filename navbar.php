@@ -72,7 +72,7 @@ $totaal = TotaalProductenOpVragen();
             <?php  if (isset($_SESSION['username'])) : ?>
 
                 <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i> ( 0 ) &nbsp; </a>
-                <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log out</a> &nbsp;</p>
+                <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log uit</a> &nbsp;</p>
                 <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Profiel</a> </p>
 
             <?php endif ?>

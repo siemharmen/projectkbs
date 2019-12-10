@@ -58,10 +58,12 @@ if (isset($_GET['logout'])) {
  <div class="productgallery" style=" overflow: hidden;" >
 
      <?php
+     
      foreach ($fotoarray as $key => $value){
          $foto = $value["Photo"];
        if($key != 0){
              ?><img class="" style="width:100px; height: 100px; display: inline-block; border: 2px solid black " src='<?php print($filepath . $foto); ?>'>
+
             <?php }
 
      }
