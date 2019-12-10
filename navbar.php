@@ -98,6 +98,7 @@ $totaal = TotaalProductenOpVragen();
     <link rel="shortcut icon" type="image/x-icon" href="wide.png" />
 </head>
 <body>
+
 <script src="ImageSlideFunction.js"></script>
 
 
