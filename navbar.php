@@ -47,7 +47,7 @@ $totaal = TotaalProductenOpVragen();
 
         } ?>
 
-    <li><a class='navbarlink' href="CustomerServicePage.php">Klanten Service</a></li>
+    <li><a class='navbarlink' href="CustomerServicePage.php">Klantenservice</a></li>
 
 
         <?php
