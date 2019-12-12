@@ -36,9 +36,10 @@ if (isset($_GET['logout'])) {
 <?php include 'navbar.php'; ?>
 
 
-
-
+  <a href="productpagina.php"><button type="button" class="btn btn-primary" style="margin-left: 0.5%; margin-bottom: 0.5%;"> <= terug</button></a>
  <div class="card shadow text-center">
+
+
     <!-- titel product -->
     <h1 class="text-center"> <?php print($gegevens["StockItemName"]); ?> </h1>
      <!-- foto product -->
@@ -108,7 +109,7 @@ if (isset($_GET['logout'])) {
 
      <div class="text-center">
 
-        <a href="productpagina.php"><button type="button" class="btn btn-primary">terug naar producten</button></a>
+
          <?php
 
          if($voorraad <= 0){
@@ -116,7 +117,7 @@ if (isset($_GET['logout'])) {
              ?>  <form action="" method="post">  <input type="submit" name="cartbutton" disabled=disabled value="add to cart"></form>
 <!--             <a href="#"><button type="button" class="btn btn-light disabled">Add to cart</button></a> --><?php
          } else {
-            ?>  <form action="" method='post'> <input type="submit" name="cartbutton" value="add to cart"></form>
+            ?>  <form action="" method='post'> <input type="submit" name="cartbutton" value="add to cart" class="btn btn-primary"></form>
 <!--             <a href="#"><button type="button" class="btn btn-primary">Add to cart</button></a> --><?php
          }
          ?>
