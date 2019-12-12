@@ -135,9 +135,9 @@ if (isset($_GET['logout'])) {
          <?php
 
          if($voorraad <= 0){
-           ?>  <a href=""><button type="button" class="btn btn-light disabled">Add to cart</button></a> <?php
+           ?>  <a href="#"><button type="button" class="btn btn-light disabled">Add to cart</button></a> <?php
          } else {
-            ?> <a href=""><button type="button" class="btn btn-primary">Add to cart</button></a> <?php
+            ?> <a href="#"><button type="button" class="btn btn-primary">Add to cart</button></a> <?php
          }
          ?>
 
