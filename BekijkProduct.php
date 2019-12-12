@@ -1,6 +1,7 @@
   <?php
 include "ProductFuncties.php";
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
+
 $gegevens = ProductGegevensOpvragen($gegevens);
 $filepath = "insert-images-to-mysql\\local\\";
 $bekijkfoto = $gegevens['photo'];
@@ -10,7 +11,15 @@ $bekijkfoto = $gegevens['photo'];
 session_start();
 
 # nog toevoegen bij knop
-array_push($_SESSION['cart'],$gegevens);
+if(isset($_POST['cartbutton'])){
+    array_push($_SESSION['cart'],$gegevens);
+}
+
+
+if(isset($gegevens['StockItemID'])){
+    $_SESSION["StockItemID"] = $_GET['StockItemID'];
+}
+
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -99,13 +108,16 @@ if (isset($_GET['logout'])) {
 
      <div class="text-center">
 
-        <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
+        <a href="productpagina.php"><button type="button" class="btn btn-primary">terug naar producten</button></a>
          <?php
 
          if($voorraad <= 0){
-           ?>  <a href="#"><button type="button" class="btn btn-light disabled">Add to cart</button></a> <?php
+
+             ?>  <form action="" method="post">  <input type="submit" name="cartbutton" disabled=disabled value="add to cart"></form>
+<!--             <a href="#"><button type="button" class="btn btn-light disabled">Add to cart</button></a> --><?php
          } else {
-            ?> <a href="#"><button type="button" class="btn btn-primary">Add to cart</button></a> <?php
+            ?>  <form action="" method='post'> <input type="submit" name="cartbutton" value="add to cart"></form>
+<!--             <a href="#"><button type="button" class="btn btn-primary">Add to cart</button></a> --><?php
          }
          ?>
 
