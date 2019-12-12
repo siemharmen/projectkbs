@@ -46,58 +46,26 @@ if (isset($_GET['logout'])) {
 
 
 
-//hoofdfoto
-
+//foto met slides
  foreach ($fotoarray as $key => $value){
          $foto = $value["Photo"];
-       if($key == 0){
-             ?><p class="center"><img style="width:20%;" src='<?php print($filepath . $foto); ?>'></p>
-             <?php  }
+
+             ?><p class="mySlides center"><img style="width:400px; height: 400px;" src='<?php print($filepath . $foto); ?>'></p>
+             <?php
      }
  ?>
 
-
-<!-- product gallerij -->
- <div class="productgallery" style="" >
-
-     <?php
-     
-     foreach ($fotoarray as $key => $value){
-         $foto = $value["Photo"];
-       if($key != 0){
-             ?><img class="" style="width:100px; height: 100px; display: inline-block; border: 2px solid black " src='<?php print($filepath . $foto); ?>'>
-
-            <?php }
-
-     }
-     ?>
- </div>
-
 <?php
+//als geen foto in db staat
     if(!isset($value["Photo"])){
         ?><p class="center"><img style="width:20%;"  src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458'></p>
             <?php
     }
 ?>
 
-
-<!---->
-<!--     --><?php
-//        if(isset($gegevens['LastStocktakeQuantity'])){
-//            $voorraad = $gegevens['LastStocktakeQuantity'];
-//        } else {
-//            $voorraad = 0;
-//
-//     }
-//
-//     if($voorraad <= 10 AND $voorraad > 5){
-//        echo $gegevens["LastStockTakeQuantity"];
-//    } elseif( $voorraad <= 5){
-//         echo $gegevens["LastStockTakeQuantity"];
-//     } else {
-//         echo $gegevens["LastStockTakeQuantity"];
-//     }
-//     ?>
+     <!-- linken van javascript file -->
+     <script src="script.js"></script>
+     <br><br>
 
 
     <!-- prijs product -->
