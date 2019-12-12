@@ -88,7 +88,38 @@ function ToonProductenOpScherm($producten)
         }
     }
 }
+function ToonProductenInCart($producten)
+{
+    $i =0;
+    if (is_array($producten)) {
+        foreach ($producten as $product) {
 
+
+            print("<div class='col-3 card shadow'><div class='center'>");
+
+
+            if(isset($product["photo"])){
+                $productfoto = $product["photo"];
+                print("<img class='productfoto' src='insert-images-to-mysql/local/$productfoto' style='width: 50%'> <br>");
+            } else {
+                print("<img class='productfoto' src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 50%'> <br>");
+            }
+
+
+            print($product["StockItemName"] . "<br>");
+            print("<del>" . "€ " . $product["RecommendedRetailPrice"] . "</del>"  . "<br>");
+            print("<h3 class='groen'>€ " . $product["unitPrice"] . "<br></h3>");
+            print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
+            print("<input type=\"button\" onclick=\"$i--\" value=\"-\" />");
+            print($i);
+            print("<input type=\"button\" onclick=\"$i++\" value=\"+\" /><br>");
+            #mischien function aanmaken die het verwijderd
+            print("<input type=\"button\" onclick=\"\" value=\"Remove\" />");
+
+            print("</div></div>");
+        }
+    }
+}
 function ProductGegevensOpvragen($gegevens) {
     if (!empty($gegevens["StockItemID"])) {
         $connection = MaakVerbinding();

@@ -32,7 +32,7 @@ if (isset($_GET['logout'])) {
 <h2 style="float:left;"> producten in mand: </h2>
     <div class="row">
         <?php
-        ToonProductenOpScherm($_SESSION['cart']); ?>
+        ToonProductenInCart($_SESSION['cart']); ?>
     </div>
 
 
