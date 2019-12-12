@@ -63,6 +63,14 @@ if (isset($_POST['reg_user'])) {
   			  VALUES('$username', '$email', '$password', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        $_SESSION['voornaam'] = $voornaam;
+        $_SESSION['achternaam'] = $achternaam;
+        $_SESSION['postcode'] = $postcode;
+        $_SESSION['huisnummer'] = $huisnummer;
+        $_SESSION['straatnaam'] = $straatnaam;
+        $_SESSION['plaats'] = $plaats;
+
         $_SESSION['success'] = "You are now logged in";
         header('location: index.php');
     }
