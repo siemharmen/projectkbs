@@ -67,7 +67,20 @@ $totaal = TotaalProductenOpVragen();
 
 
         <div class="navinlog">
-            <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i> ( 0 ) &nbsp; </a>
+            <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i>
+
+                <?php
+
+                if(isset($_SESSION['cart'])){
+                print(count($_SESSION['cart']));
+                } else {
+                    print("0");
+                }
+
+
+                ?>
+         &nbsp;
+            </a>
 
             <?php  if (isset($_SESSION['username'])) : ?>
 

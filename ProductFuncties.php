@@ -58,6 +58,13 @@ function ToonAantalPaginas($totaal){
 
 
 
+function AantalInMand($connection){
+    if(isset($_SESSION['cart'])){
+        $totaalInMand = "";
+
+    }
+}
+
 
 
 
