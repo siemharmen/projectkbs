@@ -10,7 +10,7 @@ $bekijkfoto = $gegevens['photo'];
 session_start();
 
 # nog toevoegen bij knop
-array_push($_SESSION['cart'],$gegevens["StockItemID"]);
+array_push($_SESSION['cart'],$gegevens);
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -46,58 +46,26 @@ if (isset($_GET['logout'])) {
 
 
 
-//hoofdfoto
-
+//foto met slides
  foreach ($fotoarray as $key => $value){
          $foto = $value["Photo"];
-       if($key == 0){
-             ?><p class="center"><img style="width:20%;" src='<?php print($filepath . $foto); ?>'></p>
-             <?php  }
+
+             ?><p class="mySlides center"><img style="width:400px; height: 400px;" src='<?php print($filepath . $foto); ?>'></p>
+             <?php
      }
  ?>
 
-
-<!-- product gallerij -->
- <div class="productgallery" style="" >
-
-     <?php
-     
-     foreach ($fotoarray as $key => $value){
-         $foto = $value["Photo"];
-       if($key != 0){
-             ?><img class="" style="width:100px; height: 100px; display: inline-block; border: 2px solid black " src='<?php print($filepath . $foto); ?>'>
-
-            <?php }
-
-     }
-     ?>
- </div>
-
 <?php
+//als geen foto in db staat
     if(!isset($value["Photo"])){
         ?><p class="center"><img style="width:20%;"  src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458'></p>
             <?php
     }
 ?>
 
-
-<!---->
-<!--     --><?php
-//        if(isset($gegevens['LastStocktakeQuantity'])){
-//            $voorraad = $gegevens['LastStocktakeQuantity'];
-//        } else {
-//            $voorraad = 0;
-//
-//     }
-//
-//     if($voorraad <= 10 AND $voorraad > 5){
-//        echo $gegevens["LastStockTakeQuantity"];
-//    } elseif( $voorraad <= 5){
-//         echo $gegevens["LastStockTakeQuantity"];
-//     } else {
-//         echo $gegevens["LastStockTakeQuantity"];
-//     }
-//     ?>
+     <!-- linken van javascript file -->
+     <script src="script.js"></script>
+     <br><br>
 
 
     <!-- prijs product -->
@@ -115,12 +83,14 @@ if (isset($_GET['logout'])) {
      <?php
 
      $voorraad = $gegevens["QuantityOnHand"];
-     if($voorraad <= 10 AND $voorraad > 5){
+     if($voorraad <= 20 AND $voorraad > 10){
          print("<p style='color: darkorange'> beperkt aantal beschikbaar ($voorraad)");
-     } elseif($voorraad <= 5){
+     } elseif($voorraad <= 10 AND $voorraad > 0){
          print("<p style='color: red'> nog maar ($voorraad) beschikbaar, op=op </p>");
+     } elseif($voorraad == 0) {
+         print("<p style='color: darkred'>Voorraad is op! </p>");
      } else {
-         print("<p style='color: lawngreen'>Voorraad: $voorraad</p>");
+         print("<p style='color: lawngreen'>Voorraad; 20+ </p>");
      }
 
 
@@ -129,8 +99,17 @@ if (isset($_GET['logout'])) {
 
      <div class="text-center">
 
-<a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
-</div>
+        <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
+         <?php
+
+         if($voorraad <= 0){
+           ?>  <a href="#"><button type="button" class="btn btn-light disabled">Add to cart</button></a> <?php
+         } else {
+            ?> <a href="#"><button type="button" class="btn btn-primary">Add to cart</button></a> <?php
+         }
+         ?>
+
+     </div>
 
  <br>
 
