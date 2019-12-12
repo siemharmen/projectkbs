@@ -32,9 +32,11 @@ session_start();
 
 <br><br>
 <div class="text-center">
-    <?php
-    if(isset($_SESSION['cart'])){
-    print("<form action=\"bestelpagina.php\" method='post'> <input type=\"submit\" name=\"\" value=\"bestellen\" class=\"btn btn-primary\"></form>"); } ?>
+
+
+    <form action="bestelpagina.php" method='post'> <input type="submit" name="" value="bestellen" class="btn btn-primary"></form>
+
+
 
 
 </div>
