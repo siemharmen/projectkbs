@@ -15,8 +15,6 @@ function SluitVerbinding($connection) {
 
 
 
-
-
 //selecteerd de producten voor de productpagina
 function SelecteerProducten($connection) {
     if(isset($_GET["page"])){

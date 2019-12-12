@@ -1,18 +1,26 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+}
+
+?>
 
 <?php include "ProductFuncties.php"; ?>
 <?php include "navbar.php"; ?>
 
-<div class="container">
-    <div style="text-align:center">
-        <h2>Stel hier uw vraag</h2>
-    </div>
-    <div class="row">
 
-        <div class="column">
-            <form action="Beantwoordvraag.php">
-                <textarea id="subject" name="subject" placeholder="Stel hier uw vraag.." style="height:300px"></textarea>
-                <input type="submit" value="Plaats">
-            </form>
-        </div>
-    </div>
-</div>
+    <div style="text-align:center">
+        <h2>Klantenservice</h2>
+        <h3>Snel antwoord op uw vraag!</h3>
+
+        <body> <br> Wanneer u een vraag heeft mail dan naar klantenservice@wwi.com of neem telefonisch contact op via 0612345678</body>
+
+
+

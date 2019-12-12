@@ -36,6 +36,7 @@ if (isset($_GET['logout'])) {
 
 
 <!-- Pagina begin -->
+
 <div class="container-fluid">
     <h1>Product pagina</h1>
 
