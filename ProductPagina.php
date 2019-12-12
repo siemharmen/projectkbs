@@ -10,6 +10,9 @@ include 'ProductFuncties.php';
 <?php
 session_start();
 
+
+
+
 if(isset($_GET['aantalproducten'])) {
     $aantalproducten = $_GET['aantalproducten'];
     $_SESSION['aantalproducten'] = $aantalproducten;

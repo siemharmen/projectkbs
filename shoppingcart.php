@@ -31,7 +31,8 @@ function addItem($item){
 $producten = GekozeCatogoryOpvragen(9)
 ?>
 <div class="row">
-    <?php ToonProductenOpScherm($producten); ?>
+    <?php
+    ToonProductenOpScherm($producten); ?>
 </div>
 </php>
 
