@@ -56,7 +56,7 @@ include 'ProductFuncties.php';
         <button type="submit" class="btn" name="reg_user">Register</button>
     </div>
     <p>
-        Already a member? <a href="loginpagina.php">Sign in</a>
+        Heb je al een account? <a href="loginpagina.php">Log hier in</a>
     </p>
 </form>
 </body>
