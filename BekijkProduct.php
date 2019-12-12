@@ -9,6 +9,9 @@ $bekijkfoto = $gegevens['photo'];
 <?php
 session_start();
 
+# nog toevoegen bij knop
+array_push($_SESSION['cart'],$gegevens["StockItemID"]);
+
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
 }

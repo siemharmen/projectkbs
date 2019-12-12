@@ -1,9 +1,9 @@
 <?php
 include 'ProductFuncties.php';
-
 ?>
 <?php
 session_start();
+# $_SESSION['cart'][] = array();
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -20,9 +20,19 @@ if (isset($_GET['logout'])) {
 
 <h1> Winkelmand</h1>
 <br><br>
-<h2 style="float:left;"> producten in mand: </h2>
-
-
 
 <?php
+#array_push($_SESSION['cart'],"test");
+#array_push($_SESSION['cart'],"test");
+#array_push($_SESSION['cart'],"test");
+#array_push($_SESSION['cart'],"test")
+# onthouden push en array maken op andere plaatsen mischein if als session cart niet bestaat via issit
+?>
+
+<h2 style="float:left;"> producten in mand: </h2>
+    <div class="row">
+        <?php
+        ToonProductenOpScherm($_SESSION['cart']); ?>
+    </div>
+
 
