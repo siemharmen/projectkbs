@@ -117,7 +117,7 @@ if (isset($_GET['logout'])) {
              ?>  <form action="" method="post">  <input type="submit" name="cartbutton" disabled=disabled value="add to cart"></form>
 <!--             <a href="#"><button type="button" class="btn btn-light disabled">Add to cart</button></a> --><?php
          } else {
-            ?>  <form action="" method='post'> <input type="submit" name="cartbutton" value="add to cart" class="btn btn-primary"></form>
+            ?>  <form action="" method='post'> <input type="submit" name="cartbutton" value="Voeg toe aan mand" class="btn btn-primary"></form>
 <!--             <a href="#"><button type="button" class="btn btn-primary">Add to cart</button></a> --><?php
          }
          ?>

@@ -14,7 +14,7 @@ $totaal = TotaalProductenOpVragen();
     <img class="navfoto" src="wide.png">
     <li><a class='navbarlink' href="index.php">Home</a></li>
     <li><a class='navbarlink' href="ProductPagina.php">Producten</a></li>
-
+    <li><a class='navbarlink' href="CustomerServicePage.php">Contact</a></li>
     <!-- categorieën in de navbar -->
     <li class="dropdown">Categorieën
         <ul class="dropdown-content">
@@ -46,7 +46,7 @@ $totaal = TotaalProductenOpVragen();
 
         } ?>
 
-    <li><a class='navbarlink' href="CustomerServicePage.php">Klantenservice</a></li>
+
 
 
         <?php
