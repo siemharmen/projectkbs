@@ -115,12 +115,14 @@ if (isset($_GET['logout'])) {
      <?php
 
      $voorraad = $gegevens["QuantityOnHand"];
-     if($voorraad <= 10 AND $voorraad > 5){
+     if($voorraad <= 20 AND $voorraad > 10){
          print("<p style='color: darkorange'> beperkt aantal beschikbaar ($voorraad)");
-     } elseif($voorraad <= 5){
+     } elseif($voorraad <= 10 AND $voorraad > 0){
          print("<p style='color: red'> nog maar ($voorraad) beschikbaar, op=op </p>");
+     } elseif($voorraad == 0) {
+         print("<p style='color: darkred'>Voorraad is op! </p>");
      } else {
-         print("<p style='color: lawngreen'>Voorraad: $voorraad</p>");
+         print("<p style='color: lawngreen'>Voorraad; 20+ </p>");
      }
 
 
@@ -129,8 +131,17 @@ if (isset($_GET['logout'])) {
 
      <div class="text-center">
 
-<a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
-</div>
+        <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button" class="btn btn-primary">terug naar producten</button></a>
+         <?php
+
+         if($voorraad <= 0){
+           ?>  <a href=""><button type="button" class="btn btn-light disabled">Add to cart</button></a> <?php
+         } else {
+            ?> <a href=""><button type="button" class="btn btn-primary">Add to cart</button></a> <?php
+         }
+         ?>
+
+     </div>
 
  <br>
 
