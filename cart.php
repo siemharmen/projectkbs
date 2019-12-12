@@ -5,15 +5,7 @@ include 'ProductFuncties.php';
 session_start();
 # $_SESSION['cart'][] = array();
 
-if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: loginpagina.php');
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: loginpagina.php");
-}
+
 ?>
 <!-- header -->
 <?php include 'navbar.php'; ?>
@@ -32,7 +24,20 @@ if (isset($_GET['logout'])) {
 <h2 style="float:left;"> producten in mand: </h2>
     <div class="row">
         <?php
-        ToonProductenInCart($_SESSION['cart']); ?>
+        if(isset($_SESSION['cart'])){
+        ToonProductenInCart($_SESSION['cart']); } ?>
     </div>
 
 
+
+<br><br>
+<div class="text-center">
+    <?php
+    if(isset($_SESSION['cart'])){
+    print("<form action=\"bestelpagina.php\" method='post'> <input type=\"submit\" name=\"\" value=\"bestellen\" class=\"btn btn-primary\"></form>"); } ?>
+
+
+</div>
+
+</body>
+</html>
