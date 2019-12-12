@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
     <h2>Home Page</h2>
 </div>
 <div class="content">
-    <!-- notification message -->
+        <!-- notification message -->
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="error success" >
             <h3>
