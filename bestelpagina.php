@@ -1,8 +1,9 @@
 <?php
 include 'ProductFuncties.php';
+include 'server.php';
 ?>
 <?php
-session_start();
+
 # $_SESSION['cart'][] = array();
 
 
@@ -16,10 +17,12 @@ session_start();
 <br><br>
 
 
-<?php if(isset($_SESSION['username'])){
+<?php
     print_r($_SESSION);
-} else {
+
+
+    print($postcode);
+
     print("vul gegevens in: ");
-}
 
 ?>
