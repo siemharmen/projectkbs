@@ -64,6 +64,9 @@ if (isset($_POST['reg_user'])) {
   			  VALUES('$username', '$email', '$password', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
+        $_SESSION['postcode'] = $postcode;
+
+
         $_SESSION['success'] = "You are now logged in";
         header('location: index.php');
     }
@@ -72,6 +75,7 @@ if (isset($_POST['reg_user'])) {
 if (isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
+    $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
 
     if (empty($username)) {
         array_push($errors, "Username is required");
@@ -86,6 +90,9 @@ if (isset($_POST['login_user'])) {
         $results = mysqli_query($db, $query);
         if (mysqli_num_rows($results) == 1) {
             $_SESSION['username'] = $username;
+
+
+
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
         }else {

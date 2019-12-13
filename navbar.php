@@ -14,7 +14,7 @@ $totaal = TotaalProductenOpVragen();
     <img class="navfoto" src="wide.png">
     <li><a class='navbarlink' href="index.php">Home</a></li>
     <li><a class='navbarlink' href="ProductPagina.php">Producten</a></li>
-
+    <li><a class='navbarlink' href="CustomerServicePage.php">Contact</a></li>
     <!-- categorieën in de navbar -->
     <li class="dropdown">Categorieën
         <ul class="dropdown-content">
@@ -35,8 +35,7 @@ $totaal = TotaalProductenOpVragen();
 
 
 
-<!--        <li><a class='navbarlink' href="FotoNaarDatabase.php">FND</a></li>-->
-<!--       <li><a class='navbarlink' href="shoppingcart.php">Winkelwagentje</a></li>-->
+
 
 
         <?php
@@ -47,7 +46,7 @@ $totaal = TotaalProductenOpVragen();
 
         } ?>
 
-    <li><a class='navbarlink' href="CustomerServicePage.php">Klantenservice</a></li>
+
 
 
         <?php
@@ -67,7 +66,7 @@ $totaal = TotaalProductenOpVragen();
 
 
         <div class="navinlog">
-            <a class="mand" style="float:left; color: white;" href="cart.php">Mand <i class="fas fa-shopping-cart"></i>
+            <a class="mand" style="float:left; color: white;" href="cart.php"><i class="fas fa-shopping-cart"></i> Mand(
 
                 <?php
 
@@ -79,7 +78,7 @@ $totaal = TotaalProductenOpVragen();
 
 
                 ?>
-         &nbsp;
+         )&nbsp;
             </a>
 
             <?php  if (isset($_SESSION['username'])) : ?>
