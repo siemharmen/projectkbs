@@ -95,6 +95,7 @@ function ToonProductenOpScherm($producten)
         }
     }
 }
+
 function ToonProductenInCart($producten)
 {
     $i =0;
@@ -121,7 +122,8 @@ function ToonProductenInCart($producten)
             print($i);
             print("<input type=\"button\" onclick=\"$i++\" value=\"+\" /><br>");
             #mischien function aanmaken die het verwijderd
-            print("<input type=\"button\" onclick=\"\" value=\"Remove\" />");
+            print("<a href=\"cart.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Remove</button></a><br><br> ");
+
 
             print("</div></div>");
         }
@@ -136,6 +138,7 @@ function ProductGegevensOpvragen($gegevens) {
     } else $gegevens["melding"] = "Het id ontbreekt";
     return $gegevens;
 }
+
 
 function ProductfotoGegevensOpvragen($fgegevens) {
     if (!empty($fgegevens["StockItemID"])) {
