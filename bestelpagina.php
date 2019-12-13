@@ -21,8 +21,8 @@ include 'server.php';
     print_r($_SESSION);
 
 
-    print($postcode);
 
-    print("vul gegevens in: ");
+
+
 
 ?>
