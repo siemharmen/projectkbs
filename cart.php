@@ -1,4 +1,4 @@
-<?php
+     <?php
 include 'ProductFuncties.php';
 ?>
 <?php
@@ -22,16 +22,15 @@ session_start();
 ?>
 <?php
 if(isset($_GET['StockItemID'])){
-    print("1");
     RemoveFromArray($_GET['StockItemID']);
 }
 function RemoveFromArray($term){
-    print_R(GezochteProductenOpVragenID($term));
+
+
     print("<br>");
-    print_r($_SESSION['cart']);
-    if (in_array(GezochteProductenOpVragenID($term), $_SESSION['cart'])) {
-        print("test");
-        unset($_SESSION['cart'][array_search($term,$_SESSION['cart'][$_GET['StockItemID']])]);
+    if (in_array(ProductGegevensByID($term), $_SESSION['cart'])) {
+        $key = array_search(ProductGegevensByID($term), $_SESSION['cart']);
+        unset($_SESSION['cart'][$key]);
     }
 }
 ?>

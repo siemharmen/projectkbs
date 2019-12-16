@@ -63,7 +63,9 @@ LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=? GROUP BY
     return $result;
 }
 function  SelecteerProductenId($connection,$Zoeknummer) {
-    $statement1 = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, RecommendedRetailPrice, StockItemID, photo FROM stockitems WHERE StockItemID =? GROUP BY stockitemid");
+    #$statement1 = mysqli_prepare($connection,"SELECT StockItemID, StockItemName, unitPrice, RecommendedRetailPrice, photo FROM stockitems  WHERE StockItemID =? GROUP BY stockitemid");
+    $statement1 = mysqli_prepare($connection, "SELECT s.stockitemid, stockitemname, unitPrice, RecommendedRetailPrice, f.photo, MarketingComments, QuantityOnHand FROM stockitems s JOIN stockitemholdings si ON s.stockitemid = si.stockitemid
+LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.stockitemid=? GROUP BY stockitemid");
     mysqli_stmt_bind_param($statement1, 'i', $Zoeknummer);
     mysqli_stmt_execute($statement1);
     $result = mysqli_stmt_get_result($statement1);
