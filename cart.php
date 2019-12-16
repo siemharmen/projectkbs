@@ -25,9 +25,6 @@ if(isset($_GET['StockItemID'])){
     RemoveFromArray($_GET['StockItemID']);
 }
 function RemoveFromArray($term){
-
-
-    print("<br>");
     if (in_array(ProductGegevensByID($term), $_SESSION['cart'])) {
         $key = array_search(ProductGegevensByID($term), $_SESSION['cart']);
         unset($_SESSION['cart'][$key]);
@@ -35,6 +32,8 @@ function RemoveFromArray($term){
 }
 ?>
 <h2 style="float:left;"> producten in mand: </h2>
+
+<h2 style="position: absolute;"> producten in mand: </h2>
     <div class="row">
         <?php
         if(isset($_SESSION['cart'])){
@@ -43,16 +42,15 @@ function RemoveFromArray($term){
 
 
 
-<br><br>
+<br><br><br><br><br><br><br>
 <div class="text-center">
-
-
     <form action="bestelpagina.php" method='post'> <input type="submit" name="" value="bestellen" class="btn btn-primary"></form>
 
-
-
-
 </div>
+
+
+
+
 
 </body>
 </html>

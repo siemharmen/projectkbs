@@ -3,6 +3,7 @@ session_start();
 $_SESSION['cart'] = array();
 #nee aleen bij inlogt kan je dingen
 
+
 // initializing variables
 $username = "";
 $email    = "";
@@ -65,6 +66,7 @@ if (isset($_POST['reg_user'])) {
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['postcode'] = $postcode;
+        $_SESSION['huisnummer'] = $huisnummer;
 
 
         $_SESSION['success'] = "You are now logged in";
@@ -75,7 +77,6 @@ if (isset($_POST['reg_user'])) {
 if (isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
-    $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
 
     if (empty($username)) {
         array_push($errors, "Username is required");
@@ -88,11 +89,16 @@ if (isset($_POST['login_user'])) {
         $password = md5($password);
         $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
         $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) == 1) {
+        $results = mysqli_fetch_array($results, MYSQLI_ASSOC);
+        if ($results != null) {
             $_SESSION['username'] = $username;
-
-
-
+            $_SESSION['email'] = $results['email'];
+            $_SESSION['voornaam'] = $results['voornaam'];
+            $_SESSION['achternaam'] = $results['achternaam'];
+            $_SESSION['postcode'] = $results['postcode'];
+            $_SESSION['huisnummer'] = $results['huisnummer'];
+            $_SESSION['straatnaam'] = $results['straatnaam'];
+            $_SESSION['plaats'] = $results['plaats'];
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
         }else {

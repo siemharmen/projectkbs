@@ -50,11 +50,11 @@ nav{
     font-size: 18px;
     font-weight: bold;
     padding-right: 15px;
-    text-align: left;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 9999;
+    /*text-align: left;*/
+    /*position: fixed;*/
+    /*width: 100%;*/
+    /*top: 0;*/
+    /*z-index: 9999;*/
 
 }
 
