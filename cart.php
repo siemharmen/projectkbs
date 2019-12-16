@@ -21,7 +21,7 @@ session_start();
 # onthouden push en array maken op andere plaatsen mischein if als session cart niet bestaat via issit
 ?>
 
-<h2 style="float:left;"> producten in mand: </h2>
+<h2 style="position: absolute;"> producten in mand: </h2>
     <div class="row">
         <?php
         if(isset($_SESSION['cart'])){
@@ -30,16 +30,15 @@ session_start();
 
 
 
-<br><br>
+<br><br><br><br><br><br><br>
 <div class="text-center">
-
-
     <form action="bestelpagina.php" method='post'> <input type="submit" name="" value="bestellen" class="btn btn-primary"></form>
 
-
-
-
 </div>
+
+
+
+
 
 </body>
 </html>
