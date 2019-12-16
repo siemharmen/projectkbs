@@ -95,6 +95,7 @@ function ToonProductenOpScherm($producten)
         }
     }
 }
+
 function ToonProductenInCart($producten)
 {
     $i =0;
@@ -121,7 +122,8 @@ function ToonProductenInCart($producten)
             print($i);
             print("<input type=\"button\" onclick=\"$i++\" value=\"+\" /><br>");
             #mischien function aanmaken die het verwijderd
-            print("<input type=\"button\" onclick=\"\" value=\"Remove\" />");
+            print("<a href=\"cart.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Remove</button></a><br><br> ");
+
 
             print("</div></div>");
         }
@@ -136,6 +138,14 @@ function ProductGegevensOpvragen($gegevens) {
     } else $gegevens["melding"] = "Het id ontbreekt";
     return $gegevens;
 }
+function ProductGegevensByID($id) {
+        $connection = MaakVerbinding();
+        $gegevens = SelecteerProduct($connection,$id);
+        $gegevens["melding"] = "";
+        SluitVerbinding($connection);
+    return $gegevens;
+}
+
 
 function ProductfotoGegevensOpvragen($fgegevens) {
     if (!empty($fgegevens["StockItemID"])) {
@@ -196,6 +206,7 @@ function GezochteProductenOpVragen($Zoekterm){
 function GezochteProductenOpVragenID($Zoekterm){
     $connection = MaakVerbinding();
     $producten = SelecteerProductenId($connection,$Zoekterm);
+    $producten["melding"] = "";
     SluitVerbinding($connection);
     return $producten;
 }
@@ -214,8 +225,8 @@ function ToonGoedkoopProductenOpScherm($goedkoopProducten)
         print("<div class='col-4'><div class='center'>");
         print("<img src='https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?v=1530129458' style='width: 50%'> <br> ");
         print($gproduct["StockItemName"] . "<br>");
-        print("€ " . $product["RecommendedRetailPrice"] . "<br>");
-        print("<p style='color:green>" . $product["unitPrice"] . "</p><br>");
+        #print("€ " . $product["RecommendedRetailPrice"] . "<br>");
+        #print("<p style='color:green>" . $product["unitPrice"] . "</p><br>");
         print("<a href=\"BekijkProduct.php?StockItemID=" . $gproduct["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
         print("</div></div>");
     }

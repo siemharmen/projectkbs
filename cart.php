@@ -1,4 +1,4 @@
-<?php
+     <?php
 include 'ProductFuncties.php';
 ?>
 <?php
@@ -20,6 +20,18 @@ session_start();
 #array_push($_SESSION['cart'],"test")
 # onthouden push en array maken op andere plaatsen mischein if als session cart niet bestaat via issit
 ?>
+<?php
+if(isset($_GET['StockItemID'])){
+    RemoveFromArray($_GET['StockItemID']);
+}
+function RemoveFromArray($term){
+    if (in_array(ProductGegevensByID($term), $_SESSION['cart'])) {
+        $key = array_search(ProductGegevensByID($term), $_SESSION['cart']);
+        unset($_SESSION['cart'][$key]);
+    }
+}
+?>
+<h2 style="float:left;"> producten in mand: </h2>
 
 <h2 style="position: absolute;"> producten in mand: </h2>
     <div class="row">

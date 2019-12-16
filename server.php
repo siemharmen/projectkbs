@@ -1,5 +1,8 @@
 <?php
 session_start();
+$_SESSION['cart'] = array();
+#nee aleen bij inlogt kan je dingen
+
 
 // initializing variables
 $username = "";
