@@ -28,7 +28,7 @@ include 'ProductFuncties.php';
     </div>
     <p>
         Not yet a member? <a href="registreerpagina.php">Sign up</a>
-    </p>
+            </p>
 </form>
 </body>
 </html>

@@ -8,69 +8,41 @@
     <link rel="shortcut icon" type="image/x-icon" href="wide.png" />
 </head>
 <body>
-<?php include 'navbar.php';
+<?php include 'navbar.php'; ?>
 
-$db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
-
-$newusername = $username;
-$newemail = $email;
-$newvoornaam = $voornaam;
-$newachternaam = $achternaam;
-$newpostcode = $postcode;
-$newhuisnummer = $huisnummer;
-$newstraatnaam = $straatnaam;
-$newplaats = $plaats;
-?>
 
 <div class="header">
     <h2>Updaten</h2>
 </div>
-<form method="post" action="registreerpagina.php">
-    <?php include('errors.php'); ?>
-    <div class="input-group">
-        <label>Username</label>
-        <input type="text" name="username" value="<?php echo $newusername; ?>">
-    </div>
-    <div class="input-group">
-        <label>Email</label>
-        <input type="email" name="email" value="<?php echo $newemail; ?>">
-    </div>
-    <div class="input-group">
-        <label>Password</label>
-        <input type="password" name="password_1">
-    </div>
-    <div class="input-group">
-        <label>Confirm password</label>
-        <input type="password" name="password_2">
-        <div class="input-group">
-            <label>Voornaam</label>
-            <input type="text" name="voornaam" value="<?php echo $newvoornaam; ?>">
-        </div>
-        <div class="input-group">
-            <label>Achternaam</label>
-            <input type="text" name="achternaam" value="<?php echo $newachternaam; ?>">
-        </div>
-        <div class="input-group">
-            <label>Postcode</label>
-            <input type="text" name="postcode" value="<?php echo $newpostcode; ?>">
-        </div>
-        <div class="input-group">
-            <label>Huisnummer</label>
-            <input type="text" name="huisnummer" value="<?php echo $newhuisnummer; ?>">
-        </div>
-        <div class="input-group">
-            <label>Straatnaam</label>
-            <input type="text" name="straatnaam" value="<?php echo $newstraatnaam; ?>">
-        </div>
-        <div class="input-group">
-            <label>Plaats</label>
-            <input type="text" name="plaats" value="<?php echo $newplaats; ?>">
-        </div>
-    </div>
-    <div class="input-group">
-        <button type="submit" class="btn" name="reg_user">Update</button>
-    </div>
+
+
+<form id="edit" method="POST" action="">
+
+    <h1>
+        <label for="voornaam">voornaam *</label>
+        <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>"/>
+    </h1>
+
+    <h1>
+        <button id="submit" type="submit">Submit</button>
+    </h1>
+
 </form>
-   
+
+<?php
+$db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
+if (isset($_POST['voornaam'])) {
+    $voornaam = $_POST["voornaam"];
+
+    $id = $_SESSION["id"];
+    $stmt = $db->prepare("UPDATE users SET voornaam = ?  WHERE id = ?");
+    $stmt->bind_param("si",$voornaam,$id);
+    $stmt->execute();
+    $_SESSION['success'] = "Account info updated";
+    header('location: index.php');
+    session_destroy();
+}
+?>
+
 </body>
 </html>
