@@ -33,7 +33,6 @@
 $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 if (isset($_POST['voornaam'])) {
     $voornaam = $_POST["voornaam"];
-
     $id = $_SESSION["id"];
     $stmt = $db->prepare("UPDATE users SET voornaam = ?  WHERE id = ?");
     $stmt->bind_param("si",$voornaam,$id);
