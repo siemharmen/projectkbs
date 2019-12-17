@@ -95,7 +95,12 @@ function ToonProductenOpScherm($producten)
         }
     }
 }
-
+function ProductToevoegen($StockItemID){
+    $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] +1;
+}
+function ProductWeghalen($StockItemID){
+    $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] -1;
+}
 function ToonProductenInCart($producten)
 {
     $i =0;
@@ -118,9 +123,14 @@ function ToonProductenInCart($producten)
             print("<del>" . "€ " . $product["RecommendedRetailPrice"] . "</del>"  . "<br>");
             print("<h3 class='groen'>€ " . $product["unitPrice"] . "<br></h3>");
             print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
-            print("<input type=\"button\" onclick=\"$i--\" value=\"-\" />");
-            print($i);
-            print("<input type=\"button\" onclick=\"$i++\" value=\"+\" /><br>");
+      #      print("<input type=\"button\" <a href=\"cart.php?remove=" . $product["StockItemID"] . "\" value=\"-\" /");
+           # print("<input type=\"button\" <a href=\"cart.php?remove=" . $product["StockItemID"] . "\" value=\"-\" />");
+            print("<a href=\"cart.php?Remove=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">-</button></a> ");
+
+            print($_SESSION['amount'][$product["StockItemID"]]);
+            #print("<input type=\"button\" <a href=\"cart.php?add=" . $product["StockItemID"] . "\" value=\"+\" /><br>");
+            print("<a href=\"cart.php?Add=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">+</button></a><br> ");
+
             #mischien function aanmaken die het verwijderd
             print("<a href=\"cart.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Remove</button></a><br><br> ");
 
@@ -129,6 +139,7 @@ function ToonProductenInCart($producten)
         }
     }
 }
+
 function ProductGegevensOpvragen($gegevens) {
     if (!empty($gegevens["StockItemID"])) {
         $connection = MaakVerbinding();
@@ -144,6 +155,13 @@ function ProductGegevensByID($id) {
         $gegevens["melding"] = "";
         SluitVerbinding($connection);
     return $gegevens;
+}
+function ProductChecken($gegevens){
+    if(in_array($gegevens,$_SESSION['cart'])){
+        return false;
+    }
+    return true;
+
 }
 
 

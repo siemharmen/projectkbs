@@ -24,6 +24,13 @@ session_start();
 if(isset($_GET['StockItemID'])){
     RemoveFromArray($_GET['StockItemID']);
 }
+if(isset($_GET['Remove'])){
+    ProductWeghalen($_GET['Remove']);
+}
+if(isset($_GET['Add'])){
+    ProductToevoegen($_GET['Add']);
+}
+
 function RemoveFromArray($term){
     if (in_array(ProductGegevensByID($term), $_SESSION['cart'])) {
         $key = array_search(ProductGegevensByID($term), $_SESSION['cart']);

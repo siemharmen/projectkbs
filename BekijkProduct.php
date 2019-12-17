@@ -12,7 +12,15 @@ session_start();
 
 # nog toevoegen bij knop
 if(isset($_POST['cartbutton'])){
-    array_push($_SESSION['cart'],$gegevens);
+    if(ProductChecken($gegevens)) {
+        array_push($_SESSION['cart'], $gegevens);
+        $_SESSION['amount'][$gegevens["StockItemID"]] = 1;
+    } else{
+        #$_SESSION['amount'][$gegevens["StockItemID"]] = $_SESSION['amount'][$gegevens["StockItemID"]] +1;
+        $_SESSION['amount'][$gegevens["StockItemID"]] += 1;
+        print($_SESSION['amount'][$gegevens["StockItemID"]]);
+    }
+    #AddtoCart($gegevens["StockItemID"] );
 }
 
 

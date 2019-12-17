@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['cart'] = array();
+$_SESSION['amount'] = array();
 #nee aleen bij inlogt kan je dingen
 
 

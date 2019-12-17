@@ -4,7 +4,6 @@ include 'server.php';
 ?>
 <?php
 
-# $_SESSION['cart'][] = array();
 
 
 ?>
