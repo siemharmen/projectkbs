@@ -15,10 +15,10 @@ session_start();
 
 
 
+<h2>Controleer uw gegevens.</h2>
 
-
-
-<div class="gegevens">
+<br>
+<div class="orderlijst">
     <p> Gegevens: </p>
     <?php
     if(isset($_POST['voornaam'])){
@@ -30,6 +30,13 @@ session_start();
         $postcode =  $_POST['postcode'];
         $plaats =  $_POST['plaats'];
     } else {
+        $voornaam = "";
+        $achternaam = "";
+        $email =  "";
+        $straatnaam =  "";
+        $huisnummer =  "";
+        $postcode =  "";
+        $plaats =  "";
         print("Er zijn geen waardes ingevuld, ga terug naar de vorige pagina!");
         echo ' <a href="bestelpagina.php"><button type="button" class="btn btn-primary" style="margin-left: 0.5%; margin-bottom: 0.5%;"> <= terug</button></a>';
     }
@@ -50,26 +57,30 @@ session_start();
 
 
 
-<div class="gegevens">
+<div class="orderlijst">
     <p> Producten: </p>
 
     <?php
     $totaalprijs = 0;
     $i = 0;
-    foreach($_SESSION['cart'] AS $key => $product) {
-        $i++;
-        $totaalprijs = $totaalprijs + $product['unitPrice'];
-        print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>  <br>  ");
-
-
+    if(isset($_SESSION['cart'])){
+        foreach($_SESSION['cart'] AS $key => $product) {
+            $i++;
+            $totaalprijs = $totaalprijs + $product['unitPrice'];
+            print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
+        }
+    } else {
+        print("Er staan geen producten in uw mandje.");
     }
+
     ?>
 
     <p>Totaalprijs: € <?php print($totaalprijs); ?></p>
 
 </div>
 
-<div class="text-center">
-    <form action="bestelvoltooid.php" method='POST'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>
-
+<div class="bestelknop">
+<?php if(isset($_SESSION['cart'])){
+    echo '<form action="bestelvoltooid.php" method=\'POST\'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>';
+} ?>
 </div>
