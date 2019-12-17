@@ -1,6 +1,6 @@
 <?php
 include 'ProductFuncties.php';
-include 'server.php'
+session_start();
 ?>
 <?php
 
