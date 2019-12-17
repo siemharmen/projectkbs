@@ -147,3 +147,11 @@ nav li:hover{
 .groen {
     color : green;
 }
+
+.gegevens {
+    border: 2px solid black;
+    position: relative;
+    display: inline-block;
+    float: left;
+
+}

@@ -6,7 +6,6 @@ $totaal = TotaalProductenOpVragen();
 
 
 
-
 ?>
 
 <nav>
