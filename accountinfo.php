@@ -19,22 +19,22 @@
 <form id="edit" method="POST" action="">
 
     <label for="voornaam">Voornaam </label>
-    <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>"/>
+    <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>" required />
     <br>
 
 
     <label for="achternaam">Achternaam </label>
-    <input id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>"/>
+    <input id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>" required/>
     <br>
 
     <label for="postcode">Postcode </label>
-    <input id="postcode" type="text" name="postcode" value="<?php print($_SESSION['postcode']) ?>"/>
+    <input id="postcode" type="text" name="postcode" value="<?php print($_SESSION['postcode']) ?>" required/>
 <br>
     <label for="huisnummer">Huisnummer </label>
-    <input id="huisnummer" type="text" name="huisnummer" value="<?php print($_SESSION['huisnummer']) ?>"/>
+    <input id="huisnummer" type="text" name="huisnummer" value="<?php print($_SESSION['huisnummer']) ?>" required/>
 <br>
     <label for="straatnaam">Straatnaam </label>
-    <input id="straatnaam" type="text" name="straatnaam" value="<?php print($_SESSION['straatnaam']) ?>"/>
+    <input id="straatnaam" type="text" name="straatnaam" value="<?php print($_SESSION['straatnaam']) ?>" required/>
 <br>
 
     <button id="submit" type="submit">Submit</button>
