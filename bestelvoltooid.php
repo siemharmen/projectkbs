@@ -11,31 +11,12 @@ include 'server.php';
 ?>
 
     <!-- header -->
-<?php include 'navbar.php'; ?>
+<?php include 'navbar.php';
+session_destroy();
+?>
 
 
 
 
-<p> Gegevens: </p>
-
-
-
-<?php
-
-$voornaam = $_GET['voornaam'];
-$achternaam = $_GET['achternaam'];
-$email = $_GET['email'];
-$straatnaam = $_GET['straatnaam'];
-$huisnummer = $_GET['huisnummer'];
-$postcode = $_GET['postcode'];
-$plaats = $_GET['plaats'];
-
-
-print($voornaam . " ");
-print($achternaam . "<br>");
-print($email . "<br>");
-print($straatnaam . " ");
-print($huisnummer  . "<br>");
-print($postcode  . "<br>");
-print($plaats . "<br>");
+<h2> Bestelling voltooid! </h2>
 

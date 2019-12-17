@@ -1,14 +1,14 @@
   <?php
 include "ProductFuncties.php";
+session_start();
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
 
 $gegevens = ProductGegevensOpvragen($gegevens);
 $filepath = "insert-images-to-mysql\\local\\";
 $bekijkfoto = $gegevens['photo'];
-
 ?>
 <?php
-session_start();
+
 
 # nog toevoegen bij knop
 if(isset($_POST['cartbutton'])){
@@ -21,6 +21,10 @@ if(isset($_POST['cartbutton'])){
         print($_SESSION['amount'][$gegevens["StockItemID"]]);
     }
     #AddtoCart($gegevens["StockItemID"] );
+    if(!isset($_SESSION['cart'])){
+        $_SESSION['cart'] = array();
+    }
+    array_push($_SESSION['cart'],$gegevens);
 }
 
 

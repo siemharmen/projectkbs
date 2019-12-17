@@ -1,5 +1,5 @@
 <?php include 'ProductFuncties.php';?>
-<?php include 'server.php';?>
+<?php session_start() ?>
 <html>
 <head>
     <title>Registreren</title>
@@ -8,69 +8,58 @@
     <link rel="shortcut icon" type="image/x-icon" href="wide.png" />
 </head>
 <body>
-<?php include 'navbar.php';
+<?php include 'navbar.php'; ?>
 
-$db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
-
-$newusername = $username;
-$newemail = $email;
-$newvoornaam = $voornaam;
-$newachternaam = $achternaam;
-$newpostcode = $postcode;
-$newhuisnummer = $huisnummer;
-$newstraatnaam = $straatnaam;
-$newplaats = $plaats;
-?>
 
 <div class="header">
     <h2>Updaten</h2>
 </div>
-<form method="post" action="registreerpagina.php">
-    <?php include('errors.php'); ?>
-    <div class="input-group">
-        <label>Username</label>
-        <input type="text" name="username" value="<?php echo $newusername; ?>">
-    </div>
-    <div class="input-group">
-        <label>Email</label>
-        <input type="email" name="email" value="<?php echo $newemail; ?>">
-    </div>
-    <div class="input-group">
-        <label>Password</label>
-        <input type="password" name="password_1">
-    </div>
-    <div class="input-group">
-        <label>Confirm password</label>
-        <input type="password" name="password_2">
-        <div class="input-group">
-            <label>Voornaam</label>
-            <input type="text" name="voornaam" value="<?php echo $newvoornaam; ?>">
-        </div>
-        <div class="input-group">
-            <label>Achternaam</label>
-            <input type="text" name="achternaam" value="<?php echo $newachternaam; ?>">
-        </div>
-        <div class="input-group">
-            <label>Postcode</label>
-            <input type="text" name="postcode" value="<?php echo $newpostcode; ?>">
-        </div>
-        <div class="input-group">
-            <label>Huisnummer</label>
-            <input type="text" name="huisnummer" value="<?php echo $newhuisnummer; ?>">
-        </div>
-        <div class="input-group">
-            <label>Straatnaam</label>
-            <input type="text" name="straatnaam" value="<?php echo $newstraatnaam; ?>">
-        </div>
-        <div class="input-group">
-            <label>Plaats</label>
-            <input type="text" name="plaats" value="<?php echo $newplaats; ?>">
-        </div>
-    </div>
-    <div class="input-group">
-        <button type="submit" class="btn" name="reg_user">Update</button>
-    </div>
+<div>
+Username <?php print($_SESSION['username']) ?> <br>
+Email <?php print($_SESSION['email']) ?> <br>
+</div>
+<form id="edit" method="POST" action="">
+
+    <label for="voornaam">Voornaam </label>
+    <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>" required />
+    <br>
+
+
+    <label for="achternaam">Achternaam </label>
+    <input id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>" required/>
+    <br>
+
+    <label for="postcode">Postcode </label>
+    <input id="postcode" type="text" name="postcode" value="<?php print($_SESSION['postcode']) ?>" required/>
+<br>
+    <label for="huisnummer">Huisnummer </label>
+    <input id="huisnummer" type="text" name="huisnummer" value="<?php print($_SESSION['huisnummer']) ?>" required/>
+<br>
+    <label for="straatnaam">Straatnaam </label>
+    <input id="straatnaam" type="text" name="straatnaam" value="<?php print($_SESSION['straatnaam']) ?>" required/>
+<br>
+
+    <button id="submit" type="submit">Submit</button>
+
 </form>
-   
+
+<?php
+$db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
+if (isset($_POST['voornaam']) AND (isset($_POST['achternaam']) AND (isset($_POST['postcode']) AND (isset($_POST['huisnummer']) AND (isset($_POST['straatnaam'])))))){
+    $voornaam = $_POST["voornaam"];
+    $achternaam = $_POST["achternaam"];
+    $postcode = $_POST["postcode"];
+    $huisnummer = $_POST["huisnummer"];
+    $straatnaam = $_POST["straatnaam"];
+    $id = $_SESSION["id"];
+    $stmt = $db->prepare("UPDATE users SET voornaam = ?, achternaam = ?, postcode = ?, huisnummer = ?, straatnaam = ? WHERE id = ?");
+    $stmt->bind_param("sssssi",$voornaam, $achternaam, $postcode, $huisnummer, $straatnaam, $id);
+    $stmt->execute();
+    $_SESSION['success'] = "Account info updated";
+    header('location: index.php');
+    session_destroy();
+}
+?>
+
 </body>
 </html>

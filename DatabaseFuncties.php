@@ -149,4 +149,26 @@ function SelecteerGekozeCatogory($connection,$Category){
 
 
 
+
+
+function Bestelcheck($connection){
+    $statement = mysqli_prepare($connection, "");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
