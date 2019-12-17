@@ -1,17 +1,19 @@
 <?php
 include 'ProductFuncties.php';
-
+include 'server.php';
 
 ?>
 <?php
-session_start();
+
 # $_SESSION['cart'][] = array();
 
 
 ?>
 
     <!-- header -->
-<?php include 'navbar.php'; ?>
+<?php include 'navbar.php';
+session_destroy();
+?>
 
 
 

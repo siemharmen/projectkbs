@@ -1,5 +1,5 @@
 <?php include 'ProductFuncties.php';?>
-<?php include 'server.php';?>
+<?php session_start() ?>
 <html>
 <head>
     <title>Registreren</title>
@@ -14,8 +14,10 @@
 <div class="header">
     <h2>Updaten</h2>
 </div>
-
-
+<div>
+Username <?php print($_SESSION['username']) ?> <br>
+Email <?php print($_SESSION['email']) ?> <br>
+</div>
 <form id="edit" method="POST" action="">
 
     <label for="voornaam">Voornaam </label>
