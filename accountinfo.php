@@ -18,29 +18,40 @@
 
 <form id="edit" method="POST" action="">
 
-    <h1>
-        <label for="voornaam">voornaam *</label>
-        <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>"/>
-    </h1>
-    <h1>
-        <label for="achternaam">achternaam *</label>
-        <input id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>"/>
-    </h1>
+    <label for="voornaam">Voornaam </label>
+    <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>"/>
+    <br>
 
-    <h1>
-        <button id="submit" type="submit">Submit</button>
-    </h1>
+
+    <label for="achternaam">Achternaam </label>
+    <input id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>"/>
+    <br>
+
+    <label for="postcode">Postcode </label>
+    <input id="postcode" type="text" name="postcode" value="<?php print($_SESSION['postcode']) ?>"/>
+<br>
+    <label for="huisnummer">Huisnummer </label>
+    <input id="huisnummer" type="text" name="huisnummer" value="<?php print($_SESSION['huisnummer']) ?>"/>
+<br>
+    <label for="straatnaam">Straatnaam </label>
+    <input id="straatnaam" type="text" name="straatnaam" value="<?php print($_SESSION['straatnaam']) ?>"/>
+<br>
+
+    <button id="submit" type="submit">Submit</button>
 
 </form>
 
 <?php
 $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
-if (isset($_POST['voornaam']) OR (isset($_POST['achternaam']))){
+if (isset($_POST['voornaam']) AND (isset($_POST['achternaam']) AND (isset($_POST['postcode']) AND (isset($_POST['huisnummer']) AND (isset($_POST['straatnaam'])))))){
     $voornaam = $_POST["voornaam"];
     $achternaam = $_POST["achternaam"];
+    $postcode = $_POST["postcode"];
+    $huisnummer = $_POST["huisnummer"];
+    $straatnaam = $_POST["straatnaam"];
     $id = $_SESSION["id"];
-    $stmt = $db->prepare("UPDATE users SET voornaam = ?, achternaam = ? WHERE id = ?");
-    $stmt->bind_param("ssi",$voornaam, $achternaam, $id);
+    $stmt = $db->prepare("UPDATE users SET voornaam = ?, achternaam = ?, postcode = ?, huisnummer = ?, straatnaam = ? WHERE id = ?");
+    $stmt->bind_param("sssssi",$voornaam, $achternaam, $postcode, $huisnummer, $straatnaam, $id);
     $stmt->execute();
     $_SESSION['success'] = "Account info updated";
     header('location: index.php');
