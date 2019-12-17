@@ -24,7 +24,7 @@ include 'ProductFuncties.php';
         <input required class="formulier" type="password" name="password">
     </div>
     <div class="input-group">
-        <button type="submit" class="btn" name="login_user">Login</button>
+        <button class="btn btn-primary" type="submit" class="btn" name="login_user">Login</button>
     </div>
     <p>
         Not yet a member? <a href="registreerpagina.php">Sign up</a>
