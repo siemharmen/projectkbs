@@ -17,11 +17,11 @@ include 'ProductFuncties.php';
 <form method="post" action="loginpagina.php">
     <div class="input-group">
         <label>Username</label>
-        <input type="text" name="username" >
+        <input required class="formulier" type="text" name="username" >
     </div>
     <div class="input-group">
         <label>Password</label>
-        <input type="password" name="password">
+        <input required class="formulier" type="password" name="password">
     </div>
     <div class="input-group">
         <button type="submit" class="btn" name="login_user">Login</button>

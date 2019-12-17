@@ -80,6 +80,7 @@ session_start();
 </div>
 
 <div class="bestelknop">
-    <form action="bestelvoltooid.php" method='POST'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>
-
+<?php if(isset($_SESSION['cart'])){
+    echo '<form action="bestelvoltooid.php" method=\'POST\'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>';
+} ?>
 </div>
