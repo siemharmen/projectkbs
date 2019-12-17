@@ -22,6 +22,10 @@
         <label for="voornaam">voornaam *</label>
         <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>"/>
     </h1>
+    <h1>
+        <label for="achternaam">achternaam *</label>
+        <input id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>"/>
+    </h1>
 
     <h1>
         <button id="submit" type="submit">Submit</button>
@@ -31,11 +35,12 @@
 
 <?php
 $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
-if (isset($_POST['voornaam'])) {
+if (isset($_POST['voornaam']) OR (isset($_POST['achternaam']))){
     $voornaam = $_POST["voornaam"];
+    $achternaam = $_POST["achternaam"];
     $id = $_SESSION["id"];
-    $stmt = $db->prepare("UPDATE users SET voornaam = ?  WHERE id = ?");
-    $stmt->bind_param("si",$voornaam,$id);
+    $stmt = $db->prepare("UPDATE users SET voornaam = ?, achternaam = ? WHERE id = ?");
+    $stmt->bind_param("ssi",$voornaam, $achternaam, $id);
     $stmt->execute();
     $_SESSION['success'] = "Account info updated";
     header('location: index.php');
