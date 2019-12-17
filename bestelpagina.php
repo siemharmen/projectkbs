@@ -1,9 +1,9 @@
 <?php
 include 'ProductFuncties.php';
-
+session_start();
 ?>
 <?php
-session_start();
+
 
 # $_SESSION['cart'][] = array();
 
