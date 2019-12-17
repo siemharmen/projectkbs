@@ -35,8 +35,8 @@ session_start();
 }
  ?>
 
-<div class="center">
-<form method='POST' action="ordercontrole.php">
+<div class='col-12 card shadow' style="text-align: center; padding: 25px;">
+<form method='POST' action="ordercontrole.php" style="width: 150px;">
     Voornaam:<input required type="text" name="voornaam" value="<?php print($voornaam) ?>">* <br>
     Achternaam:<input required type="text" name="achternaam" value="<?php print($achternaam) ?>">* <br>
     Email:<input required type="text" name="email" value="<?php print($email) ?>">* <br>

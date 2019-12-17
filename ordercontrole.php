@@ -30,6 +30,13 @@ session_start();
         $postcode =  $_POST['postcode'];
         $plaats =  $_POST['plaats'];
     } else {
+        $voornaam = "";
+        $achternaam = "";
+        $email =  "";
+        $straatnaam =  "";
+        $huisnummer =  "";
+        $postcode =  "";
+        $plaats =  "";
         print("Er zijn geen waardes ingevuld, ga terug naar de vorige pagina!");
         echo ' <a href="bestelpagina.php"><button type="button" class="btn btn-primary" style="margin-left: 0.5%; margin-bottom: 0.5%;"> <= terug</button></a>';
     }
@@ -56,13 +63,16 @@ session_start();
     <?php
     $totaalprijs = 0;
     $i = 0;
-    foreach($_SESSION['cart'] AS $key => $product) {
-        $i++;
-        $totaalprijs = $totaalprijs + $product['unitPrice'];
-        print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
-
-
+    if(isset($_SESSION['cart'])){
+        foreach($_SESSION['cart'] AS $key => $product) {
+            $i++;
+            $totaalprijs = $totaalprijs + $product['unitPrice'];
+            print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
+        }
+    } else {
+        print("Er staan geen producten in uw mandje.");
     }
+
     ?>
 
     <p>Totaalprijs: € <?php print($totaalprijs); ?></p>
