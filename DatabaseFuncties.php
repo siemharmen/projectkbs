@@ -154,4 +154,20 @@ function Bestelcheck($connection){
     $statement = mysqli_prepare($connection, "");
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

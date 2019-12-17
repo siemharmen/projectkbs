@@ -13,8 +13,8 @@ session_start();
 <!-- header -->
 <?php include 'navbar.php'; ?>
 
-
-
+<div class="header">
+</div>
 <h2>Controleer uw gegevens.</h2>
 
 <br>
@@ -38,7 +38,7 @@ session_start();
         $postcode =  "";
         $plaats =  "";
         print("Er zijn geen waardes ingevuld, ga terug naar de vorige pagina!");
-        echo ' <a href="bestelpagina.php"><button type="button" class="btn btn-primary" style="margin-left: 0.5%; margin-bottom: 0.5%;"> <= terug</button></a>';
+        echo ' <a href="bestelpagina.php"><button type="button" class="btn btn-primary">terug</button></a>';
     }
 
     print("Voornaam: " . $voornaam . " ");
@@ -68,6 +68,7 @@ session_start();
             $i++;
             $totaalprijs = $totaalprijs + $product['unitPrice'];
             print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
+
         }
     } else {
         print("Er staan geen producten in uw mandje.");
@@ -81,6 +82,34 @@ session_start();
 
 <div class="bestelknop">
 <?php if(isset($_SESSION['cart'])){
-    echo '<form action="bestelvoltooid.php" method=\'POST\'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>';
+    echo '<form  method=\'POST\'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>';
 } ?>
 </div>
+
+
+
+
+
+<?php
+$db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
+
+    
+
+
+    if (isset($_POST['bestelknop'])){
+    foreach($_SESSION['cart'] AS $key => $product){
+            $productid = $product['StockItemID'];
+            $amount = 1;
+            $stmt = $db->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - ? WHERE StockItemID = ? AND QuantityOnHand > 0");
+            $stmt->bind_param("si",  $amount, $productid);
+            $stmt->execute();
+
+            header('location: bestelvoltooid.php');
+            session_destroy();
+
+    }
+}
+
+
+?>
+
