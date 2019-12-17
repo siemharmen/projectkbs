@@ -44,7 +44,7 @@ function RemoveFromArray($term){
 
 <br><br><br><br><br><br><br>
 <div class="text-center">
-    <form action="bestelpagina.php" method='POST'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>
+    <form action="bestelpagina.php" method='POST'> <input type="submit" name="bestelknop" value="naar gegevens" class="btn btn-primary"></form>
 
 </div>
 

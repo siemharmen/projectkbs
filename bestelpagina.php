@@ -44,7 +44,7 @@ session_start();
     Huisnummer:<input required type="text" name="huisnummer" value="<?php print($huisnummer) ?>">* <br>
     Postcode: <input required type="text" name="postcode" value="<?php print($postcode) ?>">* <br>
     Plaats: <input required type="text" name="plaats" value="<?php print($plaats) ?>">* <br>
-    <input type="submit" value="submit" name="bestelknop2">
+    <input type="submit" value="verder naar order" name="bestelknop2" class="btn btn-primary">
 </form>
 
     <p>[* = dit veld moet worden ingevuld] </p>

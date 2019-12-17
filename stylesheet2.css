@@ -148,10 +148,16 @@ nav li:hover{
     color : green;
 }
 
-.gegevens {
+.orderlijst {
     border: 2px solid black;
     position: relative;
     display: inline-block;
     float: left;
 
+}
+
+.bestelknop{
+
+    margin-top: 15%;
+    text-align:center;
 }

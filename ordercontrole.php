@@ -15,10 +15,10 @@ session_start();
 
 
 
+<h2>Controleer uw gegevens.</h2>
 
-
-
-<div class="gegevens">
+<br>
+<div class="orderlijst">
     <p> Gegevens: </p>
     <?php
     if(isset($_POST['voornaam'])){
@@ -50,7 +50,7 @@ session_start();
 
 
 
-<div class="gegevens">
+<div class="orderlijst">
     <p> Producten: </p>
 
     <?php
@@ -59,7 +59,7 @@ session_start();
     foreach($_SESSION['cart'] AS $key => $product) {
         $i++;
         $totaalprijs = $totaalprijs + $product['unitPrice'];
-        print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>  <br>  ");
+        print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
 
 
     }
@@ -69,7 +69,7 @@ session_start();
 
 </div>
 
-<div class="text-center">
+<div class="bestelknop">
     <form action="bestelvoltooid.php" method='POST'> <input type="submit" name="bestelknop" value="bestellen" class="btn btn-primary"></form>
 
 </div>
