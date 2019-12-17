@@ -87,9 +87,12 @@ if (isset($_POST['login_user'])) {
 
     if (count($errors) == 0) {
         $password = md5($password);
-        $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-        $results = mysqli_query($db, $query);
-        $results = mysqli_fetch_array($results, MYSQLI_ASSOC);
+        $sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+        $statement = mysqli_prepare($db, $sql);
+        mysqli_stmt_bind_param($statement, 'ii' , $username, $password); // i = integer; s = string;
+        mysqli_stmt_execute($statement);
+        $result = mysqli_stmt_get_result($statement);
+        $results = mysqli_fetch_array($result, MYSQLI_ASSOC);
         if ($results != null) {
             $_SESSION['username'] = $username;
             $_SESSION['id'] = $results['id'];
