@@ -1,5 +1,5 @@
 <?php include 'ProductFuncties.php';?>
-<?php include 'server.php';?>
+<?php session_start() ?>
 <html>
 <head>
     <title>Registreren</title>
