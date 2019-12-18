@@ -59,6 +59,8 @@ if (isset($_GET['logout'])) {
     <input type="submit" class="btn btn-primary" name="radiobutton" value="filter" />
 </form>
 </div>';
+    } else{
+
     }
     ?>
 
