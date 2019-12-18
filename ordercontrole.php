@@ -146,7 +146,7 @@ if (isset($_POST['bestelknop'])){
         $UnitPrice = $product['unitPrice'];
         $TotalPrice = $Quantity * $UnitPrice;
         $Description = $product['MarketingComments'];
-
+        // insert in de orderlinestest tabel
         $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
 
 
