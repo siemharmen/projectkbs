@@ -55,8 +55,6 @@ session_start();
 </div>
 
 
-
-
 <div class="orderlijst">
     <p> Producten: </p>
 
@@ -67,6 +65,8 @@ session_start();
         foreach($_SESSION['cart'] AS $key => $product) {
             $i++;
             $totaalprijs = $totaalprijs + $product['unitPrice'];
+
+
             print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
 
         }
@@ -93,12 +93,13 @@ session_start();
 <?php
 $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
-    
+
 
 
     if (isset($_POST['bestelknop'])){
     foreach($_SESSION['cart'] AS $key => $product){
             $productid = $product['StockItemID'];
+
             $amount = 1;
             $stmt = $db->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - ? WHERE StockItemID = ? AND QuantityOnHand > 0");
             $stmt->bind_param("si",  $amount, $productid);
