@@ -112,57 +112,62 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
 
 if (isset($_POST['bestelknop'])){
-//    $order_check_query = "SELECT * FROM orderlines";
-//    $result = mysqli_query($db, $order_check_query);
-//    $orders = mysqli_fetch_assoc($result);
-
-//    $OrderlinesID = $orders['OrderLineID'] + 1;
-//        $OrderID = 1;
-//        $StockItemID = 1;
-//        $Description = "";
-//        $PickingCompletedWhen = now();
-//        $PackageTypeID = 1;
-//        $Quantity = 1;
-//        $UnitPrice = 1;
-//        $TaxRate = 1;
-//        $PickedQuantity = 1;
-//        $PickingCompletedWhen = now();
-//        $LastEditedBy = 1;
-//        $LastEditedWhen = now();
-//        $stockitemID = 1000;
-//        $stmt = $db->prepare("INSERT INTO orderlines (StockItemID) VALUES (?) ");
-//        $stmt->bind_param("i", $StockItemID);
-//        $stmt->execute();
-
-
 
 
 
     }
 
-// Create connection
-
-// Check connection
-
-//$sql = "INSERT INTO orderlines (OrderLineID
-//, OrderID, StockItemID, Description, PackageTypeID, Quantity , UnitPrice, TaxRate, PickedQuantity, PickingCompletedWhen, LastEditedBy, LastEditedWhen)
-//VALUES (123456789, 123456789, 1, 'TEST', 10000, 10000, 10.00, 10.000, 1000, now(), 1000, now())";
-$sql = "INSERT INTO orders (orderID) VALUES (123456789); 
-        INSERT INTO customers (CustomerID) VALUES (123456789)";
 
 
-if (!$db) {
-    die("Connection failed: " . mysqli_connect_error());
+
+
+
+    if (isset($_SESSION['username'])) {
+        $userID = $_SESSION['id'];
+    } else {
+        $userID = 12;
+    }
+
+    $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , $userID)";
+
+    if (!$db) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    if (mysqli_query($db, $sql)) {
+        echo "SQL 1 New record created successfully <br>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
+
+
+
+
+
+
+foreach($_SESSION['cart'] AS $key => $product) {
+    $productid = $product['StockItemID'];
+    $amount = $_SESSION['amount'][$productid];
+
+    $StockItemID = $productid;
+    $Quantity = $amount;
+    $UnitPrice = $product['unitPrice'];
+    $TotalPrice = $Quantity * $UnitPrice;
+    $Description = $product['MarketingComments'];
+
+    $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
+
+
+    if (!$db) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+
+    if (mysqli_query($db, $sql2)) {
+        echo " SQL2 SQL2 New record created successfully";
+    } else {
+        echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
+    }
 }
-
-
-if (mysqli_query($db, $sql)) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($db);
-}
-
-
-
 ?>
 
