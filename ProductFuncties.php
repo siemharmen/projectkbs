@@ -6,7 +6,6 @@ $cgegevens = array("stockGroupID" => 0, "StockItemName" => "");
 
 
 
-
 function AlleProductenOpVragen()
 {
     $connection = MaakVerbinding();
@@ -96,10 +95,16 @@ function ToonProductenOpScherm($producten)
     }
 }
 function ProductToevoegen($StockItemID){
-    $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] +1;
+
+
+        $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] +1;
+
+
 }
 function ProductWeghalen($StockItemID){
+    if($_SESSION['amount'][$StockItemID] > 1){
     $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] -1;
+    }
 }
 function ToonProductenInCart($producten)
 {
