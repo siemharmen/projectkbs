@@ -79,7 +79,7 @@ if(isset($_GET["StockGroupName"])) {
     $producten = GekozeCatogoryOpvragen($_GET["StockGroupName"]);
     #print($_GET["StockGroupName"]);
     $ProductenbyCategory = null;
-    $ProductenbyID = null;
+        $ProductenbyID = null;
 } else {
 if(isset($_GET["term"]) == true){
 
@@ -107,7 +107,7 @@ if(isset($_GET["term"]) == true){
 
 <?php if($ProductenbyID != null){print("Id:");} ?>
 <div class="row">
-    <?php if(isset($_GET["term"]) == true){ ToonProductenOpScherm($ProductenbyID);} // verbeteren zodat bij niks dit niet gebeurd; ?>
+        <?php ToonProductenOpScherm($ProductenbyID);?>
 </div>
 </php>
 <?php if($ProductenbyCategory != null)print("Category:")?>

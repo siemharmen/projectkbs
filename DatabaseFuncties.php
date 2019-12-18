@@ -146,6 +146,15 @@ function SelecteerGekozeCatogory($connection,$Category){
     $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
     return $result;
 }
+function SelecteerGezochtID($connection,$Zoekterm) {
+    $statement = mysqli_prepare($connection,"SELECT StockItemName, unitPrice, RecommendedRetailPrice, s.StockItemID, f.photo  FROM stockitems s LEFT JOIN foto f on s.stockitemid = f.stockitemid WHERE s.StockItemID LIKE ? GROUP BY stockitemid");
+    mysqli_stmt_bind_param($statement, 'i', $Zoekterm);
+    mysqli_stmt_execute($statement);
+    $result = mysqli_stmt_get_result($statement);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    return $result;
+}
+
 
 
 

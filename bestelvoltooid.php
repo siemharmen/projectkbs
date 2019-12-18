@@ -12,7 +12,7 @@ include 'server.php';
 
     <!-- header -->
 <?php include 'navbar.php';
-session_destroy();
+$_session['cart'] = array();
 ?>
 
 
