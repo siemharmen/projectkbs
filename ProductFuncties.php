@@ -96,9 +96,9 @@ function ToonProductenOpScherm($producten)
 }
 function ProductToevoegen($StockItemID){
 
-
-        $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] +1;
-
+if($_SESSION['amount'][$StockItemID] < 10) {
+    $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] + 1;
+}
 
 }
 function ProductWeghalen($StockItemID){
