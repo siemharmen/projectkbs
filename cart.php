@@ -1,7 +1,9 @@
      <?php
 include 'ProductFuncties.php';
+
 ?>
 <?php
+
 session_start();
 # $_SESSION['cart'][] = array();
 
@@ -27,9 +29,15 @@ if(isset($_GET['StockItemID'])){
 if(isset($_GET['Remove'])){
     ProductWeghalen($_GET['Remove']);
 }
-if(isset($_GET['Add'])){
-    ProductToevoegen($_GET['Add']);
+
+    if(isset($_GET['Add'])){
+        ProductToevoegen($_GET['Add']);
+
+
 }
+
+
+
 
 function RemoveFromArray($term){
     if (in_array(ProductGegevensByID($term), $_SESSION['cart'])) {
@@ -40,7 +48,7 @@ function RemoveFromArray($term){
 ?>
 <h2 style="float:left;"> producten in mand: </h2>
 
-<h2 style="position: absolute;"> producten in mand: </h2>
+
     <div class="row">
         <?php
         if(isset($_SESSION['cart'])){

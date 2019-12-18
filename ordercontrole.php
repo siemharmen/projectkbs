@@ -67,7 +67,7 @@ session_start();
             $totaalprijs = $totaalprijs + $product['unitPrice'] * $_SESSION["amount"][$product['StockItemID']];
 
 
-            print("<p>" . $i .". " . $_SESSION["amount"][$product['StockItemID']] . "x ". $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
+            print("<p>(" . $i .")&nbsp  " . $_SESSION["amount"][$product['StockItemID']] . "x ". $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
 
         }
     } else {

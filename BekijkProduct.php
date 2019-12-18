@@ -2,7 +2,6 @@
 include "ProductFuncties.php";
 session_start();
 $gegevens["StockItemID"] = isset($_GET["StockItemID"]) ? $_GET["StockItemID"] : 0;
-
 $gegevens = ProductGegevensOpvragen($gegevens);
 $filepath = "insert-images-to-mysql\\local\\";
 $bekijkfoto = $gegevens['photo'];
