@@ -94,8 +94,6 @@ session_start();
 $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
 
-
-
     if (isset($_POST['bestelknop'])){
     foreach($_SESSION['cart'] AS $key => $product){
             $productid = $product['StockItemID'];
@@ -107,9 +105,63 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
             header('location: bestelvoltooid.php');
             session_destroy();
-
     }
 }
+
+
+
+
+if (isset($_POST['bestelknop'])){
+//    $order_check_query = "SELECT * FROM orderlines";
+//    $result = mysqli_query($db, $order_check_query);
+//    $orders = mysqli_fetch_assoc($result);
+
+//    $OrderlinesID = $orders['OrderLineID'] + 1;
+//        $OrderID = 1;
+//        $StockItemID = 1;
+//        $Description = "";
+//        $PickingCompletedWhen = now();
+//        $PackageTypeID = 1;
+//        $Quantity = 1;
+//        $UnitPrice = 1;
+//        $TaxRate = 1;
+//        $PickedQuantity = 1;
+//        $PickingCompletedWhen = now();
+//        $LastEditedBy = 1;
+//        $LastEditedWhen = now();
+//        $stockitemID = 1000;
+//        $stmt = $db->prepare("INSERT INTO orderlines (StockItemID) VALUES (?) ");
+//        $stmt->bind_param("i", $StockItemID);
+//        $stmt->execute();
+
+
+
+
+
+    }
+
+// Create connection
+
+// Check connection
+
+//$sql = "INSERT INTO orderlines (OrderLineID
+//, OrderID, StockItemID, Description, PackageTypeID, Quantity , UnitPrice, TaxRate, PickedQuantity, PickingCompletedWhen, LastEditedBy, LastEditedWhen)
+//VALUES (123456789, 123456789, 1, 'TEST', 10000, 10000, 10.00, 10.000, 1000, now(), 1000, now())";
+$sql = "INSERT INTO orders (orderID) VALUES (123456789); 
+        INSERT INTO customers (CustomerID) VALUES (123456789)";
+
+
+if (!$db) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+if (mysqli_query($db, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($db);
+}
+
 
 
 ?>
