@@ -45,16 +45,19 @@ h3 {
 }
 
 nav{
+<<<<<<< HEAD
     background-color: LightBlue;
+=======
+    background-color: black;
+>>>>>>> 4ad8cf5fe189a0181fd262bc253abd8eeb807b04
     color: #eee;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: bolder;
     padding-right: 15px;
-    /*text-align: left;*/
-    /*position: fixed;*/
-    /*width: 100%;*/
-    /*top: 0;*/
-    /*z-index: 9999;*/
+    text-align: left;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
 
 }
 
@@ -62,7 +65,11 @@ nav{
     color: #eee;
 }
 .navbarlink:hover{
+<<<<<<< HEAD
     color: LightBlue;
+=======
+    color: black;
+>>>>>>> 4ad8cf5fe189a0181fd262bc253abd8eeb807b04
     text-decoration: none;
 }
 
@@ -101,8 +108,12 @@ nav li:hover{
 }
 
 .dropdown-content li{
+<<<<<<< HEAD
     background-color: LightBlue;
     color: white;
+=======
+    background-color: #333333;
+>>>>>>> 4ad8cf5fe189a0181fd262bc253abd8eeb807b04
     width: 100%;
     z-index: 100;
 }
@@ -114,7 +125,7 @@ nav li:hover{
 }
 
 .zoekbalk{
-    margin: 0;
+    margin: 10px;
     padding: 0;
     display: inline-block;
     position: relative;
@@ -134,6 +145,10 @@ nav li:hover{
 }
 
 .mand:hover{
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin-top: 0.8%;
     text-decoration: none;
 }
 
@@ -177,4 +192,4 @@ nav li:hover{
     background-color: #e6e7ff;
     color: #LightBlue;
 }
-}
+
