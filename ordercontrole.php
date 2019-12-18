@@ -100,7 +100,7 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
     foreach($_SESSION['cart'] AS $key => $product){
             $productid = $product['StockItemID'];
 
-            $amount = 1;
+            $amount = $_SESSION['amount']$product['StockItemID'];
             $stmt = $db->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - ? WHERE StockItemID = ? AND QuantityOnHand > 0");
             $stmt->bind_param("si",  $amount, $productid);
             $stmt->execute();
