@@ -38,6 +38,14 @@ $totaal = TotaalProductenOpVragen();
 
 
         <?php
+        {
+            if (isset($_SESSION['cart'])) {
+            } else {
+                $_SESSION['cart'] = array();
+                $_SESSION['amount'] = array();
+            }
+        }
+
         if(isset($_SESSION['username'])){
         } else {
             echo '<li><a class="navbarlink" href="registreerpagina.php">Registreren</a></li>';
