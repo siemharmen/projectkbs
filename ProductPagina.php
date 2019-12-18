@@ -43,11 +43,12 @@ if (isset($_GET['logout'])) {
 </div>
 
 
+<div class="center">
 
-<?php
+    <?php
     if(!isset($_GET["term"]) AND !isset($_GET["StockGroupName"])){
         echo '<div class="aantalfilter">
-<p> Totaal aantal producten per pagina: </p>
+<p> Producten per pagina: </p>
 <form action="ProductPagina.php" method="get">
     <select name="aantalproducten">
         <option value="25">25</option>
@@ -55,13 +56,14 @@ if (isset($_GET['logout'])) {
         <option value="100">100</option>
     </select>
 
-    <input type="submit" name="radiobutton" value="filter" />
+    <input type="submit" class="btn btn-primary" name="radiobutton" value="filter" />
 </form>
 </div>';
     }
-
-
     ?>
+
+</div>
+
 
 
 
