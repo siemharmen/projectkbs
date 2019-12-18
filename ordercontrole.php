@@ -114,14 +114,6 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 if (isset($_POST['bestelknop'])){
 
 
-
-    }
-
-
-
-
-
-
     if (isset($_SESSION['username'])) {
         $userID = $_SESSION['id'];
     } else {
@@ -145,29 +137,37 @@ if (isset($_POST['bestelknop'])){
 
 
 
-foreach($_SESSION['cart'] AS $key => $product) {
-    $productid = $product['StockItemID'];
-    $amount = $_SESSION['amount'][$productid];
+    foreach($_SESSION['cart'] AS $key => $product) {
+        $productid = $product['StockItemID'];
+        $amount = $_SESSION['amount'][$productid];
 
-    $StockItemID = $productid;
-    $Quantity = $amount;
-    $UnitPrice = $product['unitPrice'];
-    $TotalPrice = $Quantity * $UnitPrice;
-    $Description = $product['MarketingComments'];
+        $StockItemID = $productid;
+        $Quantity = $amount;
+        $UnitPrice = $product['unitPrice'];
+        $TotalPrice = $Quantity * $UnitPrice;
+        $Description = $product['MarketingComments'];
 
-    $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
+        $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
 
 
-    if (!$db) {
-        die("Connection failed: " . mysqli_connect_error());
+        if (!$db) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+
+        if (mysqli_query($db, $sql2)) {
+            echo " SQL2 SQL2 New record created successfully";
+        } else {
+            echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
+        }
+    }
+
     }
 
 
-    if (mysqli_query($db, $sql2)) {
-        echo " SQL2 SQL2 New record created successfully";
-    } else {
-        echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
-    }
-}
+
+
+
+
 ?>
 
