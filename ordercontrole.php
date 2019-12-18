@@ -64,10 +64,10 @@ session_start();
     if(isset($_SESSION['cart'])){
         foreach($_SESSION['cart'] AS $key => $product) {
             $i++;
-            $totaalprijs = $totaalprijs + $product['unitPrice'];
+            $totaalprijs = $totaalprijs + $product['unitPrice'] * $_SESSION["amount"][$product['StockItemID']];
 
 
-            print("<p>" . $i . $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
+            print("<p>" . $i .". " . $_SESSION["amount"][$product['StockItemID']] . "x ". $product['StockItemName'] . " € " . $product['unitPrice'] . "</p>");
 
         }
     } else {
