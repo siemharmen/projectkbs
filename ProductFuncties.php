@@ -96,7 +96,7 @@ function ToonProductenOpScherm($producten)
 }
 function ProductToevoegen($StockItemID){
 
-if($_SESSION['amount'][$StockItemID] < 10) {
+if($_SESSION['amount'][$StockItemID] < $_SESSION['voorraad'][$StockItemID]) {
     $_SESSION['amount'][$StockItemID] = $_SESSION['amount'][$StockItemID] + 1;
 }
 
