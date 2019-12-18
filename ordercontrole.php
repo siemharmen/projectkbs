@@ -44,7 +44,7 @@ session_start();
     print("Voornaam: " . $voornaam . " ");
     print(" Achternaam: " . $achternaam . "<br>");
     print(" Email: " . $email . "<br>");
-    print(" Straatnaam: " . $straatnaam . " ");
+    print(" Straatnaam: " . $straatnaam . " <br>");
     print(" Huisnummer: " . $huisnummer  . "<br>");
     print(" Postcode: " . $postcode  . "<br>");
     print(" Plaats: " . $plaats . "<br>");
