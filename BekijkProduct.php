@@ -18,7 +18,7 @@ if(isset($_POST['cartbutton'])){
     } else{
         #$_SESSION['amount'][$gegevens["StockItemID"]] = $_SESSION['amount'][$gegevens["StockItemID"]] +1;
         $_SESSION['amount'][$gegevens["StockItemID"]] += 1;
-        print($_SESSION['amount'][$gegevens["StockItemID"]]);
+       # print($_SESSION['amount'][$gegevens["StockItemID"]]);
     }
     #AddtoCart($gegevens["StockItemID"] );
     if(!isset($_SESSION['cart'])){
