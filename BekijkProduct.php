@@ -8,6 +8,7 @@ $filepath = "insert-images-to-mysql\\local\\";
 $bekijkfoto = $gegevens['photo'];
 ?>
 <?php
+
 # nog toevoegen bij knop
 if(isset($_POST['cartbutton'])){
     if(ProductChecken($gegevens)) {
