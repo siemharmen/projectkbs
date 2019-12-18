@@ -223,8 +223,7 @@ function GezochteProductenOpVragen($Zoekterm){
 }
 function GezochteProductenOpVragenID($Zoekterm){
     $connection = MaakVerbinding();
-    $producten = SelecteerProductenId($connection,$Zoekterm);
-    $producten["melding"] = "";
+    $producten = SelecteerGezochtID($connection,$Zoekterm);
     SluitVerbinding($connection);
     return $producten;
 }
