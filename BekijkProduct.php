@@ -12,6 +12,15 @@ $bekijkfoto = $gegevens['photo'];
 
 # nog toevoegen bij knop
 if(isset($_POST['cartbutton'])){
+    if(ProductChecken($gegevens)) {
+        array_push($_SESSION['cart'], $gegevens);
+        $_SESSION['amount'][$gegevens["StockItemID"]] = 1;
+    } else{
+        #$_SESSION['amount'][$gegevens["StockItemID"]] = $_SESSION['amount'][$gegevens["StockItemID"]] +1;
+        $_SESSION['amount'][$gegevens["StockItemID"]] += 1;
+        print($_SESSION['amount'][$gegevens["StockItemID"]]);
+    }
+    #AddtoCart($gegevens["StockItemID"] );
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
