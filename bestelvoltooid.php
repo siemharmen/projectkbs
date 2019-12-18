@@ -12,7 +12,8 @@ include 'server.php';
 
     <!-- header -->
 <?php include 'navbar.php';
-$_session['cart'] = array();
+
+
 ?>
 
 

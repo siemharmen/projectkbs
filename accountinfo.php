@@ -15,31 +15,31 @@
     <h2>Updaten</h2>
 </div>
 <div>
-Username <?php print($_SESSION['username']) ?> <br>
-Email <?php print($_SESSION['email']) ?> <br>
+    Username <?php print($_SESSION['username']) ?> <br>
+    Email <?php print($_SESSION['email']) ?> <br>
 </div>
 <form id="edit" method="POST" action="">
 
     <label for="voornaam">Voornaam </label>
-    <input id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>" required />
+    <input class="formulier" id="voornaam" type="text" name="voornaam" value="<?php print($_SESSION['voornaam']) ?>" required />
     <br>
 
 
     <label for="achternaam">Achternaam </label>
-    <input id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>" required/>
+    <input class="formulier" id="achternaam" type="text" name="achternaam" value="<?php print($_SESSION['achternaam']) ?>" required/>
     <br>
 
     <label for="postcode">Postcode </label>
-    <input id="postcode" type="text" name="postcode" value="<?php print($_SESSION['postcode']) ?>" required/>
+    <input class="formulier" id="postcode" type="text" name="postcode" value="<?php print($_SESSION['postcode']) ?>" required/>
 <br>
     <label for="huisnummer">Huisnummer </label>
-    <input id="huisnummer" type="text" name="huisnummer" value="<?php print($_SESSION['huisnummer']) ?>" required/>
+    <input class="formulier" id="huisnummer" type="text" name="huisnummer" value="<?php print($_SESSION['huisnummer']) ?>" required/>
 <br>
     <label for="straatnaam">Straatnaam </label>
-    <input id="straatnaam" type="text" name="straatnaam" value="<?php print($_SESSION['straatnaam']) ?>" required/>
+    <input class="formulier" id="straatnaam" type="text" name="straatnaam" value="<?php print($_SESSION['straatnaam']) ?>" required/>
 <br>
 
-    <button id="submit" type="submit">Submit</button>
+    <button class="formulier" id="submit" type="submit">Submit</button>
 
 </form>
 
