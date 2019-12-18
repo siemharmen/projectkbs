@@ -91,8 +91,8 @@ $totaal = TotaalProductenOpVragen();
             <?php  if (isset($_SESSION['username'])) : ?>
 
 
-                <p style="float: left;"> <a href="index.php?logout='1'" style="color: red;">Log uit</a> &nbsp;</p>
-                <p style="float: left;"> <a href="accountinfo.php" style="color: red;">Profiel</a> </p>
+                <p style="float: left;"> <a href="index.php?logout='1'" style="color: white;">Log uit</a> &nbsp;</p>
+                <p style="float: left;"> <a href="accountinfo.php" style="color: white;">Profiel</a> </p>
 
             <?php endif ?>
         </div>

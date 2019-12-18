@@ -45,7 +45,7 @@ h3 {
 }
 
 nav{
-    background-color: #333;
+    background-color: LightBlue;
     color: #eee;
     font-size: 18px;
     font-weight: bold;
@@ -62,6 +62,7 @@ nav{
     color: #eee;
 }
 .navbarlink:hover{
+    color: LightBlue;
     text-decoration: none;
 }
 
@@ -74,12 +75,13 @@ nav li {
     display: inline-block;
     padding: 12px;
     cursor:pointer;
+    border-radius: 25px;
 
 }
 
 nav li:hover{
     background-color: white;
-    color:black;
+    color:LightBlue;
     text-decoration: none;
 
 
@@ -99,7 +101,8 @@ nav li:hover{
 }
 
 .dropdown-content li{
-    background-color: #333;
+    background-color: LightBlue;
+    color: white;
     width: 100%;
     z-index: 100;
 }
@@ -107,6 +110,7 @@ nav li:hover{
 .dropdown:hover .dropdown-content {
     display: block;
     text-decoration: none;
+    color: white;
 }
 
 .zoekbalk{
@@ -114,6 +118,7 @@ nav li:hover{
     padding: 0;
     display: inline-block;
     position: relative;
+    border: 2px solid LightBlue;
 }
 .navfoto {
     margin: 5px;
@@ -149,7 +154,7 @@ nav li:hover{
 }
 
 .orderlijst {
-    border: 2px solid black;
+    border: 2px solid LightBlue;
     position: relative;
     display: inline-block;
     float: left;
@@ -170,6 +175,6 @@ nav li:hover{
     box-sizing: border-box;
     border: none;
     background-color: #e6e7ff;
-    color: #333;
+    color: #LightBlue;
 }
 }
