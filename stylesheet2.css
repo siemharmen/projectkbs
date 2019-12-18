@@ -45,11 +45,7 @@ h3 {
 }
 
 nav{
-<<<<<<< HEAD
     background-color: LightBlue;
-=======
-    background-color: black;
->>>>>>> 4ad8cf5fe189a0181fd262bc253abd8eeb807b04
     color: #eee;
     font-size: 20px;
     font-weight: bolder;
@@ -65,11 +61,7 @@ nav{
     color: #eee;
 }
 .navbarlink:hover{
-<<<<<<< HEAD
     color: LightBlue;
-=======
-    color: black;
->>>>>>> 4ad8cf5fe189a0181fd262bc253abd8eeb807b04
     text-decoration: none;
 }
 
@@ -108,12 +100,9 @@ nav li:hover{
 }
 
 .dropdown-content li{
-<<<<<<< HEAD
+
     background-color: LightBlue;
     color: white;
-=======
-    background-color: #333333;
->>>>>>> 4ad8cf5fe189a0181fd262bc253abd8eeb807b04
     width: 100%;
     z-index: 100;
 }
