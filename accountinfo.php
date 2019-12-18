@@ -15,8 +15,8 @@
     <h2>Updaten</h2>
 </div>
 <div>
-    Username <?php print($_SESSION['username']) ?> <br>
-    Email <?php print($_SESSION['email']) ?> <br>
+  <h4>  Username: <?php print($_SESSION['username']) ?> <br>
+    Email: <?php print($_SESSION['email']) ?> <br> </h4>
 </div>
 <form id="edit" method="POST" action="">
 
