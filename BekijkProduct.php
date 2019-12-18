@@ -8,7 +8,7 @@ $filepath = "insert-images-to-mysql\\local\\";
 $bekijkfoto = $gegevens['photo'];
 ?>
 <?php
-
+$_SESSION['cart'] = array();
 
 # nog toevoegen bij knop
 if(isset($_POST['cartbutton'])){
@@ -21,6 +21,7 @@ if(isset($_POST['cartbutton'])){
         print($_SESSION['amount'][$gegevens["StockItemID"]]);
     }
     #AddtoCart($gegevens["StockItemID"] );
+
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
