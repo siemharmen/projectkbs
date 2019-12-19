@@ -128,6 +128,8 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
         $query = "INSERT INTO users (email, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats)
   			  VALUES('$email', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
+
+
         if (mysqli_query($db, $query)) {
             echo " insert into users record created successfully <br>";
         } else {
@@ -153,25 +155,16 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
         $productid = $product['StockItemID'];
         $amount = $_SESSION['amount'][$productid];
         $beschrijving = $product['MarketingComments'];
-
         $StockItemID = $productid;
         $Quantity = $amount;
         $UnitPrice = $product['unitPrice'];
         $TotalPrice = $Quantity * $UnitPrice;
 
-
-//        if(isset($beschrijving)){
-//            $Description = $beschrijving;
-//        } else {
-//            $Description = 'Leeg';
-//        }
-
         if (isset($beschrijving)) {
-
             $Description = $beschrijving;
         }
 
-        // insert in de orderlinestest tabel
+        // insert in de orderlinestest tabel, Query runt zo vaak er artikelen instaan
         $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) 
                 VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
 
@@ -180,15 +173,13 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
             die("Connection failed: " . mysqli_connect_error());
         }
 
-
         if (mysqli_query($db, $sql2)) {
             echo " Insert into ordertestlines  record created successfully <br>";
         } else {
             echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
         }
     }
-
-
+//
 //}
 
 
