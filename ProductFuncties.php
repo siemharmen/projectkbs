@@ -137,7 +137,7 @@ function ToonProductenInCart($producten)
             print("<a href=\"cart.php?Add=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">+</button></a><br> ");
 
             #mischien function aanmaken die het verwijderd
-            print("<a href=\"cart.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Remove</button></a><br><br> ");
+            print("<a href=\"cart.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-danger btn-sm\">Remove</button></a><br><br> ");
 
 
             print("</div></div>");

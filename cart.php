@@ -13,8 +13,10 @@ session_start();
 <?php include 'navbar.php'; ?>
 
 <h1> Winkelmand</h1>
-<br><br>
 
+
+     <h3 style="float:left; padding-left: 15px;"> producten in mand: </h3>
+     <br><br>
 <?php
 #array_push($_SESSION['cart'],"test");
 #array_push($_SESSION['cart'],"test");
@@ -46,7 +48,7 @@ function RemoveFromArray($term){
     }
 }
 ?>
-<h2 style="float:left;"> producten in mand: </h2>
+
 
 
     <div class="row">
