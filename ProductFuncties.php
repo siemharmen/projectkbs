@@ -130,14 +130,14 @@ function ToonProductenInCart($producten)
             print("<a href=\"BekijkProduct.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">Bekijk</button></a><br><br> ");
       #      print("<input type=\"button\" <a href=\"cart.php?remove=" . $product["StockItemID"] . "\" value=\"-\" /");
            # print("<input type=\"button\" <a href=\"cart.php?remove=" . $product["StockItemID"] . "\" value=\"-\" />");
-            print("<a href=\"cart.php?Remove=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">-</button></a> ");
+            print("<a href=\"cart.php?Remove=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-outline-primary btn-sm\">-</button></a> ");
 
-            print($_SESSION['amount'][$product["StockItemID"]]);
+            print($_SESSION['amount'][$product["StockItemID"]] . "&nbsp");
             #print("<input type=\"button\" <a href=\"cart.php?add=" . $product["StockItemID"] . "\" value=\"+\" /><br>");
-            print("<a href=\"cart.php?Add=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-primary btn-sm\">+</button></a><br> ");
+            print("<a href=\"cart.php?Add=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-outline-primary btn-sm\"'>+</button></a><br> ");
 
             #mischien function aanmaken die het verwijderd
-            print("<a href=\"cart.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-danger btn-sm\">Remove</button></a><br><br> ");
+            print("<a href=\"cart.php?StockItemID=" . $product["StockItemID"] . "\"><button type=\"button\" class=\"btn btn-danger btn-sm\" style='margin-top: 5px;'>Remove</button></a><br><br> ");
 
 
             print("</div></div>");
