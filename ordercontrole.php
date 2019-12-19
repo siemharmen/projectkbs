@@ -117,7 +117,7 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
     if (isset($_SESSION['username'])) {
         $userID = $_SESSION['id'];
     } else {
-
+        $userID = '(SELECT max(id) FROM users)';
         $voornaam = $_POST['voornaam'];
         $achternaam = $_POST['achternaam'];
         $email = $_POST['email'];
@@ -129,21 +129,21 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
         $query = "INSERT INTO users (email, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats)
   			  VALUES('$email', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
         if (mysqli_query($db, $query)) {
-            echo "SQL 1 New record created successfully <br>";
+            echo " insert into users record created successfully <br>";
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($db);
         }
 
     }
 
-    $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , (SELECT max(id) FROM users))";
+    $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , $userID)";
 
     if (!$db) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
     if (mysqli_query($db, $sql)) {
-        echo "SQL 1 New record created successfully <br>";
+        echo "insert into ordertest record created successfully <br>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($db);
     }
@@ -167,18 +167,13 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 //        }
 
         if (isset($beschrijving)) {
-            print($beschrijving);
+
             $Description = $beschrijving;
         }
 
         // insert in de orderlinestest tabel
-        $sql2 = "INSERT INTO orderlinestest
-(OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen)
-VALUES
- ((SELECT max(OrderID) FROM ordertest),
-  $StockItemID, $Quantity, $UnitPrice,
-   $TotalPrice, '$Description',
-  now())";
+        $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) 
+                VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
 
 
         if (!$db) {
@@ -187,7 +182,7 @@ VALUES
 
 
         if (mysqli_query($db, $sql2)) {
-            echo " SQL2 SQL2 New record created successfully";
+            echo " Insert into ordertestlines  record created successfully <br>";
         } else {
             echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
         }
