@@ -111,16 +111,32 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
 
 
-if (isset($_POST['bestelknop'])){
+//if (isset($_POST['bestelknop'])){
 
 
     if (isset($_SESSION['username'])) {
         $userID = $_SESSION['id'];
     } else {
-        $userID = 12;
+
+        $voornaam = $_POST['voornaam'];
+        $achternaam =  $_POST['achternaam'];
+        $email =  $_POST['email'];
+        $straatnaam =  $_POST['straatnaam'];
+        $huisnummer =  $_POST['huisnummer'];
+        $postcode =  $_POST['postcode'];
+        $plaats =  $_POST['plaats'];
+
+        $query = "INSERT INTO users (email, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats) 
+  			  VALUES('$email', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
+        if (mysqli_query($db, $query)) {
+            echo "SQL 1 New record created successfully <br>";
+        } else {
+            echo "Error: " . $query . "<br>" . mysqli_error($db);
+        }
+
     }
 
-    $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , $userID)";
+    $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , (SELECT max(id) FROM users))";
 
     if (!$db) {
         die("Connection failed: " . mysqli_connect_error());
@@ -162,7 +178,7 @@ if (isset($_POST['bestelknop'])){
         }
     }
 
-    }
+//    }
 
 
 
