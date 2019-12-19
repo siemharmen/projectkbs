@@ -69,7 +69,7 @@ if (isset($_POST['reg_user'])) {
         $_SESSION['huisnummer'] = $huisnummer;
 
 
-        $_SESSION['success'] = "You are now logged in";
+        $_SESSION['success'] = session_destroy();
         header('location: index.php');
     }
 }
