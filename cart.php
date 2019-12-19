@@ -60,7 +60,7 @@ function RemoveFromArray($term){
 <br><br><br><br><br><br><br>
 <div class="text-center">
 
-    <?php if(($_SESSION['cart'] == "")){
+    <?php if(!$_SESSION['cart'] ==""){
         echo ' <form action="bestelpagina.php" method=\'POST\'> <input type="submit" name="bestelknop" value="naar gegevens" class="btn btn-primary"></form>';
     } ?>
 
