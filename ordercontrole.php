@@ -111,7 +111,7 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
 
 
-//if (isset($_POST['bestelknop'])){
+//if (isset($_POST['bestelknop'])) {
 
 
     if (isset($_SESSION['username'])) {
@@ -119,14 +119,14 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
     } else {
 
         $voornaam = $_POST['voornaam'];
-        $achternaam =  $_POST['achternaam'];
-        $email =  $_POST['email'];
-        $straatnaam =  $_POST['straatnaam'];
-        $huisnummer =  $_POST['huisnummer'];
-        $postcode =  $_POST['postcode'];
-        $plaats =  $_POST['plaats'];
+        $achternaam = $_POST['achternaam'];
+        $email = $_POST['email'];
+        $straatnaam = $_POST['straatnaam'];
+        $huisnummer = $_POST['huisnummer'];
+        $postcode = $_POST['postcode'];
+        $plaats = $_POST['plaats'];
 
-        $query = "INSERT INTO users (email, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats) 
+        $query = "INSERT INTO users (email, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats)
   			  VALUES('$email', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
         if (mysqli_query($db, $query)) {
             echo "SQL 1 New record created successfully <br>";
@@ -149,21 +149,36 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
     }
 
 
-
-
-
-
-    foreach($_SESSION['cart'] AS $key => $product) {
+    foreach ($_SESSION['cart'] AS $key => $product) {
         $productid = $product['StockItemID'];
         $amount = $_SESSION['amount'][$productid];
+        $beschrijving = $product['MarketingComments'];
 
         $StockItemID = $productid;
         $Quantity = $amount;
         $UnitPrice = $product['unitPrice'];
         $TotalPrice = $Quantity * $UnitPrice;
-        $Description = $product['MarketingComments'];
+
+
+//        if(isset($beschrijving)){
+//            $Description = $beschrijving;
+//        } else {
+//            $Description = 'Leeg';
+//        }
+
+        if (isset($beschrijving)) {
+            print($beschrijving);
+            $Description = $beschrijving;
+        }
+
         // insert in de orderlinestest tabel
-        $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
+        $sql2 = "INSERT INTO orderlinestest
+(OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen)
+VALUES
+ ((SELECT max(OrderID) FROM ordertest),
+  $StockItemID, $Quantity, $UnitPrice,
+   $TotalPrice, '$Description',
+  now())";
 
 
         if (!$db) {
@@ -178,9 +193,8 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
         }
     }
 
-//    }
 
-
+//}
 
 
 
