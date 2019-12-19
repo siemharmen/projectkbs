@@ -20,3 +20,4 @@ session_start();
 
 <h2> Bestelling voltooid! </h2>
 
+<p class="center">Uw Bestelling wordt binnenkort bij u verwacht! </p>

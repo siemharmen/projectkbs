@@ -48,7 +48,7 @@ if (isset($_GET['logout'])) {
 <?php include 'navbar.php'; ?>
 
 
-  <a href="productpagina.php"><button type="button" class="btn btn-primary" style="margin-left: 0.5%; margin-bottom: 0.5%;"> <= terug</button></a>
+  <a href="productpagina.php"><button type="button" class="btn btn-primary" style="margin-left: 0.5%; margin-bottom: 0.5%;"> <i class="fas fa-arrow-left"></i> terug</button></a>
  <div class="card shadow text-center">
 
 

@@ -35,7 +35,7 @@ function ToonAantalPaginas($totaal){
         $totaalpaginas = ceil($nummer['total'] / $aantalproducten);
         for($i = 1; $i <= $totaalpaginas; $i++){
             if(!isset($_GET["term"]) AND !isset($_GET["StockGroupName"])){
-                print("<a href=\"productpagina.php?page=$i\">Page $i | </a>");
+                print("<a href=\"productpagina.php?page=$i\">Pagina $i | </a>");
             }
 
 
