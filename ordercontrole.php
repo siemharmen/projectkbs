@@ -6,8 +6,19 @@ include 'ProductFuncties.php';
 <?php
 session_start();
 # $_SESSION['cart'][] = array();
+if(isset($_POST['voornaam'])){
+    $_SESSION['voornaam'] = $_POST['voornaam'];
+    $_SESSION['achternaam'] =  $_POST['achternaam'];
+    $_SESSION['$email'] =  $_POST['email'];
+    $_SESSION['$straatnaam'] =  $_POST['straatnaam'];
+    $_SESSION['$huisnummer'] =  $_POST['huisnummer'];
+    $_SESSION['$postcode'] =  $_POST['postcode'];
+    $_SESSION['$plaats'] =  $_POST['plaats'];
 
 
+
+
+}
 ?>
 
 <!-- header -->
@@ -22,13 +33,13 @@ session_start();
     <p> Gegevens: </p>
     <?php
     if(isset($_POST['voornaam'])){
-        $voornaam = $_POST['voornaam'];
-        $achternaam =  $_POST['achternaam'];
-        $email =  $_POST['email'];
-        $straatnaam =  $_POST['straatnaam'];
-        $huisnummer =  $_POST['huisnummer'];
-        $postcode =  $_POST['postcode'];
-        $plaats =  $_POST['plaats'];
+        $voornaam =  $_SESSION['voornaam'];
+        $achternaam =  $_SESSION['achternaam'];
+        $email = $_SESSION['$email'];
+        $straatnaam =  $_SESSION['$straatnaam'];
+        $huisnummer = $_SESSION['$huisnummer'];
+        $postcode = $_SESSION['$postcode'];
+        $plaats =  $_SESSION['$plaats'];
     } else {
         $voornaam = "";
         $achternaam = "";
@@ -95,40 +106,25 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
 
 
     if (isset($_POST['bestelknop'])){
-    foreach($_SESSION['cart'] AS $key => $product){
-            $productid = $product['StockItemID'];
-
-            $amount = $_SESSION['amount'][$productid];
-            $stmt = $db->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - ? WHERE StockItemID = ? AND QuantityOnHand > 0");
-            $stmt->bind_param("si",  $amount, $productid);
-            $stmt->execute();
-
-            header('location: bestelvoltooid.php');
-            session_destroy();
-    }
-}
 
 
+        if (isset($_SESSION['username'])) {
+            $userID = $_SESSION['id'];
+        }
+        elseif(!isset($_SESSION['username'])){
+            $userID = '(SELECT max(id) FROM users)';
+            $voornaam = $_SESSION['voornaam'];
+            $achternaam =  $_SESSION['achternaam'];
+            $email = $_SESSION['$email'];
+            $straatnaam =  $_SESSION['$straatnaam'];
+            $huisnummer = $_SESSION['$huisnummer'];
+            $postcode = $_SESSION['$postcode'];
+            $plaats =  $_SESSION['$plaats'];
+        }
 
-
-//if (isset($_POST['bestelknop'])) {
-
-
-    if (isset($_SESSION['username'])) {
-        $userID = $_SESSION['id'];
-    } else {
-        $userID = '(SELECT max(id) FROM users)';
-        $voornaam = $_POST['voornaam'];
-        $achternaam = $_POST['achternaam'];
-        $email = $_POST['email'];
-        $straatnaam = $_POST['straatnaam'];
-        $huisnummer = $_POST['huisnummer'];
-        $postcode = $_POST['postcode'];
-        $plaats = $_POST['plaats'];
 
         $query = "INSERT INTO users (email, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats)
   			  VALUES('$email', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
-
 
         if (mysqli_query($db, $query)) {
             echo " insert into users record created successfully <br>";
@@ -136,50 +132,139 @@ $db = mysqli_connect('localhost', 'root', '', 'wideworldimporters');
             echo "Error: " . $query . "<br>" . mysqli_error($db);
         }
 
-    }
+//    }
 
-    $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , $userID)";
-
-    if (!$db) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    if (mysqli_query($db, $sql)) {
-        echo "insert into ordertest record created successfully <br>";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($db);
-    }
-
-
-    foreach ($_SESSION['cart'] AS $key => $product) {
-        $productid = $product['StockItemID'];
-        $amount = $_SESSION['amount'][$productid];
-        $beschrijving = $product['MarketingComments'];
-        $StockItemID = $productid;
-        $Quantity = $amount;
-        $UnitPrice = $product['unitPrice'];
-        $TotalPrice = $Quantity * $UnitPrice;
-
-        if (isset($beschrijving)) {
-            $Description = $beschrijving;
-        }
-
-        // insert in de orderlinestest tabel, Query runt zo vaak er artikelen instaan
-        $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) 
-                VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
-
+        $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , $userID)";
 
         if (!$db) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        if (mysqli_query($db, $sql2)) {
-            echo " Insert into ordertestlines  record created successfully <br>";
+        if (mysqli_query($db, $sql)) {
+            echo "insert into ordertest record created successfully <br>";
         } else {
-            echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
+            echo "Error: " . $sql . "<br>" . mysqli_error($db);
         }
+
+    foreach($_SESSION['cart'] AS $key => $product){
+            $productid = $product['StockItemID'];
+
+            $amount = $_SESSION['amount'][$productid];
+            $stmt = $db->prepare("UPDATE stockitemholdings SET QuantityOnHand = QuantityOnHand - ? WHERE StockItemID = ? AND QuantityOnHand > 0");
+            $stmt->bind_param("si",  $amount, $productid);
+            $stmt->execute();
     }
+
+
+    foreach ($_SESSION['cart'] AS $key => $product) {
+            $productid = $product['StockItemID'];
+            $amount = $_SESSION['amount'][$productid];
+            $beschrijving = $product['MarketingComments'];
+            $StockItemID = $productid;
+            $Quantity = $amount;
+            $UnitPrice = $product['unitPrice'];
+            $TotalPrice = $Quantity * $UnitPrice;
+
+            if (isset($beschrijving)) {
+                $Description = $beschrijving;
+            }
+
+            // insert in de orderlinestest tabel, Query runt zo vaak er artikelen instaan
+            $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen) 
+                VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
+
+
+            if (!$db) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            if (mysqli_query($db, $sql2)) {
+                echo " Insert into ordertestlines  record created successfully <br>";
+            } else {
+                echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
+            }
+        }
+
+
+
+
+
+        header('location: bestelvoltooid.php');
+        session_destroy();
+}
+
+
+
 //
+//if (isset($_POST['bestelknop'])) {
+
+//
+//    if (isset($_SESSION['username'])) {
+//        $userID = $_SESSION['id'];
+//    }
+//    else {
+//        $userID = '(SELECT max(id) FROM users)'; }
+////        $voornaam = $_POST['voornaam'];
+////        $achternaam = $_POST['achternaam'];
+////        $email = $_POST['email'];
+////        $straatnaam = $_POST['straatnaam'];
+////        $huisnummer = $_POST['huisnummer'];
+////        $postcode = $_POST['postcode'];
+////        $plaats = $_POST['plaats'];
+//
+//        $query = "INSERT INTO users (email, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats)
+//  			  VALUES('$email', '$voornaam', '$achternaam', '$postcode', '$huisnummer', '$straatnaam', '$plaats')";
+//
+//        if (mysqli_query($db, $query)) {
+//            echo " insert into users record created successfully <br>";
+//        } else {
+//            echo "Error: " . $query . "<br>" . mysqli_error($db);
+//        }
+//
+////    }
+//
+//    $sql = "INSERT INTO ordertest (OrderDate, ExpectedDeliveryDate, user_id) VALUES (NOW(),NOW() + INTERVAL 2 DAY , $userID)";
+//
+//    if (!$db) {
+//        die("Connection failed: " . mysqli_connect_error());
+//    }
+//
+//    if (mysqli_query($db, $sql)) {
+//        echo "insert into ordertest record created successfully <br>";
+//    } else {
+//        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+//    }
+
+//
+//    foreach ($_SESSION['cart'] AS $key => $product) {
+//        $productid = $product['StockItemID'];
+//        $amount = $_SESSION['amount'][$productid];
+//        $beschrijving = $product['MarketingComments'];
+//        $StockItemID = $productid;
+//        $Quantity = $amount;
+//        $UnitPrice = $product['unitPrice'];
+//        $TotalPrice = $Quantity * $UnitPrice;
+//
+//        if (isset($beschrijving)) {
+//            $Description = $beschrijving;
+//        }
+//
+//        // insert in de orderlinestest tabel, Query runt zo vaak er artikelen instaan
+//        $sql2 = "INSERT INTO orderlinestest (OrderID, StockItemID, Quantity, UnitPrice, TotalPrice, Description, LastEditedWhen)
+//                VALUES ((SELECT max(OrderID) FROM ordertest), $StockItemID, $Quantity, $UnitPrice, $TotalPrice, '$Description', now())";
+//
+//
+//        if (!$db) {
+//            die("Connection failed: " . mysqli_connect_error());
+//        }
+//
+//        if (mysqli_query($db, $sql2)) {
+//            echo " Insert into ordertestlines  record created successfully <br>";
+//        } else {
+//            echo "Error: " . $sql2 . "<br>" . mysqli_error($db);
+//        }
+//    }
+
 //}
 
 
