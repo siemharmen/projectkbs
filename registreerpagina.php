@@ -53,7 +53,7 @@ include 'ProductFuncties.php';
         </div>
     </div>
     <div class="input-group">
-        <button class="formulier" type="submit" class="btn" name="reg_user" >Register</button>
+        <button class="btn btn-primary" type="submit" class="btn" name="reg_user" >Register</button>
     </div>
     <p>
         Heb je al een account? <a href="loginpagina.php">Log hier in</a>
