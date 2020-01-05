@@ -1,0 +1,201 @@
+html,body{
+    padding-top: 70px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /*background: url(snow.gif) no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.mySlides {display:none;}
+
+h1 {
+    padding-top: 10px;
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    padding-top: 20px;
+    text-align: center;
+    color: black;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+
+.center{
+    color: black;
+    text-align: center;
+
+}
+
+.frontpageimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+nav{
+    background-color: #040075;
+    color: #eee;
+    font-size: 21px;
+    font-weight: bolder;
+    padding-right: 15px;
+    text-align: left;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+
+}
+
+.navbarlink{
+    color: #eee;
+}
+.navbarlink:hover{
+    color: #040075;
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+nav li {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 12px;
+    cursor:pointer;
+    border-radius: 25px;
+
+}
+
+nav li:hover{
+    background-color: white;
+    color:#040075;
+    text-decoration: none;
+
+}
+
+.dropdown{
+    position:relative;
+    z-index: 9999;
+    border-radius: 0px;
+
+
+}
+.dropdown a{
+    color:white;
+
+}
+
+
+.dropdown-content{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: right;
+    display:none;
+
+}
+
+.dropdown-content li{
+
+    background-color: #040075;
+    color: white;
+    width: 100%;
+    z-index: 100;
+    border-radius: 0px;
+
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    text-decoration: none;
+    color: white;
+
+}
+
+
+
+.zoekbalk{
+    margin: 5px;
+    display: inline-block;
+    position: relative;
+
+
+}
+.navfoto {
+    margin-bottom: 3px;
+    height: 50px;
+    border-radius: 25px;
+
+}
+
+.navinlog {
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin-top: 0.8%;
+}
+.mand{
+    position: relative;
+    float: right;
+    display: inline-block;
+}
+
+.mand:hover{
+    position: relative;
+    float: right;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.aantalfilter {
+    margin-left: 15px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+
+}
+
+
+.groen {
+    color : green;
+}
+
+.orderlijst {
+    border: 2px solid #040075;
+    position: relative;
+    display: inline-block;
+    float: left;
+
+}
+
+.bestelknop{
+    margin-top: 15%;
+    text-align:center;
+}
+
+.formulier{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #e6e7ff;
+    color: #040075;
+}
+
+a {
+    color: white;
+}
