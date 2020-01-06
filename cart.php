@@ -17,13 +17,7 @@ session_start();
 
      <h3 style="float:left; padding-left: 15px;"> producten in mand: </h3>
      <br><br>
-<?php
-#array_push($_SESSION['cart'],"test");
-#array_push($_SESSION['cart'],"test");
-#array_push($_SESSION['cart'],"test");
-#array_push($_SESSION['cart'],"test")
-# onthouden push en array maken op andere plaatsen mischein if als session cart niet bestaat via issit
-?>
+
 <?php
 if(isset($_GET['StockItemID'])){
     RemoveFromArray($_GET['StockItemID']);
